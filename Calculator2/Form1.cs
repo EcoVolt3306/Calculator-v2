@@ -14,6 +14,12 @@ namespace Calculator2
         public Frame()
         {
             InitializeComponent();
+
+            // 스탠다드 초기화
+            ResultStandard resStn = new ResultStandard();
+            KeypadStandard keyStn = new KeypadStandard();
+            this.AreaResult.Controls.Add(resStn);
+            this.AreaKeypad.Controls.Add(keyStn);
         }
 
         private void MenuStn_Click(object sender, EventArgs e)  // 메뉴 : 스탠다드
@@ -40,6 +46,7 @@ namespace Calculator2
             if (this.AreaKeypad.Controls.Count > 0) this.AreaKeypad.Controls.Clear();   // 패널 초기화
             KeypadProgrammer keyPgm = new KeypadProgrammer();
             this.AreaKeypad.Controls.Add(keyPgm);
+
         }
     }
 }

@@ -14,6 +14,9 @@ namespace Calculator2
         public KeypadProgrammer()
         {
             InitializeComponent();
+            // 프로그래머 : 기본 키패드 초기화
+            KeyStandard keyStn = new KeyStandard();
+            this.AreaPgmKey.Controls.Add(keyStn);
         }
 
         private void KeyStn_Click(object sender, EventArgs e)   // 기본 키패드
