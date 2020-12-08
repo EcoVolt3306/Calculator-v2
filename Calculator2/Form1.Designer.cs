@@ -33,6 +33,10 @@ namespace Calculator2
             this.AreaResult = new System.Windows.Forms.Panel();
             this.MenuPgm = new System.Windows.Forms.Button();
             this.MenuStn = new System.Windows.Forms.Button();
+            this.History = new System.Windows.Forms.TabControl();
+            this.HistoryNow = new System.Windows.Forms.TabPage();
+            this.HistoryMemory = new System.Windows.Forms.TabPage();
+            this.History.SuspendLayout();
             this.SuspendLayout();
             // 
             // AreaKeypad
@@ -71,18 +75,53 @@ namespace Calculator2
             this.MenuStn.UseVisualStyleBackColor = true;
             this.MenuStn.Click += new System.EventHandler(this.MenuStn_Click);
             // 
+            // History
+            // 
+            this.History.Controls.Add(this.HistoryNow);
+            this.History.Controls.Add(this.HistoryMemory);
+            this.History.Location = new System.Drawing.Point(350, 26);
+            this.History.Name = "History";
+            this.History.SelectedIndex = 0;
+            this.History.Size = new System.Drawing.Size(255, 387);
+            this.History.TabIndex = 9;
+            // 
+            // HistoryNow
+            // 
+            this.HistoryNow.Font = new System.Drawing.Font("맑은 고딕", 10F);
+            this.HistoryNow.Location = new System.Drawing.Point(4, 22);
+            this.HistoryNow.Name = "HistoryNow";
+            this.HistoryNow.Padding = new System.Windows.Forms.Padding(3);
+            this.HistoryNow.Size = new System.Drawing.Size(247, 361);
+            this.HistoryNow.TabIndex = 0;
+            this.HistoryNow.Text = "현재 내역";
+            this.HistoryNow.UseVisualStyleBackColor = true;
+            // 
+            // HistoryMemory
+            // 
+            this.HistoryMemory.Font = new System.Drawing.Font("맑은 고딕", 10F);
+            this.HistoryMemory.Location = new System.Drawing.Point(4, 22);
+            this.HistoryMemory.Name = "HistoryMemory";
+            this.HistoryMemory.Padding = new System.Windows.Forms.Padding(3);
+            this.HistoryMemory.Size = new System.Drawing.Size(247, 361);
+            this.HistoryMemory.TabIndex = 1;
+            this.HistoryMemory.Text = "저장된 내역";
+            this.HistoryMemory.UseVisualStyleBackColor = true;
+            // 
             // Frame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(617, 425);
+            this.Controls.Add(this.History);
             this.Controls.Add(this.AreaKeypad);
             this.Controls.Add(this.AreaResult);
             this.Controls.Add(this.MenuPgm);
             this.Controls.Add(this.MenuStn);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Frame";
             this.Text = "Calculator V2.0";
+            this.History.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -93,6 +132,9 @@ namespace Calculator2
         private System.Windows.Forms.Panel AreaResult;
         private System.Windows.Forms.Button MenuPgm;
         private System.Windows.Forms.Button MenuStn;
+        private System.Windows.Forms.TabControl History;
+        private System.Windows.Forms.TabPage HistoryNow;
+        private System.Windows.Forms.TabPage HistoryMemory;
     }
 }
 
