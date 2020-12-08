@@ -100,7 +100,7 @@ namespace Calculator2
             this.KeyAddSub.Name = "KeyAddSub";
             this.KeyAddSub.Size = new System.Drawing.Size(73, 44);
             this.KeyAddSub.TabIndex = 56;
-            this.KeyAddSub.Text = "+/-";
+            this.KeyAddSub.Text = "±";
             this.KeyAddSub.UseVisualStyleBackColor = false;
             // 
             // StnKeyAdd
