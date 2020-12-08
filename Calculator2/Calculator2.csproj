@@ -50,6 +50,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="KeyBit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KeyBit.Designer.cs">
+      <DependentUpon>KeyBit.cs</DependentUpon>
+    </Compile>
     <Compile Include="KeypadProgrammer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -61,6 +67,12 @@
     </Compile>
     <Compile Include="KeypadStandard.Designer.cs">
       <DependentUpon>KeypadStandard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KeyStandard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KeyStandard.Designer.cs">
+      <DependentUpon>KeyStandard.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,11 +91,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KeyBit.resx">
+      <DependentUpon>KeyBit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KeypadProgrammer.resx">
       <DependentUpon>KeypadProgrammer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KeypadStandard.resx">
       <DependentUpon>KeypadStandard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KeyStandard.resx">
+      <DependentUpon>KeyStandard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

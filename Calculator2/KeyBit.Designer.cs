@@ -1,7 +1,7 @@
 ﻿
 namespace Calculator2
 {
-    partial class KeypadProgrammer
+    partial class KeyBit
     {
         /// <summary> 
         /// 필수 디자이너 변수입니다.
@@ -29,57 +29,60 @@ namespace Calculator2
         /// </summary>
         private void InitializeComponent()
         {
-            this.KeyBit = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.KeyStn = new System.Windows.Forms.Button();
-            this.AreaPgmKey = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // KeyBit
+            // label1
             // 
-            this.KeyBit.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.KeyBit.Location = new System.Drawing.Point(246, 3);
-            this.KeyBit.Name = "KeyBit";
-            this.KeyBit.Size = new System.Drawing.Size(83, 23);
-            this.KeyBit.TabIndex = 7;
-            this.KeyBit.Text = "비트 키패드";
-            this.KeyBit.UseVisualStyleBackColor = true;
-            this.KeyBit.Click += new System.EventHandler(this.KeyBit_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(98, 123);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(137, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "비트 키패드 영역입니다.";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.button1.Location = new System.Drawing.Point(240, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(83, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "비트 키패드";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             // 
             // KeyStn
             // 
             this.KeyStn.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.KeyStn.Location = new System.Drawing.Point(157, 3);
+            this.KeyStn.Location = new System.Drawing.Point(151, 3);
             this.KeyStn.Name = "KeyStn";
             this.KeyStn.Size = new System.Drawing.Size(83, 23);
-            this.KeyStn.TabIndex = 6;
+            this.KeyStn.TabIndex = 10;
             this.KeyStn.Text = "기본 키패드";
             this.KeyStn.UseVisualStyleBackColor = true;
-            this.KeyStn.Click += new System.EventHandler(this.KeyStn_Click);
+            this.KeyStn.Visible = false;
             // 
-            // AreaPgmKey
-            // 
-            this.AreaPgmKey.Location = new System.Drawing.Point(3, 3);
-            this.AreaPgmKey.Name = "AreaPgmKey";
-            this.AreaPgmKey.Size = new System.Drawing.Size(326, 260);
-            this.AreaPgmKey.TabIndex = 8;
-            // 
-            // KeypadProgrammer
+            // KeyBit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.KeyBit);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.KeyStn);
-            this.Controls.Add(this.AreaPgmKey);
-            this.Name = "KeypadProgrammer";
-            this.Size = new System.Drawing.Size(332, 266);
+            this.Controls.Add(this.label1);
+            this.Name = "KeyBit";
+            this.Size = new System.Drawing.Size(326, 260);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button KeyBit;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button KeyStn;
-        private System.Windows.Forms.Panel AreaPgmKey;
     }
 }

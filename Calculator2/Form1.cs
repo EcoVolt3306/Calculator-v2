@@ -38,6 +38,8 @@ namespace Calculator2
 
             // 키패드 영역
             if (this.AreaKeypad.Controls.Count > 0) this.AreaKeypad.Controls.Clear();   // 패널 초기화
+            KeypadProgrammer keyPgm = new KeypadProgrammer();
+            this.AreaKeypad.Controls.Add(keyPgm);
         }
     }
 }
