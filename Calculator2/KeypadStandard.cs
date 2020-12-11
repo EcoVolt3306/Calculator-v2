@@ -36,11 +36,6 @@ namespace Calculator2
         private void StnKey1_Click(object sender, EventArgs e)
         {
             num += "1";
-            ResultStandard aa = new ResultStandard();
-            aa.addd(num);
-
-            
-
         }
 
         private void StnKey2_Click(object sender, EventArgs e)
