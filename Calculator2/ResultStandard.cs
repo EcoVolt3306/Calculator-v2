@@ -11,7 +11,7 @@ namespace Calculator2
 {
     public partial class ResultStandard : UserControl
     {
-        KeypadProgrammer qw = new KeypadProgrammer();
+        KeypadStandard qw = new KeypadStandard();
 
         public ResultStandard()
         {
@@ -20,26 +20,12 @@ namespace Calculator2
 
         private void outExp_Click(object sender, EventArgs e)
         {
-
+            
         }
-        string num = null;
-        
-        public string addd(string num)
-        {
-            outResult.Text = num;
-            Console.WriteLine(outResult.Text);
 
-
-            qw.qwe();
-
-            return outResult.Text;
-
-        }
 
         private void outResult_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(outResult.Text);
-            //outResult.Text = num;
 
         }
     }

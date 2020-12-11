@@ -34,11 +34,5 @@ namespace Calculator2
             this.AreaPgmKey.Controls.Add(keyBit);
         }
 
-        public void qwe()
-        {
-            if (this.AreaPgmKey.Controls.Count > 0) this.AreaPgmKey.Controls.Clear();   // 패널 초기화
-            KeyStandard keyStn = new KeyStandard();
-            this.AreaPgmKey.Controls.Add(keyStn);
-        }
     }
 }
