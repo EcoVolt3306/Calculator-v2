@@ -32,7 +32,7 @@ namespace Calculator2
             this.StnKeyRes = new System.Windows.Forms.Button();
             this.StnKeyDot = new System.Windows.Forms.Button();
             this.StnKey0 = new System.Windows.Forms.Button();
-            this.KeyAddSub = new System.Windows.Forms.Button();
+            this.StnKeyAddSub = new System.Windows.Forms.Button();
             this.StnKeyAdd = new System.Windows.Forms.Button();
             this.StnKey3 = new System.Windows.Forms.Button();
             this.StnKey2 = new System.Windows.Forms.Button();
@@ -63,6 +63,7 @@ namespace Calculator2
             this.StnKeyRes.TabIndex = 59;
             this.StnKeyRes.Text = "=";
             this.StnKeyRes.UseVisualStyleBackColor = false;
+            this.StnKeyRes.Click += new System.EventHandler(this.StnKeyRes_Click);
             // 
             // StnKeyDot
             // 
@@ -76,6 +77,7 @@ namespace Calculator2
             this.StnKeyDot.TabIndex = 58;
             this.StnKeyDot.Text = ".";
             this.StnKeyDot.UseVisualStyleBackColor = false;
+            this.StnKeyDot.Click += new System.EventHandler(this.StnKeyDot_Click);
             // 
             // StnKey0
             // 
@@ -89,19 +91,21 @@ namespace Calculator2
             this.StnKey0.TabIndex = 57;
             this.StnKey0.Text = "0";
             this.StnKey0.UseVisualStyleBackColor = false;
+            this.StnKey0.Click += new System.EventHandler(this.StnKey0_Click);
             // 
-            // KeyAddSub
+            // StnKeyAddSub
             // 
-            this.KeyAddSub.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.KeyAddSub.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.KeyAddSub.Font = new System.Drawing.Font("넥슨Lv2고딕", 20F);
-            this.KeyAddSub.ForeColor = System.Drawing.SystemColors.Window;
-            this.KeyAddSub.Location = new System.Drawing.Point(11, 211);
-            this.KeyAddSub.Name = "KeyAddSub";
-            this.KeyAddSub.Size = new System.Drawing.Size(73, 44);
-            this.KeyAddSub.TabIndex = 56;
-            this.KeyAddSub.Text = "±";
-            this.KeyAddSub.UseVisualStyleBackColor = false;
+            this.StnKeyAddSub.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.StnKeyAddSub.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StnKeyAddSub.Font = new System.Drawing.Font("넥슨Lv2고딕", 20F);
+            this.StnKeyAddSub.ForeColor = System.Drawing.SystemColors.Window;
+            this.StnKeyAddSub.Location = new System.Drawing.Point(11, 211);
+            this.StnKeyAddSub.Name = "StnKeyAddSub";
+            this.StnKeyAddSub.Size = new System.Drawing.Size(73, 44);
+            this.StnKeyAddSub.TabIndex = 56;
+            this.StnKeyAddSub.Text = "±";
+            this.StnKeyAddSub.UseVisualStyleBackColor = false;
+            this.StnKeyAddSub.Click += new System.EventHandler(this.StnKeyAddSub_Click);
             // 
             // StnKeyAdd
             // 
@@ -115,6 +119,7 @@ namespace Calculator2
             this.StnKeyAdd.TabIndex = 55;
             this.StnKeyAdd.Text = "+";
             this.StnKeyAdd.UseVisualStyleBackColor = false;
+            this.StnKeyAdd.Click += new System.EventHandler(this.StnKeyAdd_Click);
             // 
             // StnKey3
             // 
@@ -128,6 +133,7 @@ namespace Calculator2
             this.StnKey3.TabIndex = 54;
             this.StnKey3.Text = "3";
             this.StnKey3.UseVisualStyleBackColor = false;
+            this.StnKey3.Click += new System.EventHandler(this.StnKey3_Click);
             // 
             // StnKey2
             // 
@@ -141,6 +147,7 @@ namespace Calculator2
             this.StnKey2.TabIndex = 53;
             this.StnKey2.Text = "2";
             this.StnKey2.UseVisualStyleBackColor = false;
+            this.StnKey2.Click += new System.EventHandler(this.StnKey2_Click);
             // 
             // StnKey1
             // 
@@ -154,6 +161,7 @@ namespace Calculator2
             this.StnKey1.TabIndex = 52;
             this.StnKey1.Text = "1";
             this.StnKey1.UseVisualStyleBackColor = false;
+            this.StnKey1.Click += new System.EventHandler(this.StnKey1_Click);
             // 
             // StnKeySub
             // 
@@ -167,6 +175,7 @@ namespace Calculator2
             this.StnKeySub.TabIndex = 51;
             this.StnKeySub.Text = "-";
             this.StnKeySub.UseVisualStyleBackColor = false;
+            this.StnKeySub.Click += new System.EventHandler(this.StnKeySub_Click);
             // 
             // StnKey6
             // 
@@ -180,6 +189,7 @@ namespace Calculator2
             this.StnKey6.TabIndex = 50;
             this.StnKey6.Text = "6";
             this.StnKey6.UseVisualStyleBackColor = false;
+            this.StnKey6.Click += new System.EventHandler(this.StnKey6_Click);
             // 
             // StnKey5
             // 
@@ -193,6 +203,7 @@ namespace Calculator2
             this.StnKey5.TabIndex = 49;
             this.StnKey5.Text = "5";
             this.StnKey5.UseVisualStyleBackColor = false;
+            this.StnKey5.Click += new System.EventHandler(this.StnKey5_Click);
             // 
             // StnKey4
             // 
@@ -206,6 +217,7 @@ namespace Calculator2
             this.StnKey4.TabIndex = 48;
             this.StnKey4.Text = "4";
             this.StnKey4.UseVisualStyleBackColor = false;
+            this.StnKey4.Click += new System.EventHandler(this.StnKey4_Click);
             // 
             // StnKeyMul
             // 
@@ -219,6 +231,7 @@ namespace Calculator2
             this.StnKeyMul.TabIndex = 47;
             this.StnKeyMul.Text = "×";
             this.StnKeyMul.UseVisualStyleBackColor = false;
+            this.StnKeyMul.Click += new System.EventHandler(this.StnKeyMul_Click);
             // 
             // StnKey9
             // 
@@ -232,6 +245,7 @@ namespace Calculator2
             this.StnKey9.TabIndex = 46;
             this.StnKey9.Text = "9";
             this.StnKey9.UseVisualStyleBackColor = false;
+            this.StnKey9.Click += new System.EventHandler(this.StnKey9_Click);
             // 
             // StnKey8
             // 
@@ -245,6 +259,7 @@ namespace Calculator2
             this.StnKey8.TabIndex = 45;
             this.StnKey8.Text = "8";
             this.StnKey8.UseVisualStyleBackColor = false;
+            this.StnKey8.Click += new System.EventHandler(this.StnKey8_Click);
             // 
             // StnKey7
             // 
@@ -258,6 +273,7 @@ namespace Calculator2
             this.StnKey7.TabIndex = 44;
             this.StnKey7.Text = "7";
             this.StnKey7.UseVisualStyleBackColor = false;
+            this.StnKey7.Click += new System.EventHandler(this.StnKey7_Click);
             // 
             // StnKeyDiv
             // 
@@ -271,6 +287,7 @@ namespace Calculator2
             this.StnKeyDiv.TabIndex = 43;
             this.StnKeyDiv.Text = "÷";
             this.StnKeyDiv.UseVisualStyleBackColor = false;
+            this.StnKeyDiv.Click += new System.EventHandler(this.StnKeyDiv_Click);
             // 
             // StnKeyDelete
             // 
@@ -284,6 +301,7 @@ namespace Calculator2
             this.StnKeyDelete.TabIndex = 42;
             this.StnKeyDelete.Text = "←";
             this.StnKeyDelete.UseVisualStyleBackColor = false;
+            this.StnKeyDelete.Click += new System.EventHandler(this.StnKeyDelete_Click);
             // 
             // StnKeyC
             // 
@@ -297,6 +315,7 @@ namespace Calculator2
             this.StnKeyC.TabIndex = 41;
             this.StnKeyC.Text = "C";
             this.StnKeyC.UseVisualStyleBackColor = false;
+            this.StnKeyC.Click += new System.EventHandler(this.StnKeyC_Click);
             // 
             // StnKeyCE
             // 
@@ -310,6 +329,7 @@ namespace Calculator2
             this.StnKeyCE.TabIndex = 40;
             this.StnKeyCE.Text = "CE";
             this.StnKeyCE.UseVisualStyleBackColor = false;
+            this.StnKeyCE.Click += new System.EventHandler(this.StnKeyCE_Click);
             // 
             // KeypadStandard
             // 
@@ -318,7 +338,7 @@ namespace Calculator2
             this.Controls.Add(this.StnKeyRes);
             this.Controls.Add(this.StnKeyDot);
             this.Controls.Add(this.StnKey0);
-            this.Controls.Add(this.KeyAddSub);
+            this.Controls.Add(this.StnKeyAddSub);
             this.Controls.Add(this.StnKeyAdd);
             this.Controls.Add(this.StnKey3);
             this.Controls.Add(this.StnKey2);
@@ -346,7 +366,7 @@ namespace Calculator2
         private System.Windows.Forms.Button StnKeyRes;
         private System.Windows.Forms.Button StnKeyDot;
         private System.Windows.Forms.Button StnKey0;
-        private System.Windows.Forms.Button KeyAddSub;
+        private System.Windows.Forms.Button StnKeyAddSub;
         private System.Windows.Forms.Button StnKeyAdd;
         private System.Windows.Forms.Button StnKey3;
         private System.Windows.Forms.Button StnKey2;

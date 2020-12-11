@@ -15,5 +15,7 @@ namespace Calculator2
         {
             InitializeComponent();
         }
+
+
     }
 }

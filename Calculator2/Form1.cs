@@ -15,7 +15,7 @@ namespace Calculator2
         {
             InitializeComponent();
 
-            // 스탠다드 초기화
+            // 최초 스탠다드 초기화
             ResultStandard resStn = new ResultStandard();
             KeypadStandard keyStn = new KeypadStandard();
             this.AreaResult.Controls.Add(resStn);
@@ -46,6 +46,16 @@ namespace Calculator2
             if (this.AreaKeypad.Controls.Count > 0) this.AreaKeypad.Controls.Clear();   // 패널 초기화
             KeypadProgrammer keyPgm = new KeypadProgrammer();
             this.AreaKeypad.Controls.Add(keyPgm);
+
+        }
+
+        private void AreaResult_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Frame_Load(object sender, EventArgs e)
+        {
 
         }
     }

@@ -11,6 +11,7 @@ namespace Calculator2
 {
     public partial class KeypadProgrammer : UserControl
     {
+        
         public KeypadProgrammer()
         {
             InitializeComponent();
@@ -19,18 +20,25 @@ namespace Calculator2
             this.AreaPgmKey.Controls.Add(keyStn);
         }
 
-        private void KeyStn_Click(object sender, EventArgs e)   // 기본 키패드
+        private void KeyStn_Click(object sender, EventArgs e)   // 프로그래머 : 기본 키패드
         {
             if (this.AreaPgmKey.Controls.Count > 0) this.AreaPgmKey.Controls.Clear();   // 패널 초기화
             KeyStandard keyStn = new KeyStandard();
             this.AreaPgmKey.Controls.Add(keyStn);
         }
 
-        private void KeyBit_Click(object sender, EventArgs e)   // 비트 키패드
+        private void KeyBit_Click(object sender, EventArgs e)   // 프로그래머 : 비트 키패드
         {
             if (this.AreaPgmKey.Controls.Count > 0) this.AreaPgmKey.Controls.Clear();   // 패널 초기화
             KeyBit keyBit = new KeyBit();
             this.AreaPgmKey.Controls.Add(keyBit);
+        }
+
+        public void qwe()
+        {
+            if (this.AreaPgmKey.Controls.Count > 0) this.AreaPgmKey.Controls.Clear();   // 패널 초기화
+            KeyStandard keyStn = new KeyStandard();
+            this.AreaPgmKey.Controls.Add(keyStn);
         }
     }
 }

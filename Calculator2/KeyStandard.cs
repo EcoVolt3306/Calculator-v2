@@ -16,5 +16,9 @@ namespace Calculator2
             InitializeComponent();
         }
 
+        private void PgmKey1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

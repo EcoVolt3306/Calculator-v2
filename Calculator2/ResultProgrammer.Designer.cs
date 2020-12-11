@@ -65,7 +65,6 @@ namespace Calculator2
             this.ViewOCT.Name = "ViewOCT";
             this.ViewOCT.Size = new System.Drawing.Size(47, 17);
             this.ViewOCT.TabIndex = 19;
-            this.ViewOCT.TabStop = true;
             this.ViewOCT.Text = "OCT";
             this.ViewOCT.UseVisualStyleBackColor = true;
             // 
@@ -77,13 +76,13 @@ namespace Calculator2
             this.ViewBIN.Name = "ViewBIN";
             this.ViewBIN.Size = new System.Drawing.Size(42, 17);
             this.ViewBIN.TabIndex = 18;
-            this.ViewBIN.TabStop = true;
             this.ViewBIN.Text = "BIN";
             this.ViewBIN.UseVisualStyleBackColor = true;
             // 
             // ViewDEC
             // 
             this.ViewDEC.AutoSize = true;
+            this.ViewDEC.Checked = true;
             this.ViewDEC.Font = new System.Drawing.Font("맑은 고딕", 8F);
             this.ViewDEC.Location = new System.Drawing.Point(2, 27);
             this.ViewDEC.Name = "ViewDEC";
@@ -101,7 +100,6 @@ namespace Calculator2
             this.ViewHEX.Name = "ViewHEX";
             this.ViewHEX.Size = new System.Drawing.Size(46, 17);
             this.ViewHEX.TabIndex = 16;
-            this.ViewHEX.TabStop = true;
             this.ViewHEX.Text = "HEX";
             this.ViewHEX.UseVisualStyleBackColor = true;
             // 
