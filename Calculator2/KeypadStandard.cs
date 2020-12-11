@@ -11,22 +11,12 @@ namespace Calculator2
 {
     public partial class KeypadStandard : UserControl
     {
-        string num, exp, result = null;     // 입력, 수식, 결과
+        public static string num, exp, result = null;     // 입력, 수식, 결과
+        public static int countOperand = 0;   // 피연산자 카운트
+        public static double[] operand = new double[20];     // 피연산자
 
-        public string gs
-        {
-            get
-            {
-                return num;
-            } set
-            {
-                num = value;
-            }
-        }
 
-        int countOperand = 0;   // 피연산자 카운트
 
-        double[] operand = new double[20];     // 피연산자
 
         public KeypadStandard()
         {
@@ -112,7 +102,7 @@ namespace Calculator2
             operand[countOperand] = double.Parse(num);
             
             //Console.WriteLine("op1:" + operand[0] + "\top2:" + operand[1] + "\top3:" + operand[2]);
-            //StnCalculation.Add(num);
+            StnCalculation.Add(num);
 
             countOperand++;
             num = null;

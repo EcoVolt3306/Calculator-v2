@@ -18,9 +18,11 @@ namespace Calculator2
             InitializeComponent();
         }
 
+
         private void outExp_Click(object sender, EventArgs e)
         {
-            
+            KeypadStandard.num = "qweqwe";
+            outExp.Text = KeypadStandard.num;
         }
 
 
@@ -28,5 +30,7 @@ namespace Calculator2
         {
 
         }
+
+        
     }
 }

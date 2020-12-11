@@ -54,7 +54,6 @@ namespace Calculator2
             this.AreaResult.Name = "AreaResult";
             this.AreaResult.Size = new System.Drawing.Size(332, 94);
             this.AreaResult.TabIndex = 7;
-            this.AreaResult.Paint += new System.Windows.Forms.PaintEventHandler(this.AreaResult_Paint);
             // 
             // MenuPgm
             // 
@@ -134,7 +133,6 @@ namespace Calculator2
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Frame";
             this.Text = "Calculator V2.0";
-            this.Load += new System.EventHandler(this.Frame_Load);
             this.History.ResumeLayout(false);
             this.HistoryNow.ResumeLayout(false);
             this.HistoryNow.PerformLayout();
