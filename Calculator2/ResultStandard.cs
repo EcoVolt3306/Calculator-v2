@@ -97,6 +97,7 @@ namespace Calculator2
             outResult.Text = KeypadStandard.operand.ToString();
             KeypadStandard.data = KeypadStandard.operand.ToString();
 
+
         }
 
         public void ExceNullOperand()
@@ -133,12 +134,28 @@ namespace Calculator2
             KeypadStandard.calTypeB = 0;
             KeypadStandard.operand = 0;
             KeypadStandard.answer = 0;
-            KeypadStandard.cal = false;
         }
         public void AddSub(string data)
         {   // 양수, 음수 전환
             KeypadStandard.data = (-(double.Parse(data))).ToString();
             outResult.Text = KeypadStandard.data;
+        }
+
+        // History 
+
+        public void SaveHistoryFirst()
+        {
+            HIS.dicExp[0].Text = outExp.Text;
+            HIS.dicRes[0].Text = outResult.Text;
+        }
+        public void SaveHistoryLoop()
+        {
+            if (KeypadStandard.cntUse > HIS.maxHis) KeypadStandard.cntUse = HIS.maxHis;
+            for(int i=KeypadStandard.cntUse; i>0; i--)
+            {
+                HIS.dicExp[i].Text = HIS.dicExp[i-1].Text;
+                HIS.dicRes[i].Text = HIS.dicRes[i-1].Text;
+            }
         }
     }
 }

@@ -12,9 +12,8 @@ namespace Calculator2
     public partial class KeypadStandard : UserControl
     {
         public static string data = null;     // 입력 값
-        public static int calTypeA, calTypeB, answer = 0;   // 연산기호 종류
+        public static int calTypeA, calTypeB, answer, cntUse = 0;   // 연산기호 종류
         public static double operand = 0;     // 피연산자
-        public static bool cal = false;
         
 
 
@@ -27,7 +26,6 @@ namespace Calculator2
         {
             data += "1";
             STN.resStn.PressNum(data);
-            
         }
 
         private void StnKey2_Click(object sender, EventArgs e)
@@ -131,6 +129,7 @@ namespace Calculator2
 
             answer += 1;
             data = null;
+            
         }
 
         private void StnKeyMul_Click(object sender, EventArgs e)
@@ -156,6 +155,16 @@ namespace Calculator2
             if (data == null && calTypeA != 0) STN.resStn.ExceNullOperand();    // 피연산자 오류 방지
             STN.resStn.PressResult(data, calTypeA); // 계산
             STN.resStn.ClearData();
+
+            // History
+            if (KeypadStandard.cntUse == 0) STN.resStn.SaveHistoryFirst();
+            else if (KeypadStandard.cntUse > 0)
+            {
+                STN.resStn.SaveHistoryLoop();
+                STN.resStn.SaveHistoryFirst();
+            } 
+
+            cntUse++;
         }
 
     }
