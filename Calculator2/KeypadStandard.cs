@@ -100,7 +100,13 @@ namespace Calculator2
 
         private void StnKeyC_Click(object sender, EventArgs e)
         {
+            num = null;
+            caseOperator = 0;
+            operand = 0;
+            final = 0;
 
+            STN.resStn.PressC();    // 결과창 초기화
+            Console.WriteLine("press C : 초기화 되었습니다.");
         }
 
         private void StnKeyDelete_Click(object sender, EventArgs e)

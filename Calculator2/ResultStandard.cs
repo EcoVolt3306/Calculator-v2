@@ -69,5 +69,11 @@ namespace Calculator2
             }
             
         }
+
+        public void PressC()
+        {
+            outExp.Text = "";
+            outResult.Text = "0";
+        }
     }
 }
