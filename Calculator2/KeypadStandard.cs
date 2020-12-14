@@ -91,7 +91,7 @@ namespace Calculator2
 
         private void StnKeyAddSub_Click(object sender, EventArgs e)
         {
-
+            if (data != null) STN.resStn.AddSub(data);
         }
 
         private void StnKeyCE_Click(object sender, EventArgs e)
@@ -102,19 +102,13 @@ namespace Calculator2
 
         private void StnKeyC_Click(object sender, EventArgs e)
         {
-            data = null;
-            calTypeA = 0;
-            calTypeB = 0;
-            operand = 0;
-            answer = 0;
-            cal = false;
-
+            STN.resStn.ClearData(); // 데이터 초기화
             STN.resStn.Clear();    // 수식 및 결과 초기화
         }
 
         private void StnKeyDelete_Click(object sender, EventArgs e)
         {
-
+            if (data != null) STN.resStn.DataDelete();
         }
         private void StnKeyAdd_Click(object sender, EventArgs e)
         {
@@ -156,6 +150,7 @@ namespace Calculator2
         {
             if (data == null && calTypeA != 0) STN.resStn.ExceNullOperand();    // 피연산자 오류 방지
             STN.resStn.PressResult(data, calTypeA); // 계산
+            STN.resStn.ClearData();
         }
 
     }

@@ -97,12 +97,22 @@ namespace Calculator2
             outResult.Text = KeypadStandard.operand.ToString();
             KeypadStandard.data = KeypadStandard.operand.ToString();
 
-            KeypadStandard.answer = 0;
         }
 
         public void ExceNullOperand()
         {   // 연산자는 있으나, 피연산자가 없을 경우, 입력 값에 피연산자를 넣어 오류를 방지합니다.
             KeypadStandard.data = KeypadStandard.operand.ToString();
+        }
+        public void DataDelete()
+        {
+            KeypadStandard.data = KeypadStandard.data.Remove(KeypadStandard.data.Length - 1);
+
+            if (KeypadStandard.data == "")   // Null Exception
+            {
+                KeypadStandard.data = null;
+                outResult.Text = "0";
+            }
+            else outResult.Text = KeypadStandard.data;
         }
 
         public void Clear()
@@ -115,6 +125,20 @@ namespace Calculator2
         {
             KeypadStandard.data = null;
             outResult.Text = "0";
+        }
+        public void ClearData()
+        {
+            KeypadStandard.data = null;
+            KeypadStandard.calTypeA = 0;
+            KeypadStandard.calTypeB = 0;
+            KeypadStandard.operand = 0;
+            KeypadStandard.answer = 0;
+            KeypadStandard.cal = false;
+        }
+        public void AddSub(string data)
+        {   // 양수, 음수 전환
+            KeypadStandard.data = (-(double.Parse(data))).ToString();
+            outResult.Text = KeypadStandard.data;
         }
     }
 }
