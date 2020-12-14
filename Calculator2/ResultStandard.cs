@@ -75,24 +75,29 @@ namespace Calculator2
             outResult.Text = KeypadStandard.operand.ToString();
         }
 
-        public void PressResult() // = 버튼 누를 경우
+        public void PressResult(string data, int calTypeA) // = 계산
         {
-            //switch ()    // 연산 종류에 따라 실행
-            //{
-            //    case 1: // 덧셈
+            switch (KeypadStandard.calTypeA)
+            {
+                case 1: // 덧셈
+                    KeypadStandard.operand += double.Parse(data);
+                    break;
+                case 2: // 뺄셈
+                    KeypadStandard.operand -= double.Parse(data);
+                    break;
+                case 3: // 곱셈
+                    KeypadStandard.operand *= double.Parse(data);
+                    break;
+                case 4: // 나눗셈
+                    KeypadStandard.operand /= double.Parse(data);
+                    break;
+            }
 
-            //        break;
-            //    case 2: // 뺄셈
+            outExp.Text += data + " = ";
+            outResult.Text = KeypadStandard.operand.ToString();
 
-            //        break;
-            //    case 3: // 곱셈
-
-            //        break;
-            //    case 4: // 나눗셈
-
-            //        break;
-            //}
-            
+            KeypadStandard.calTypeA = 0;
+            KeypadStandard.answer = 0;
         }
 
         public void Clear()
