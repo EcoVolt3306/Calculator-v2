@@ -11,9 +11,10 @@ namespace Calculator2
 {
     public partial class KeypadStandard : UserControl
     {
-        public static string num, exp, result = null;     // 입력, 수식, 결과
-        public static int countOperand = 0;   // 피연산자 카운트
-        public static double[] operand = new double[20];     // 피연산자
+        public static string num = null;     // 입력 값
+        public static int caseOperator = 0;   // 연산기호 종류
+        public static double operand, final = 0;     // 피연산자
+        
 
 
         public KeypadStandard()
@@ -24,67 +25,67 @@ namespace Calculator2
         private void StnKey1_Click(object sender, EventArgs e)
         {
             num += "1";
-            Standard.resStn.PressNum(num);
+            STN.resStn.PressNum(num);
         }
 
         private void StnKey2_Click(object sender, EventArgs e)
         {
             num += "2";
-            Standard.resStn.PressNum(num);
+            STN.resStn.PressNum(num);
         }
 
         private void StnKey3_Click(object sender, EventArgs e)
         {
             num += "3";
-            Standard.resStn.PressNum(num);
+            STN.resStn.PressNum(num);
         }
 
         private void StnKey4_Click(object sender, EventArgs e)
         {
             num += "4";
-            Standard.resStn.PressNum(num);
+            STN.resStn.PressNum(num);
         }
 
         private void StnKey5_Click(object sender, EventArgs e)
         {
             num += "5";
-            Standard.resStn.PressNum(num);
+            STN.resStn.PressNum(num);
         }
 
         private void StnKey6_Click(object sender, EventArgs e)
         {
             num += "6";
-            Standard.resStn.PressNum(num);
+            STN.resStn.PressNum(num);
         }
 
         private void StnKey7_Click(object sender, EventArgs e)
         {
             num += "7";
-            Standard.resStn.PressNum(num);
+            STN.resStn.PressNum(num);
         }
 
         private void StnKey8_Click(object sender, EventArgs e)
         {
             num += "8";
-            Standard.resStn.PressNum(num);
+            STN.resStn.PressNum(num);
         }
 
         private void StnKey9_Click(object sender, EventArgs e)
         {
             num += "9";
-            Standard.resStn.PressNum(num);
+            STN.resStn.PressNum(num);
         }
 
         private void StnKey0_Click(object sender, EventArgs e)
         {
             num += "0";
-            Standard.resStn.PressNum(num);
+            STN.resStn.PressNum(num);
         }
 
         private void StnKeyDot_Click(object sender, EventArgs e)
         {
             num += ".";
-            Standard.resStn.PressNum(num);
+            STN.resStn.PressNum(num);
         }
 
         private void StnKeyAddSub_Click(object sender, EventArgs e)
@@ -108,27 +109,42 @@ namespace Calculator2
         }
         private void StnKeyAdd_Click(object sender, EventArgs e)
         {
-            operand[countOperand] = double.Parse(num);
+            caseOperator = 1;
+            operand = double.Parse(num);
             
-            //Console.WriteLine("op1:" + operand[0] + "\top2:" + operand[1] + "\top3:" + operand[2]);
+            final = STN.resStn.PressOperator(caseOperator, operand, final);
 
-            countOperand++;
             num = null;
         }
 
         private void StnKeySub_Click(object sender, EventArgs e)
         {
+            caseOperator = 2;
+            operand = double.Parse(num);
 
+            STN.resStn.PressOperator(caseOperator, operand, final);
+
+            num = null;
         }
 
         private void StnKeyMul_Click(object sender, EventArgs e)
         {
+            caseOperator = 3;
+            operand = double.Parse(num);
 
+            STN.resStn.PressOperator(caseOperator, operand, final);
+
+            num = null;
         }
 
         private void StnKeyDiv_Click(object sender, EventArgs e)
         {
+            caseOperator = 4;
+            operand = double.Parse(num);
 
+            STN.resStn.PressOperator(caseOperator, operand, final);
+
+            num = null;
         }
 
         private void StnKeyRes_Click(object sender, EventArgs e)

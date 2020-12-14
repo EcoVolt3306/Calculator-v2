@@ -40,7 +40,6 @@ namespace Calculator2
             this.outExp.Name = "outExp";
             this.outExp.Size = new System.Drawing.Size(328, 27);
             this.outExp.TabIndex = 19;
-            this.outExp.Text = "30 + 60 + 25 = ";
             this.outExp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // outResult
