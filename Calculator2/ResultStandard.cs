@@ -95,9 +95,14 @@ namespace Calculator2
 
             outExp.Text += data + " = ";
             outResult.Text = KeypadStandard.operand.ToString();
+            KeypadStandard.data = KeypadStandard.operand.ToString();
 
-            KeypadStandard.calTypeA = 0;
             KeypadStandard.answer = 0;
+        }
+
+        public void ExceNullOperand()
+        {   // 연산자는 있으나, 피연산자가 없을 경우, 입력 값에 피연산자를 넣어 오류를 방지합니다.
+            KeypadStandard.data = KeypadStandard.operand.ToString();
         }
 
         public void Clear()
@@ -105,6 +110,11 @@ namespace Calculator2
             outExp.Text = "";
             outResult.Text = "0";
             Console.WriteLine("Clear : 초기화 되었습니다.");
+        }
+        public void ClearCE()
+        {
+            KeypadStandard.data = null;
+            outResult.Text = "0";
         }
     }
 }
