@@ -42,7 +42,6 @@ namespace Calculator2
             this.outExp.TabIndex = 19;
             this.outExp.Text = "30 + 60 + 25 = ";
             this.outExp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.outExp.Click += new System.EventHandler(this.outExp_Click);
             // 
             // outResult
             // 
@@ -51,9 +50,8 @@ namespace Calculator2
             this.outResult.Name = "outResult";
             this.outResult.Size = new System.Drawing.Size(327, 67);
             this.outResult.TabIndex = 18;
-            this.outResult.Text = "115";
+            this.outResult.Text = "0";
             this.outResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.outResult.Click += new System.EventHandler(this.outResult_Click);
             // 
             // ResultStandard
             // 

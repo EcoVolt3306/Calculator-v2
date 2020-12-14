@@ -133,6 +133,7 @@ namespace Calculator2
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Frame";
             this.Text = "Calculator V2.0";
+            this.Load += new System.EventHandler(this.Frame_Load);
             this.History.ResumeLayout(false);
             this.HistoryNow.ResumeLayout(false);
             this.HistoryNow.PerformLayout();

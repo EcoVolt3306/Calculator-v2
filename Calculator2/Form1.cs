@@ -9,14 +9,9 @@ using System.Windows.Forms;
 
 namespace Calculator2
 {
-    public class a1
-    {
-        public static string dd = null;
-    }
     public partial class Frame : Form
     {
-        ResultStandard resStn = new ResultStandard();
-        KeypadStandard keyStn = new KeypadStandard();
+
         ResultProgrammer resPgm = new ResultProgrammer();
         KeypadProgrammer keyPgm = new KeypadProgrammer();
 
@@ -25,19 +20,19 @@ namespace Calculator2
             InitializeComponent();
 
             // 최초 스탠다드 초기화
-            this.AreaResult.Controls.Add(resStn);
-            this.AreaKeypad.Controls.Add(keyStn);
+            this.AreaResult.Controls.Add(Standard.resStn);
+            this.AreaKeypad.Controls.Add(Standard.keyStn);
         }
 
         private void MenuStn_Click(object sender, EventArgs e)  // 메뉴 : 스탠다드
         {
             // 결과 영역
             if (this.AreaResult.Controls.Count > 0) this.AreaResult.Controls.Clear();   // 패널 초기화
-            this.AreaResult.Controls.Add(resStn);
+            this.AreaResult.Controls.Add(Standard.resStn);
 
             // 키패드 영역
             if (this.AreaKeypad.Controls.Count > 0) this.AreaKeypad.Controls.Clear();   // 패널 초기화
-            this.AreaKeypad.Controls.Add(keyStn);
+            this.AreaKeypad.Controls.Add(Standard.keyStn);
         }
 
         private void MenuPgm_Click(object sender, EventArgs e)   // 메뉴 : 프로그래머
@@ -51,5 +46,8 @@ namespace Calculator2
             this.AreaKeypad.Controls.Add(keyPgm);
         }
 
+        private void Frame_Load(object sender, EventArgs e)
+        {
+        }
     }
 }

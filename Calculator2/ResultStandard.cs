@@ -9,28 +9,18 @@ using System.Windows.Forms;
 
 namespace Calculator2
 {
+
     public partial class ResultStandard : UserControl
     {
-        KeypadStandard qw = new KeypadStandard();
 
         public ResultStandard()
         {
             InitializeComponent();
         }
 
-
-        private void outExp_Click(object sender, EventArgs e)
+        public void PressNum(string num)
         {
-            KeypadStandard.num = "qweqwe";
-            outExp.Text = KeypadStandard.num;
+            outResult.Text = num;   // 스탠다스 수식 결과에 누른 버튼을 출력
         }
-
-
-        private void outResult_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
     }
 }
