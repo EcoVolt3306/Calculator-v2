@@ -11,9 +11,10 @@ namespace Calculator2
 {
     public partial class KeypadStandard : UserControl
     {
-        public static string num = null;     // 입력 값
-        public static int caseOperator = 0;   // 연산기호 종류
-        public static double operand, final = 0;     // 피연산자
+        public static string data = null;     // 입력 값
+        public static int calTypeA, calTypeB = 0;   // 연산기호 종류
+        public static double operand = 0;     // 피연산자
+        public static bool start, cal = false;
         
 
 
@@ -24,68 +25,68 @@ namespace Calculator2
 
         private void StnKey1_Click(object sender, EventArgs e)
         {
-            num += "1";
-            STN.resStn.PressNum(num);
+            data += "1";
+            STN.resStn.PressNum(data);
         }
 
         private void StnKey2_Click(object sender, EventArgs e)
         {
-            num += "2";
-            STN.resStn.PressNum(num);
+            data += "2";
+            STN.resStn.PressNum(data);
         }
 
         private void StnKey3_Click(object sender, EventArgs e)
         {
-            num += "3";
-            STN.resStn.PressNum(num);
+            data += "3";
+            STN.resStn.PressNum(data);
         }
 
         private void StnKey4_Click(object sender, EventArgs e)
         {
-            num += "4";
-            STN.resStn.PressNum(num);
+            data += "4";
+            STN.resStn.PressNum(data);
         }
 
         private void StnKey5_Click(object sender, EventArgs e)
         {
-            num += "5";
-            STN.resStn.PressNum(num);
+            data += "5";
+            STN.resStn.PressNum(data);
         }
 
         private void StnKey6_Click(object sender, EventArgs e)
         {
-            num += "6";
-            STN.resStn.PressNum(num);
+            data += "6";
+            STN.resStn.PressNum(data);
         }
 
         private void StnKey7_Click(object sender, EventArgs e)
         {
-            num += "7";
-            STN.resStn.PressNum(num);
+            data += "7";
+            STN.resStn.PressNum(data);
         }
 
         private void StnKey8_Click(object sender, EventArgs e)
         {
-            num += "8";
-            STN.resStn.PressNum(num);
+            data += "8";
+            STN.resStn.PressNum(data);
         }
 
         private void StnKey9_Click(object sender, EventArgs e)
         {
-            num += "9";
-            STN.resStn.PressNum(num);
+            data += "9";
+            STN.resStn.PressNum(data);
         }
 
         private void StnKey0_Click(object sender, EventArgs e)
         {
-            num += "0";
-            STN.resStn.PressNum(num);
+            data += "0";
+            STN.resStn.PressNum(data);
         }
 
         private void StnKeyDot_Click(object sender, EventArgs e)
         {
-            num += ".";
-            STN.resStn.PressNum(num);
+            data += ".";
+            STN.resStn.PressNum(data);
         }
 
         private void StnKeyAddSub_Click(object sender, EventArgs e)
@@ -100,13 +101,13 @@ namespace Calculator2
 
         private void StnKeyC_Click(object sender, EventArgs e)
         {
-            num = null;
-            caseOperator = 0;
+            data = null;
+            calTypeA = 0;
+            calTypeB = 0;
             operand = 0;
-            final = 0;
+            start = false;
 
-            STN.resStn.PressC();    // 결과창 초기화
-            Console.WriteLine("press C : 초기화 되었습니다.");
+            STN.resStn.Clear();    // 수식 및 결과 초기화
         }
 
         private void StnKeyDelete_Click(object sender, EventArgs e)
@@ -115,42 +116,38 @@ namespace Calculator2
         }
         private void StnKeyAdd_Click(object sender, EventArgs e)
         {
-            caseOperator = 1;
-            operand = double.Parse(num);
-            
-            final = STN.resStn.PressOperator(caseOperator, operand, final);
+            if (start == false) STN.resStn.PressOperatorFirst(data, 1);
+            else if (start == true) STN.resStn.PressOperator(data, operand, 1);
 
-            num = null;
+            start = true;
+            data = null;
         }
 
         private void StnKeySub_Click(object sender, EventArgs e)
         {
-            caseOperator = 2;
-            operand = double.Parse(num);
+            if (start == false) STN.resStn.PressOperatorFirst(data, 2);
+            else if (start == true) STN.resStn.PressOperator(data, operand, 2);
 
-            STN.resStn.PressOperator(caseOperator, operand, final);
-
-            num = null;
+            start = true;
+            data = null;
         }
 
         private void StnKeyMul_Click(object sender, EventArgs e)
         {
-            caseOperator = 3;
-            operand = double.Parse(num);
+            if (start == false) STN.resStn.PressOperatorFirst(data, 3);
+            else if (start == true) STN.resStn.PressOperator(data, operand, 3);
 
-            STN.resStn.PressOperator(caseOperator, operand, final);
-
-            num = null;
+            start = true;
+            data = null;
         }
 
         private void StnKeyDiv_Click(object sender, EventArgs e)
         {
-            caseOperator = 4;
-            operand = double.Parse(num);
+            if (start == false) STN.resStn.PressOperatorFirst(data, 4);
+            else if (start == true) STN.resStn.PressOperator(data, operand, 4);
 
-            STN.resStn.PressOperator(caseOperator, operand, final);
-
-            num = null;
+            start = true;
+            data = null;
         }
 
         private void StnKeyRes_Click(object sender, EventArgs e)
