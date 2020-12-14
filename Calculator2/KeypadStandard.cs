@@ -79,8 +79,12 @@ namespace Calculator2
 
         private void StnKey0_Click(object sender, EventArgs e)
         {
-            data += "0";
-            STN.resStn.PressNum(data);
+            if(data != null)
+            {
+                data += "0";
+                STN.resStn.PressNum(data);
+            }
+
         }
 
         private void StnKeyDot_Click(object sender, EventArgs e)
