@@ -35,10 +35,8 @@ namespace Calculator2
             this.MenuStn = new System.Windows.Forms.Button();
             this.History = new System.Windows.Forms.TabControl();
             this.HistoryNow = new System.Windows.Forms.TabPage();
-            this.HistoryText = new System.Windows.Forms.Label();
             this.HistoryMemory = new System.Windows.Forms.TabPage();
             this.History.SuspendLayout();
-            this.HistoryNow.SuspendLayout();
             this.SuspendLayout();
             // 
             // AreaKeypad
@@ -89,7 +87,6 @@ namespace Calculator2
             // 
             // HistoryNow
             // 
-            this.HistoryNow.Controls.Add(this.HistoryText);
             this.HistoryNow.Font = new System.Drawing.Font("맑은 고딕", 10F);
             this.HistoryNow.Location = new System.Drawing.Point(4, 22);
             this.HistoryNow.Name = "HistoryNow";
@@ -98,15 +95,6 @@ namespace Calculator2
             this.HistoryNow.TabIndex = 0;
             this.HistoryNow.Text = "현재 내역";
             this.HistoryNow.UseVisualStyleBackColor = true;
-            // 
-            // HistoryText
-            // 
-            this.HistoryText.AutoSize = true;
-            this.HistoryText.Location = new System.Drawing.Point(81, 40);
-            this.HistoryText.Name = "HistoryText";
-            this.HistoryText.Size = new System.Drawing.Size(85, 19);
-            this.HistoryText.TabIndex = 0;
-            this.HistoryText.Text = "Text Sample";
             // 
             // HistoryMemory
             // 
@@ -133,10 +121,7 @@ namespace Calculator2
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Frame";
             this.Text = "Calculator V2.0";
-            this.Load += new System.EventHandler(this.Frame_Load);
             this.History.ResumeLayout(false);
-            this.HistoryNow.ResumeLayout(false);
-            this.HistoryNow.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -150,7 +135,6 @@ namespace Calculator2
         private System.Windows.Forms.TabControl History;
         private System.Windows.Forms.TabPage HistoryNow;
         private System.Windows.Forms.TabPage HistoryMemory;
-        private System.Windows.Forms.Label HistoryText;
     }
 }
 

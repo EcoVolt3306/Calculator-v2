@@ -9,9 +9,6 @@ namespace Calculator2
     {
         public static ResultStandard resStn = new ResultStandard();     // 결과 수식(스탠다드)
         public static KeypadStandard keyStn = new KeypadStandard();
-
         
-            
-
     }
 }
