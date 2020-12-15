@@ -43,6 +43,7 @@ namespace Calculator2
             this.KeyBit.TabIndex = 7;
             this.KeyBit.Text = "비트 키패드";
             this.KeyBit.UseVisualStyleBackColor = true;
+            this.KeyBit.Visible = false;
             this.KeyBit.Click += new System.EventHandler(this.KeyBit_Click);
             // 
             // KeyStn
@@ -54,6 +55,7 @@ namespace Calculator2
             this.KeyStn.TabIndex = 6;
             this.KeyStn.Text = "기본 키패드";
             this.KeyStn.UseVisualStyleBackColor = true;
+            this.KeyStn.Visible = false;
             this.KeyStn.Click += new System.EventHandler(this.KeyStn_Click);
             // 
             // AreaPgmKey

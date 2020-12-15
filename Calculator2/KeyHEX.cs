@@ -78,52 +78,76 @@ namespace Calculator2
 
         private void PgmKeyDot_Click(object sender, EventArgs e)
         {
-
+            // Programmer Keypad에서 .(Dot)은 구현되지 않음.
         }
 
         private void PgmKeyAddSub_Click(object sender, EventArgs e)
         {
+            PGM.resPgm.AddSub(PGM.data);    // DEC 기준
+
 
         }
 
         private void PgmKeyCE_Click(object sender, EventArgs e)
         {
-
+            if (PGM.data == null) PGM.resPgm.Clear();
+            PGM.resPgm.ClearCE();
         }
 
         private void PgmKeyC_Click(object sender, EventArgs e)
         {
-
+            PGM.resPgm.ClearData();
+            PGM.resPgm.Clear();
         }
 
         private void PgmKeyDelete_Click(object sender, EventArgs e)
         {
-
+            if (PGM.data != null) PGM.resPgm.DataDelete();
         }
 
         private void PgmKeyAdd_Click(object sender, EventArgs e)
         {
+            if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 1);
+            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, PGM.operand, 1);
 
+            PGM.answer += 1;
+            PGM.data = null;
         }
 
         private void PgmKeySub_Click(object sender, EventArgs e)
         {
+            if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 2);
+            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, PGM.operand, 2);
 
+            PGM.answer += 1;
+            PGM.data = null;
         }
 
         private void PgmKeyMul_Click(object sender, EventArgs e)
         {
+            if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 3);
+            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, PGM.operand, 3);
 
+            PGM.answer += 1;
+            PGM.data = null;
         }
 
         private void PgmKeyDiv_Click(object sender, EventArgs e)
         {
+            if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 4);
+            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, PGM.operand, 4);
 
+            PGM.answer += 1;
+            PGM.data = null;
         }
 
         private void PgmKeyResult_Click(object sender, EventArgs e)
         {
+            if (PGM.data == null && PGM.calTypeA != 0) PGM.resPgm.ExceNullOperand();    // 피연산자 오류 방지
+            PGM.resPgm.PressResult(PGM.data, PGM.calTypeA); // 계산
+            STN.resStn.ClearData();
 
+            PGM.cntUse++;
         }
 
         private void HexA_Click(object sender, EventArgs e)
