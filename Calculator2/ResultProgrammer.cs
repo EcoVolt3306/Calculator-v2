@@ -18,22 +18,27 @@ namespace Calculator2
 
         private void ViewHEX_CheckedChanged(object sender, EventArgs e)
         {
-            PGM.keyPgm.ActivePgmKey(1);
+            if (ViewHEX.Checked == true) PGM.keyPgm.ActivePgmKey(1);
+            else return;
+
         }
 
         private void ViewDEC_CheckedChanged(object sender, EventArgs e)
         {
-            PGM.keyPgm.ActivePgmKey(2);
+            if (ViewDEC.Checked == true) PGM.keyPgm.ActivePgmKey(2);
+            else return;
         }
 
         private void ViewOCT_CheckedChanged(object sender, EventArgs e)
         {
-            PGM.keyPgm.ActivePgmKey(3);
+            if (ViewOCT.Checked == true) PGM.keyPgm.ActivePgmKey(3);
+            else return;
         }
 
         private void ViewBIN_CheckedChanged(object sender, EventArgs e)
         {
-            PGM.keyPgm.ActivePgmKey(4);
+            if (ViewBIN.Checked == true) PGM.keyPgm.ActivePgmKey(4);
+            else return;
         }
 
         public void PressNum(string data)    // 입력 값

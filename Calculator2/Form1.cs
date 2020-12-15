@@ -101,6 +101,7 @@ namespace Calculator2
             // 키패드 영역
             if (this.AreaKeypad.Controls.Count > 0) this.AreaKeypad.Controls.Clear();   // 패널 초기화
             this.AreaKeypad.Controls.Add(PGM.keyPgm);
+            PGM.keyPgm.ActivePgmKey(2);
 
             STN.resStn.ClearData();
             STN.resStn.Clear();

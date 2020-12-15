@@ -37,6 +37,7 @@ namespace Calculator2
 
         public void ActivePgmKey(int type)
         {
+            this.AreaPgmKey.Controls.Clear();   // 패널 초기화
             switch (type)
             {
                 case 1:
