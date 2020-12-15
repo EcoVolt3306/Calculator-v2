@@ -84,8 +84,6 @@ namespace Calculator2
         private void PgmKeyAddSub_Click(object sender, EventArgs e)
         {
             PGM.resPgm.AddSub(PGM.data);    // DEC 기준
-
-
         }
 
         private void PgmKeyCE_Click(object sender, EventArgs e)
@@ -108,7 +106,7 @@ namespace Calculator2
         private void PgmKeyAdd_Click(object sender, EventArgs e)
         {
             if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 1);
-            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, PGM.operand, 2);
+            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, PGM.operand, 1);
 
             PGM.answer += 1;
             PGM.data = null;

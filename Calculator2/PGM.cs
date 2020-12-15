@@ -16,11 +16,10 @@ namespace Calculator2
         public static KeyOCT keyOCT = new KeyOCT();
         public static KeyBIN keyBIN = new KeyBIN();
 
-        public static string data, original = null;     // 입력 값
-        public static int calTypeA, calTypeB, answer, cntUse = 0;   // 연산기호 종류
+        public static string data = null;     // 입력 값
+        public static int calTypeA, calTypeB, answer, cntUse, outType = 0;   // 연산기호 종류
         public static double operand = 0;     // 피연산자
-
-        public static string dataHEX = null;
+        public static string dataHex, dataOct, dataBin = null;
         
 
     }

@@ -44,17 +44,17 @@ namespace Calculator2
             this.outExp.Name = "outExp";
             this.outExp.Size = new System.Drawing.Size(277, 27);
             this.outExp.TabIndex = 21;
-            this.outExp.Text = "30 + 60 + 25 = ";
+            this.outExp.Text = "(exp)";
             this.outExp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // outResult
             // 
-            this.outResult.Font = new System.Drawing.Font("넥슨Lv2고딕", 28F);
+            this.outResult.Font = new System.Drawing.Font("넥슨Lv2고딕", 24F);
             this.outResult.Location = new System.Drawing.Point(50, 27);
             this.outResult.Name = "outResult";
             this.outResult.Size = new System.Drawing.Size(281, 67);
             this.outResult.TabIndex = 20;
-            this.outResult.Text = "115";
+            this.outResult.Text = "0";
             this.outResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ViewOCT

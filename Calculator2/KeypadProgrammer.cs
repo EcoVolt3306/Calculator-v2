@@ -16,9 +16,6 @@ namespace Calculator2
         {
             InitializeComponent();
             // 프로그래머 : 기본 키패드 초기화
-
-            //PGM.keyPgm.ActivePgmKey(2);
-
         }
 
         private void KeyStn_Click(object sender, EventArgs e)   // 프로그래머 : 기본 키패드

@@ -18,25 +18,45 @@ namespace Calculator2
 
         private void ViewHEX_CheckedChanged(object sender, EventArgs e)
         {
-            if (ViewHEX.Checked == true) PGM.keyPgm.ActivePgmKey(1);
+            if (ViewHEX.Checked == true)
+            {
+                PGM.keyPgm.ActivePgmKey(1);
+                PGM.outType = 1;
+                PGM.data = null;
+            }
             else return;
         }
 
         private void ViewDEC_CheckedChanged(object sender, EventArgs e)
         {
-            if (ViewDEC.Checked == true) PGM.keyPgm.ActivePgmKey(2);
+            if (ViewDEC.Checked == true)
+            {
+                PGM.keyPgm.ActivePgmKey(2);
+                PGM.outType = 2;
+                PGM.data = null;
+            }
             else return;
         }
 
         private void ViewOCT_CheckedChanged(object sender, EventArgs e)
         {
-            if (ViewOCT.Checked == true) PGM.keyPgm.ActivePgmKey(3);
+            if (ViewOCT.Checked == true)
+            {
+                PGM.keyPgm.ActivePgmKey(3);
+                PGM.outType = 3;
+                PGM.data = null;
+            }
             else return;
         }
 
         private void ViewBIN_CheckedChanged(object sender, EventArgs e)
         {
-            if (ViewBIN.Checked == true) PGM.keyPgm.ActivePgmKey(4);
+            if (ViewBIN.Checked == true)
+            {
+                PGM.keyPgm.ActivePgmKey(4);
+                PGM.outType = 4;
+                PGM.data = null;
+            }
             else return;
 
             if(outResult.Text != null || outResult.Text != "")
@@ -170,6 +190,25 @@ namespace Calculator2
             outExp.Text += PGM.data + " = ";
             outResult.Text = PGM.operand.ToString();
             PGM.data = PGM.operand.ToString();
+        }
+
+        public void SaveOriginalData()
+        {
+            if (PGM.data != null)
+            {
+                switch (PGM.outType)
+                {
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                }
+            }
+            else { return; }
         }
 
         public string C10to2(string data) // 10진수 -> 2진수
