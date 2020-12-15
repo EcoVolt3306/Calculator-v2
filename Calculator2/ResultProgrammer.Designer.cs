@@ -67,6 +67,7 @@ namespace Calculator2
             this.ViewOCT.TabIndex = 19;
             this.ViewOCT.Text = "OCT";
             this.ViewOCT.UseVisualStyleBackColor = true;
+            this.ViewOCT.CheckedChanged += new System.EventHandler(this.ViewOCT_CheckedChanged);
             // 
             // ViewBIN
             // 
@@ -78,6 +79,7 @@ namespace Calculator2
             this.ViewBIN.TabIndex = 18;
             this.ViewBIN.Text = "BIN";
             this.ViewBIN.UseVisualStyleBackColor = true;
+            this.ViewBIN.CheckedChanged += new System.EventHandler(this.ViewBIN_CheckedChanged);
             // 
             // ViewDEC
             // 
@@ -91,6 +93,7 @@ namespace Calculator2
             this.ViewDEC.TabStop = true;
             this.ViewDEC.Text = "DEC";
             this.ViewDEC.UseVisualStyleBackColor = true;
+            this.ViewDEC.CheckedChanged += new System.EventHandler(this.ViewDEC_CheckedChanged);
             // 
             // ViewHEX
             // 
@@ -102,6 +105,7 @@ namespace Calculator2
             this.ViewHEX.TabIndex = 16;
             this.ViewHEX.Text = "HEX";
             this.ViewHEX.UseVisualStyleBackColor = true;
+            this.ViewHEX.CheckedChanged += new System.EventHandler(this.ViewHEX_CheckedChanged);
             // 
             // ResultProgrammer
             // 

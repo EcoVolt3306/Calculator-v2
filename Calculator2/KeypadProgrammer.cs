@@ -16,14 +16,14 @@ namespace Calculator2
         {
             InitializeComponent();
             // 프로그래머 : 기본 키패드 초기화
-            KeyStandard keyStn = new KeyStandard();
+            KeyHEX keyStn = new KeyHEX();
             this.AreaPgmKey.Controls.Add(keyStn);
         }
 
         private void KeyStn_Click(object sender, EventArgs e)   // 프로그래머 : 기본 키패드
         {
             if (this.AreaPgmKey.Controls.Count > 0) this.AreaPgmKey.Controls.Clear();   // 패널 초기화
-            KeyStandard keyStn = new KeyStandard();
+            KeyHEX keyStn = new KeyHEX();
             this.AreaPgmKey.Controls.Add(keyStn);
         }
 

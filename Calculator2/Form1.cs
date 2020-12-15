@@ -59,7 +59,7 @@ namespace Calculator2
                 HisMemExp.Name = "HisMemExp";
                 HisMemExp.Size = new System.Drawing.Size(232, 19);
                 HisMemExp.TabIndex = 0;
-                HisMemExp.Text = "0 x 0 x 0 = ";
+                HisMemExp.Text = "";
                 HisMemExp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
                 HistoryMemory.Controls.Add(HisMemExp);
 
@@ -70,7 +70,7 @@ namespace Calculator2
                 HisMemRes.Name = "HisMemRes";
                 HisMemRes.Size = new System.Drawing.Size(232, 29);
                 HisMemRes.TabIndex = 1;
-                HisMemRes.Text = "00000";
+                HisMemRes.Text = "";
                 HisMemRes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
                 HistoryMemory.Controls.Add(HisMemRes);
 
@@ -101,6 +101,9 @@ namespace Calculator2
             // 키패드 영역
             if (this.AreaKeypad.Controls.Count > 0) this.AreaKeypad.Controls.Clear();   // 패널 초기화
             this.AreaKeypad.Controls.Add(PGM.keyPgm);
+
+            STN.resStn.ClearData();
+            STN.resStn.Clear();
         }
 
     }

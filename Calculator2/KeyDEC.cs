@@ -9,16 +9,12 @@ using System.Windows.Forms;
 
 namespace Calculator2
 {
-    public partial class KeyStandard : UserControl
+    public partial class KeyDEC : UserControl
     {
-        public KeyStandard()
+        public KeyDEC()
         {
             InitializeComponent();
         }
 
-        private void PgmKey1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

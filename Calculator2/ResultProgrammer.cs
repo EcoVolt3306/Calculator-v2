@@ -16,6 +16,29 @@ namespace Calculator2
             InitializeComponent();
         }
 
+        private void ViewHEX_CheckedChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void ViewDEC_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ViewOCT_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ViewBIN_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void PressNum(string data)    // 입력 값
+        {
+            outResult.Text = PGM.data;   // 스탠다스 수식 결과에 누른 버튼을 출력
+        }
     }
 }
