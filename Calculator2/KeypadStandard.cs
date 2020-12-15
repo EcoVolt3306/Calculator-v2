@@ -157,11 +157,18 @@ namespace Calculator2
             STN.resStn.ClearData();
 
             // History
-            if (KeypadStandard.cntUse == 0) STN.resStn.SaveHistoryFirst();
+            if (KeypadStandard.cntUse == 0)
+            {
+                STN.resStn.SaveHistoryFirst();
+                STN.resStn.SaveMemoryFirst();
+            }
             else if (KeypadStandard.cntUse > 0)
             {
-                STN.resStn.SaveHistoryLoop();
+                STN.resStn.SaveHistoryLoopNow();
                 STN.resStn.SaveHistoryFirst();
+
+                STN.resStn.SaveHistoryLoopMemory();
+                STN.resStn.SaveMemoryFirst();
             } 
 
             cntUse++;

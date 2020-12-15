@@ -23,7 +23,7 @@ namespace Calculator2
 
 
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < HIS.loopNow; i++)
             {
                 Label HisExp = new Label();
                 HisExp.Font = new System.Drawing.Font("넥슨Lv2고딕", 9F);
@@ -31,7 +31,7 @@ namespace Calculator2
                 HisExp.Name = "HisExp";
                 HisExp.Size = new System.Drawing.Size(247, 19);
                 HisExp.TabIndex = 0;
-                HisExp.Text = "0 x 0 x 0 = ";
+                HisExp.Text = "";
                 HisExp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
                 HistoryNow.Controls.Add(HisExp);
 
@@ -42,7 +42,7 @@ namespace Calculator2
                 HisRes.Name = "HisRes";
                 HisRes.Size = new System.Drawing.Size(247, 29);
                 HisRes.TabIndex = 1;
-                HisRes.Text = "00000";
+                HisRes.Text = "";
                 HisRes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
                 HistoryNow.Controls.Add(HisRes);
 
@@ -51,9 +51,33 @@ namespace Calculator2
                 HIS.dicRes.Add(i, HisRes);
             }
 
+            for (int i = 0; i < HIS.loopMemory; i++)
+            {
+                Label HisMemExp = new Label();
+                HisMemExp.Font = new System.Drawing.Font("넥슨Lv2고딕", 9F);
+                HisMemExp.Location = new System.Drawing.Point(0, 11 + (70 * i));
+                HisMemExp.Name = "HisMemExp";
+                HisMemExp.Size = new System.Drawing.Size(232, 19);
+                HisMemExp.TabIndex = 0;
+                HisMemExp.Text = "0 x 0 x 0 = ";
+                HisMemExp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+                HistoryMemory.Controls.Add(HisMemExp);
 
 
-            HIS.dicExp[0].Text = "asdsd";
+                Label HisMemRes = new Label();
+                HisMemRes.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
+                HisMemRes.Location = new System.Drawing.Point(0, 30 + (70 * i));
+                HisMemRes.Name = "HisMemRes";
+                HisMemRes.Size = new System.Drawing.Size(232, 29);
+                HisMemRes.TabIndex = 1;
+                HisMemRes.Text = "00000";
+                HisMemRes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+                HistoryMemory.Controls.Add(HisMemRes);
+
+                // Dictionary 인덱스 연결
+                HIS.dicMemExp.Add(i, HisMemExp);
+                HIS.dicMemRes.Add(i, HisMemRes);
+            }
 
         }
 

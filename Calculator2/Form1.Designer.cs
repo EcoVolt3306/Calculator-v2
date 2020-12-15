@@ -98,6 +98,7 @@ namespace Calculator2
             // 
             // HistoryMemory
             // 
+            this.HistoryMemory.AutoScroll = true;
             this.HistoryMemory.Font = new System.Drawing.Font("맑은 고딕", 10F);
             this.HistoryMemory.Location = new System.Drawing.Point(4, 22);
             this.HistoryMemory.Name = "HistoryMemory";
