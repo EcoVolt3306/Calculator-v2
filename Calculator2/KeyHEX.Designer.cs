@@ -62,7 +62,7 @@ namespace Calculator2
             // KeyBit
             // 
             this.KeyBit.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.KeyBit.Location = new System.Drawing.Point(240, 3);
+            this.KeyBit.Location = new System.Drawing.Point(241, 5);
             this.KeyBit.Name = "KeyBit";
             this.KeyBit.Size = new System.Drawing.Size(83, 23);
             this.KeyBit.TabIndex = 9;
@@ -73,7 +73,7 @@ namespace Calculator2
             // KeyStn
             // 
             this.KeyStn.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.KeyStn.Location = new System.Drawing.Point(151, 3);
+            this.KeyStn.Location = new System.Drawing.Point(152, 5);
             this.KeyStn.Name = "KeyStn";
             this.KeyStn.Size = new System.Drawing.Size(83, 23);
             this.KeyStn.TabIndex = 8;
@@ -87,7 +87,7 @@ namespace Calculator2
             this.HexF.Cursor = System.Windows.Forms.Cursors.Hand;
             this.HexF.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.HexF.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.HexF.Location = new System.Drawing.Point(3, 219);
+            this.HexF.Location = new System.Drawing.Point(4, 221);
             this.HexF.Name = "HexF";
             this.HexF.Size = new System.Drawing.Size(59, 38);
             this.HexF.TabIndex = 11;
@@ -101,7 +101,7 @@ namespace Calculator2
             this.HexE.Cursor = System.Windows.Forms.Cursors.Hand;
             this.HexE.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.HexE.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.HexE.Location = new System.Drawing.Point(3, 175);
+            this.HexE.Location = new System.Drawing.Point(4, 177);
             this.HexE.Name = "HexE";
             this.HexE.Size = new System.Drawing.Size(59, 38);
             this.HexE.TabIndex = 12;
@@ -115,7 +115,7 @@ namespace Calculator2
             this.HexD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.HexD.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.HexD.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.HexD.Location = new System.Drawing.Point(3, 131);
+            this.HexD.Location = new System.Drawing.Point(4, 133);
             this.HexD.Name = "HexD";
             this.HexD.Size = new System.Drawing.Size(59, 38);
             this.HexD.TabIndex = 13;
@@ -129,7 +129,7 @@ namespace Calculator2
             this.HexC.Cursor = System.Windows.Forms.Cursors.Hand;
             this.HexC.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.HexC.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.HexC.Location = new System.Drawing.Point(3, 87);
+            this.HexC.Location = new System.Drawing.Point(4, 89);
             this.HexC.Name = "HexC";
             this.HexC.Size = new System.Drawing.Size(59, 38);
             this.HexC.TabIndex = 14;
@@ -143,7 +143,7 @@ namespace Calculator2
             this.HexB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.HexB.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.HexB.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.HexB.Location = new System.Drawing.Point(3, 43);
+            this.HexB.Location = new System.Drawing.Point(4, 45);
             this.HexB.Name = "HexB";
             this.HexB.Size = new System.Drawing.Size(59, 38);
             this.HexB.TabIndex = 15;
@@ -157,7 +157,7 @@ namespace Calculator2
             this.HexA.Cursor = System.Windows.Forms.Cursors.Hand;
             this.HexA.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.HexA.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.HexA.Location = new System.Drawing.Point(3, -1);
+            this.HexA.Location = new System.Drawing.Point(4, 1);
             this.HexA.Name = "HexA";
             this.HexA.Size = new System.Drawing.Size(59, 38);
             this.HexA.TabIndex = 16;
@@ -171,7 +171,7 @@ namespace Calculator2
             this.PgmKeyAddSub.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PgmKeyAddSub.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKeyAddSub.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PgmKeyAddSub.Location = new System.Drawing.Point(68, 219);
+            this.PgmKeyAddSub.Location = new System.Drawing.Point(69, 221);
             this.PgmKeyAddSub.Name = "PgmKeyAddSub";
             this.PgmKeyAddSub.Size = new System.Drawing.Size(59, 38);
             this.PgmKeyAddSub.TabIndex = 17;
@@ -185,7 +185,7 @@ namespace Calculator2
             this.PgmKey0.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PgmKey0.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKey0.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PgmKey0.Location = new System.Drawing.Point(133, 219);
+            this.PgmKey0.Location = new System.Drawing.Point(134, 221);
             this.PgmKey0.Name = "PgmKey0";
             this.PgmKey0.Size = new System.Drawing.Size(59, 38);
             this.PgmKey0.TabIndex = 18;
@@ -199,7 +199,7 @@ namespace Calculator2
             this.PgmKeyDot.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.PgmKeyDot.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKeyDot.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.PgmKeyDot.Location = new System.Drawing.Point(198, 219);
+            this.PgmKeyDot.Location = new System.Drawing.Point(199, 221);
             this.PgmKeyDot.Name = "PgmKeyDot";
             this.PgmKeyDot.Size = new System.Drawing.Size(59, 38);
             this.PgmKeyDot.TabIndex = 19;
@@ -213,7 +213,7 @@ namespace Calculator2
             this.PgmKeyResult.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PgmKeyResult.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKeyResult.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PgmKeyResult.Location = new System.Drawing.Point(263, 219);
+            this.PgmKeyResult.Location = new System.Drawing.Point(264, 221);
             this.PgmKeyResult.Name = "PgmKeyResult";
             this.PgmKeyResult.Size = new System.Drawing.Size(59, 38);
             this.PgmKeyResult.TabIndex = 20;
@@ -227,7 +227,7 @@ namespace Calculator2
             this.PgmKeyAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PgmKeyAdd.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKeyAdd.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PgmKeyAdd.Location = new System.Drawing.Point(263, 175);
+            this.PgmKeyAdd.Location = new System.Drawing.Point(264, 177);
             this.PgmKeyAdd.Name = "PgmKeyAdd";
             this.PgmKeyAdd.Size = new System.Drawing.Size(59, 38);
             this.PgmKeyAdd.TabIndex = 24;
@@ -241,7 +241,7 @@ namespace Calculator2
             this.PgmKey3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PgmKey3.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKey3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PgmKey3.Location = new System.Drawing.Point(198, 175);
+            this.PgmKey3.Location = new System.Drawing.Point(199, 177);
             this.PgmKey3.Name = "PgmKey3";
             this.PgmKey3.Size = new System.Drawing.Size(59, 38);
             this.PgmKey3.TabIndex = 23;
@@ -255,7 +255,7 @@ namespace Calculator2
             this.PgmKey2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PgmKey2.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKey2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PgmKey2.Location = new System.Drawing.Point(133, 175);
+            this.PgmKey2.Location = new System.Drawing.Point(134, 177);
             this.PgmKey2.Name = "PgmKey2";
             this.PgmKey2.Size = new System.Drawing.Size(59, 38);
             this.PgmKey2.TabIndex = 22;
@@ -269,7 +269,7 @@ namespace Calculator2
             this.PgmKey1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PgmKey1.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKey1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PgmKey1.Location = new System.Drawing.Point(68, 175);
+            this.PgmKey1.Location = new System.Drawing.Point(69, 177);
             this.PgmKey1.Name = "PgmKey1";
             this.PgmKey1.Size = new System.Drawing.Size(59, 38);
             this.PgmKey1.TabIndex = 21;
@@ -283,7 +283,7 @@ namespace Calculator2
             this.PgmKeySub.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PgmKeySub.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKeySub.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PgmKeySub.Location = new System.Drawing.Point(263, 131);
+            this.PgmKeySub.Location = new System.Drawing.Point(264, 133);
             this.PgmKeySub.Name = "PgmKeySub";
             this.PgmKeySub.Size = new System.Drawing.Size(59, 38);
             this.PgmKeySub.TabIndex = 28;
@@ -297,7 +297,7 @@ namespace Calculator2
             this.PgmKey6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PgmKey6.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKey6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PgmKey6.Location = new System.Drawing.Point(198, 131);
+            this.PgmKey6.Location = new System.Drawing.Point(199, 133);
             this.PgmKey6.Name = "PgmKey6";
             this.PgmKey6.Size = new System.Drawing.Size(59, 38);
             this.PgmKey6.TabIndex = 27;
@@ -311,7 +311,7 @@ namespace Calculator2
             this.PgmKey5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PgmKey5.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKey5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PgmKey5.Location = new System.Drawing.Point(133, 131);
+            this.PgmKey5.Location = new System.Drawing.Point(134, 133);
             this.PgmKey5.Name = "PgmKey5";
             this.PgmKey5.Size = new System.Drawing.Size(59, 38);
             this.PgmKey5.TabIndex = 26;
@@ -325,7 +325,7 @@ namespace Calculator2
             this.PgmKey4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PgmKey4.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKey4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PgmKey4.Location = new System.Drawing.Point(68, 131);
+            this.PgmKey4.Location = new System.Drawing.Point(69, 133);
             this.PgmKey4.Name = "PgmKey4";
             this.PgmKey4.Size = new System.Drawing.Size(59, 38);
             this.PgmKey4.TabIndex = 25;
@@ -339,7 +339,7 @@ namespace Calculator2
             this.PgmKeyMul.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PgmKeyMul.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKeyMul.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PgmKeyMul.Location = new System.Drawing.Point(263, 87);
+            this.PgmKeyMul.Location = new System.Drawing.Point(264, 89);
             this.PgmKeyMul.Name = "PgmKeyMul";
             this.PgmKeyMul.Size = new System.Drawing.Size(59, 38);
             this.PgmKeyMul.TabIndex = 32;
@@ -353,7 +353,7 @@ namespace Calculator2
             this.PgmKey9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PgmKey9.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKey9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PgmKey9.Location = new System.Drawing.Point(198, 87);
+            this.PgmKey9.Location = new System.Drawing.Point(199, 89);
             this.PgmKey9.Name = "PgmKey9";
             this.PgmKey9.Size = new System.Drawing.Size(59, 38);
             this.PgmKey9.TabIndex = 31;
@@ -367,7 +367,7 @@ namespace Calculator2
             this.PgmKey8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PgmKey8.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKey8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PgmKey8.Location = new System.Drawing.Point(133, 87);
+            this.PgmKey8.Location = new System.Drawing.Point(134, 89);
             this.PgmKey8.Name = "PgmKey8";
             this.PgmKey8.Size = new System.Drawing.Size(59, 38);
             this.PgmKey8.TabIndex = 30;
@@ -381,7 +381,7 @@ namespace Calculator2
             this.PgmKey7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PgmKey7.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKey7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PgmKey7.Location = new System.Drawing.Point(68, 87);
+            this.PgmKey7.Location = new System.Drawing.Point(69, 89);
             this.PgmKey7.Name = "PgmKey7";
             this.PgmKey7.Size = new System.Drawing.Size(59, 38);
             this.PgmKey7.TabIndex = 29;
@@ -395,7 +395,7 @@ namespace Calculator2
             this.PgmKeyDiv.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PgmKeyDiv.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKeyDiv.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PgmKeyDiv.Location = new System.Drawing.Point(263, 43);
+            this.PgmKeyDiv.Location = new System.Drawing.Point(264, 45);
             this.PgmKeyDiv.Name = "PgmKeyDiv";
             this.PgmKeyDiv.Size = new System.Drawing.Size(59, 38);
             this.PgmKeyDiv.TabIndex = 36;
@@ -409,7 +409,7 @@ namespace Calculator2
             this.PgmKeyDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PgmKeyDelete.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKeyDelete.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PgmKeyDelete.Location = new System.Drawing.Point(198, 43);
+            this.PgmKeyDelete.Location = new System.Drawing.Point(199, 45);
             this.PgmKeyDelete.Name = "PgmKeyDelete";
             this.PgmKeyDelete.Size = new System.Drawing.Size(59, 38);
             this.PgmKeyDelete.TabIndex = 35;
@@ -423,7 +423,7 @@ namespace Calculator2
             this.PgmKeyC.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PgmKeyC.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKeyC.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PgmKeyC.Location = new System.Drawing.Point(133, 43);
+            this.PgmKeyC.Location = new System.Drawing.Point(134, 45);
             this.PgmKeyC.Name = "PgmKeyC";
             this.PgmKeyC.Size = new System.Drawing.Size(59, 38);
             this.PgmKeyC.TabIndex = 34;
@@ -437,7 +437,7 @@ namespace Calculator2
             this.PgmKeyCE.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PgmKeyCE.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.PgmKeyCE.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.PgmKeyCE.Location = new System.Drawing.Point(68, 43);
+            this.PgmKeyCE.Location = new System.Drawing.Point(69, 45);
             this.PgmKeyCE.Name = "PgmKeyCE";
             this.PgmKeyCE.Size = new System.Drawing.Size(59, 38);
             this.PgmKeyCE.TabIndex = 33;

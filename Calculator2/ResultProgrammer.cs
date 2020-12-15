@@ -18,12 +18,12 @@ namespace Calculator2
 
         private void ViewHEX_CheckedChanged(object sender, EventArgs e)
         {
-
+            PGM.keyPgm.ActivePgmKey(1);
         }
 
         private void ViewDEC_CheckedChanged(object sender, EventArgs e)
         {
-            
+            PGM.keyPgm.ActivePgmKey(2);
         }
 
         private void ViewOCT_CheckedChanged(object sender, EventArgs e)
@@ -142,7 +142,7 @@ namespace Calculator2
 
         public void PressResult(string data, int calTypeA)
         {
-            switch (KeypadStandard.calTypeA)
+            switch (PGM.calTypeA)
             {
                 case 1: // 덧셈
                     PGM.operand += double.Parse(PGM.data);
