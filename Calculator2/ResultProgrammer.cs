@@ -28,7 +28,7 @@ namespace Calculator2
 
         private void ViewOCT_CheckedChanged(object sender, EventArgs e)
         {
-
+            PGM.keyPgm.ActivePgmKey(3);
         }
 
         private void ViewBIN_CheckedChanged(object sender, EventArgs e)

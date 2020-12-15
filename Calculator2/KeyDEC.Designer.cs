@@ -93,6 +93,7 @@ namespace Calculator2
             this.PgmKeyDiv.TabIndex = 64;
             this.PgmKeyDiv.Text = "÷";
             this.PgmKeyDiv.UseVisualStyleBackColor = false;
+            this.PgmKeyDiv.Click += new System.EventHandler(this.PgmKeyDiv_Click);
             // 
             // PgmKeyDelete
             // 
@@ -106,6 +107,7 @@ namespace Calculator2
             this.PgmKeyDelete.TabIndex = 63;
             this.PgmKeyDelete.Text = "←";
             this.PgmKeyDelete.UseVisualStyleBackColor = false;
+            this.PgmKeyDelete.Click += new System.EventHandler(this.PgmKeyDelete_Click);
             // 
             // PgmKeyC
             // 
@@ -119,6 +121,7 @@ namespace Calculator2
             this.PgmKeyC.TabIndex = 62;
             this.PgmKeyC.Text = "C";
             this.PgmKeyC.UseVisualStyleBackColor = false;
+            this.PgmKeyC.Click += new System.EventHandler(this.PgmKeyC_Click);
             // 
             // PgmKeyCE
             // 
@@ -132,6 +135,7 @@ namespace Calculator2
             this.PgmKeyCE.TabIndex = 61;
             this.PgmKeyCE.Text = "CE";
             this.PgmKeyCE.UseVisualStyleBackColor = false;
+            this.PgmKeyCE.Click += new System.EventHandler(this.PgmKeyCE_Click);
             // 
             // PgmKeyMul
             // 
@@ -145,6 +149,7 @@ namespace Calculator2
             this.PgmKeyMul.TabIndex = 60;
             this.PgmKeyMul.Text = "×";
             this.PgmKeyMul.UseVisualStyleBackColor = false;
+            this.PgmKeyMul.Click += new System.EventHandler(this.PgmKeyMul_Click);
             // 
             // PgmKey9
             // 
@@ -158,6 +163,7 @@ namespace Calculator2
             this.PgmKey9.TabIndex = 59;
             this.PgmKey9.Text = "9";
             this.PgmKey9.UseVisualStyleBackColor = false;
+            this.PgmKey9.Click += new System.EventHandler(this.PgmKey9_Click);
             // 
             // PgmKey8
             // 
@@ -171,6 +177,7 @@ namespace Calculator2
             this.PgmKey8.TabIndex = 58;
             this.PgmKey8.Text = "8";
             this.PgmKey8.UseVisualStyleBackColor = false;
+            this.PgmKey8.Click += new System.EventHandler(this.PgmKey8_Click);
             // 
             // PgmKey7
             // 
@@ -184,6 +191,7 @@ namespace Calculator2
             this.PgmKey7.TabIndex = 57;
             this.PgmKey7.Text = "7";
             this.PgmKey7.UseVisualStyleBackColor = false;
+            this.PgmKey7.Click += new System.EventHandler(this.PgmKey7_Click);
             // 
             // PgmKeySub
             // 
@@ -197,6 +205,7 @@ namespace Calculator2
             this.PgmKeySub.TabIndex = 56;
             this.PgmKeySub.Text = "-";
             this.PgmKeySub.UseVisualStyleBackColor = false;
+            this.PgmKeySub.Click += new System.EventHandler(this.PgmKeySub_Click);
             // 
             // PgmKey6
             // 
@@ -210,6 +219,7 @@ namespace Calculator2
             this.PgmKey6.TabIndex = 55;
             this.PgmKey6.Text = "6";
             this.PgmKey6.UseVisualStyleBackColor = false;
+            this.PgmKey6.Click += new System.EventHandler(this.PgmKey6_Click);
             // 
             // PgmKey5
             // 
@@ -223,6 +233,7 @@ namespace Calculator2
             this.PgmKey5.TabIndex = 54;
             this.PgmKey5.Text = "5";
             this.PgmKey5.UseVisualStyleBackColor = false;
+            this.PgmKey5.Click += new System.EventHandler(this.PgmKey5_Click);
             // 
             // PgmKey4
             // 
@@ -236,6 +247,7 @@ namespace Calculator2
             this.PgmKey4.TabIndex = 53;
             this.PgmKey4.Text = "4";
             this.PgmKey4.UseVisualStyleBackColor = false;
+            this.PgmKey4.Click += new System.EventHandler(this.PgmKey4_Click);
             // 
             // PgmKeyAdd
             // 
@@ -262,6 +274,7 @@ namespace Calculator2
             this.PgmKey3.TabIndex = 51;
             this.PgmKey3.Text = "3";
             this.PgmKey3.UseVisualStyleBackColor = false;
+            this.PgmKey3.Click += new System.EventHandler(this.PgmKey3_Click);
             // 
             // PgmKey2
             // 
@@ -275,6 +288,7 @@ namespace Calculator2
             this.PgmKey2.TabIndex = 50;
             this.PgmKey2.Text = "2";
             this.PgmKey2.UseVisualStyleBackColor = false;
+            this.PgmKey2.Click += new System.EventHandler(this.PgmKey2_Click);
             // 
             // PgmKey1
             // 
@@ -288,6 +302,7 @@ namespace Calculator2
             this.PgmKey1.TabIndex = 49;
             this.PgmKey1.Text = "1";
             this.PgmKey1.UseVisualStyleBackColor = false;
+            this.PgmKey1.Click += new System.EventHandler(this.PgmKey1_Click);
             // 
             // PgmKeyResult
             // 
@@ -314,6 +329,7 @@ namespace Calculator2
             this.PgmKeyDot.TabIndex = 47;
             this.PgmKeyDot.Text = ".";
             this.PgmKeyDot.UseVisualStyleBackColor = false;
+            this.PgmKeyDot.Click += new System.EventHandler(this.PgmKeyDot_Click);
             // 
             // PgmKey0
             // 
@@ -327,6 +343,7 @@ namespace Calculator2
             this.PgmKey0.TabIndex = 46;
             this.PgmKey0.Text = "0";
             this.PgmKey0.UseVisualStyleBackColor = false;
+            this.PgmKey0.Click += new System.EventHandler(this.PgmKey0_Click);
             // 
             // PgmKeyAddSub
             // 
@@ -340,6 +357,7 @@ namespace Calculator2
             this.PgmKeyAddSub.TabIndex = 45;
             this.PgmKeyAddSub.Text = "±";
             this.PgmKeyAddSub.UseVisualStyleBackColor = false;
+            this.PgmKeyAddSub.Click += new System.EventHandler(this.PgmKeyAddSub_Click);
             // 
             // HexA
             // 
