@@ -33,7 +33,7 @@ namespace Calculator2
 
         private void ViewBIN_CheckedChanged(object sender, EventArgs e)
         {
-
+            PGM.keyPgm.ActivePgmKey(4);
         }
 
         public void PressNum(string data)    // 입력 값
