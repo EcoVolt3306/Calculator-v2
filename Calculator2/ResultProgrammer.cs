@@ -20,7 +20,6 @@ namespace Calculator2
         {
             if (ViewHEX.Checked == true) PGM.keyPgm.ActivePgmKey(1);
             else return;
-
         }
 
         private void ViewDEC_CheckedChanged(object sender, EventArgs e)
@@ -39,6 +38,11 @@ namespace Calculator2
         {
             if (ViewBIN.Checked == true) PGM.keyPgm.ActivePgmKey(4);
             else return;
+
+            if(outResult.Text != null || outResult.Text != "")
+            {
+                outResult.Text = PGM.resPgm.C10to2(outResult.Text);
+            }
         }
 
         public void PressNum(string data)    // 입력 값
@@ -166,6 +170,18 @@ namespace Calculator2
             outExp.Text += PGM.data + " = ";
             outResult.Text = PGM.operand.ToString();
             PGM.data = PGM.operand.ToString();
+        }
+
+        public string C10to2(string data) // 10진수 -> 2진수
+        {
+            string result = Convert.ToString(int.Parse(data), 2);
+            return result;
+        }
+
+        public string C2to10(string data) // 10진수 -> 2진수
+        {
+            int result = Convert.ToInt32(data, 2);
+            return result.ToString();
         }
 
     }

@@ -22,7 +22,6 @@ namespace Calculator2
             this.AreaKeypad.Controls.Add(STN.keyStn);
 
 
-
             for (int i = 0; i < HIS.loopNow; i++)
             {
                 Label HisExp = new Label();
