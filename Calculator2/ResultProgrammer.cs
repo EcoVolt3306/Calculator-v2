@@ -93,7 +93,7 @@ namespace Calculator2
             PGM.data = null;
             PGM.calTypeA = 0;
             PGM.calTypeB = 0;
-            PGM.operand = 0;
+            PGM.dataDEC = 0;
             PGM.answer = 0;
         }
 
@@ -126,12 +126,29 @@ namespace Calculator2
                     outExp.Text += " ÷ ";
                     break;
             }
-            outResult.Text = PGM.operand.ToString();
+            outResult.Text = PGM.dataDEC.ToString();
         }
 
-        public void PressOperatorFirst(string data, int calTypeA)
-        {
-            PGM.operand = double.Parse(data);
+        public void PressOperatorFirst(string data, int calTypeA, int outType)
+        {   // 타입 관계없이 10진수(DEC)로 변환 및 저장
+            switch (outType)
+            {
+                case 1:
+                    PGM.dataDEC = Convert.ToInt32(data, 16);    // 10진수 변환 후 DEC에 저장
+                    MessageBox.Show(PGM.dataDEC.ToString());
+                    break;
+                case 2:
+                    PGM.dataDEC = double.Parse(data);
+                    break;
+                case 3:
+                    PGM.dataBIN = double.Parse(data);
+                    break;
+                case 4:
+
+                    break;
+            }
+
+            
             PGM.calTypeA = calTypeA;
 
             outExp.Text = data;
@@ -143,16 +160,16 @@ namespace Calculator2
             switch (PGM.calTypeA)
             {
                 case 1: // 덧셈
-                    PGM.operand += double.Parse(data);
+                    PGM.dataDEC += double.Parse(data);
                     break;
                 case 2: // 뺄셈
-                    PGM.operand -= double.Parse(data);
+                    PGM.dataDEC -= double.Parse(data);
                     break;
                 case 3: // 곱셈
-                    PGM.operand *= double.Parse(data);
+                    PGM.dataDEC *= double.Parse(data);
                     break;
                 case 4: // 나눗셈
-                    PGM.operand /= double.Parse(data);
+                    PGM.dataDEC /= double.Parse(data);
                     break;
             }
 
@@ -166,7 +183,7 @@ namespace Calculator2
         public void ExceNullOperand() 
         {
             // 연산자는 있으나, 피연산자가 없을 경우, 입력 값에 피연산자를 넣어 오류를 방지합니다.
-            PGM.data = PGM.operand.ToString();
+            PGM.data = PGM.dataDEC.ToString();
         }
 
         public void PressResult(string data, int calTypeA)
@@ -174,37 +191,40 @@ namespace Calculator2
             switch (PGM.calTypeA)
             {
                 case 1: // 덧셈
-                    PGM.operand += double.Parse(PGM.data);
+                    PGM.dataDEC += double.Parse(PGM.data);
                     break;
                 case 2: // 뺄셈
-                    PGM.operand -= double.Parse(PGM.data);
+                    PGM.dataDEC -= double.Parse(PGM.data);
                     break;
                 case 3: // 곱셈
-                    PGM.operand *= double.Parse(PGM.data);
+                    PGM.dataDEC *= double.Parse(PGM.data);
                     break;
                 case 4: // 나눗셈
-                    PGM.operand /= double.Parse(PGM.data);
+                    PGM.dataDEC /= double.Parse(PGM.data);
                     break;
             }
 
             outExp.Text += PGM.data + " = ";
-            outResult.Text = PGM.operand.ToString();
-            PGM.data = PGM.operand.ToString();
+            outResult.Text = PGM.dataDEC.ToString();
+            PGM.data = PGM.dataDEC.ToString();
         }
 
-        public void SaveOriginalData()
+        public void SaveOriginalData(double data, int outType)
         {
             if (PGM.data != null)
             {
-                switch (PGM.outType)
+                switch (outType)
                 {
                     case 1:
+                        
                         break;
                     case 2:
+                        
                         break;
                     case 3:
                         break;
                     case 4:
+                        
                         break;
                 }
             }
@@ -217,7 +237,7 @@ namespace Calculator2
             return result;
         }
 
-        public string C2to10(string data) // 10진수 -> 2진수
+        public string C2to10(string data) // 2진수 -> 10진수
         {
             int result = Convert.ToInt32(data, 2);
             return result.ToString();

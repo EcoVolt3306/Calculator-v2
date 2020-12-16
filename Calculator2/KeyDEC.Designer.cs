@@ -261,6 +261,7 @@ namespace Calculator2
             this.PgmKeyAdd.TabIndex = 52;
             this.PgmKeyAdd.Text = "+";
             this.PgmKeyAdd.UseVisualStyleBackColor = false;
+            this.PgmKeyAdd.Click += new System.EventHandler(this.PgmKeyAdd_Click);
             // 
             // PgmKey3
             // 

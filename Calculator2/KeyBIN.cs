@@ -59,8 +59,8 @@ namespace Calculator2
 
         private void PgmKeyAdd_Click(object sender, EventArgs e)
         {
-            if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 1);
-            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, PGM.operand, 2);
+            if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 1, PGM.outType);
+            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, PGM.dataDEC, 2);
 
             PGM.answer += 1;
             PGM.data = null;
@@ -68,8 +68,8 @@ namespace Calculator2
 
         private void PgmKeySub_Click(object sender, EventArgs e)
         {
-            if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 2);
-            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, PGM.operand, 2);
+            if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 2, PGM.outType);
+            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, PGM.dataDEC, 2);
 
             PGM.answer += 1;
             PGM.data = null;
@@ -77,8 +77,8 @@ namespace Calculator2
 
         private void PgmKeyMul_Click(object sender, EventArgs e)
         {
-            if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 3);
-            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, PGM.operand, 3);
+            if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 3, PGM.outType);
+            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, PGM.dataDEC, 3);
 
             PGM.answer += 1;
             PGM.data = null;
@@ -86,8 +86,8 @@ namespace Calculator2
 
         private void PgmKeyDiv_Click(object sender, EventArgs e)
         {
-            if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 4);
-            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, PGM.operand, 4);
+            if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 4, PGM.outType);
+            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, PGM.dataDEC, 4);
 
             PGM.answer += 1;
             PGM.data = null;
