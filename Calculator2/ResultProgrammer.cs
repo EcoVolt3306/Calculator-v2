@@ -82,11 +82,55 @@ namespace Calculator2
             outResult.Text = PGM.data;   // 스탠다스 수식 결과에 누른 버튼을 출력
         }
 
-        public void AddSub(string data)
+        public void AddSub(string data, int outType)
         {
+            string strData = data;
+            int temp;
+            Console.WriteLine(data);
+
             // 양수, 음수 전환
-            PGM.data = (-(double.Parse(PGM.data))).ToString();
-            outResult.Text = PGM.data;
+
+            switch (outType)
+            {
+                case 1:
+                    PGM.dataDEC = Convert.ToInt32(data, 16);
+                    break;
+                case 2:
+                    PGM.dataDEC = int.Parse(data);
+                    break;
+                case 3:
+                    PGM.dataDEC = Convert.ToInt32(data, 8);
+                    break;
+                case 4:
+                    PGM.dataDEC = Convert.ToInt32(data, 2);
+                    break;
+            }
+
+            temp = -((int)PGM.dataDEC);
+            Console.WriteLine(temp);
+
+            switch (outType)
+            {
+                case 1:
+                    PGM.dataHEX = Convert.ToString((int)temp, 16).ToString();
+                    outResult.Text = PGM.dataHEX;
+                    break;
+                case 2:
+                    PGM.dataDEC = temp;
+                    Console.WriteLine("sdas"+PGM.dataDEC);
+                    outResult.Text = PGM.dataDEC.ToString();
+                    break;
+                case 3:
+                    PGM.dataHEX = Convert.ToString((int)temp, 10).ToString();
+                    outResult.Text = PGM.dataOCT;
+                    break;
+                case 4:
+                    PGM.dataHEX = Convert.ToString((int)temp, 2).ToString();
+                    outResult.Text = PGM.dataBIN;
+                    break;
+            }
+
+            
         }
 
         public void ClearAll()

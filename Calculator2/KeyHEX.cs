@@ -83,7 +83,7 @@ namespace Calculator2
 
         private void PgmKeyAddSub_Click(object sender, EventArgs e)
         {
-            PGM.resPgm.AddSub(PGM.data);    // DEC 기준
+            PGM.resPgm.AddSub(PGM.data , PGM.outType);
 
 
         }
