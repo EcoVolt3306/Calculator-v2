@@ -42,14 +42,13 @@ namespace Calculator2
 
         private void PgmKeyCE_Click(object sender, EventArgs e)
         {
-            if (PGM.data == null) PGM.resPgm.Clear();
+            if (PGM.data == null) PGM.resPgm.ClearOut();
             PGM.resPgm.ClearCE();
         }
 
         private void PgmKeyC_Click(object sender, EventArgs e)
         {
-            PGM.resPgm.ClearData();
-            PGM.resPgm.Clear();
+            PGM.resPgm.ClearAll();
         }
 
         private void PgmKeyDelete_Click(object sender, EventArgs e)

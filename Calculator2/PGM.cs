@@ -16,7 +16,7 @@ namespace Calculator2
         public static KeyOCT keyOCT = new KeyOCT();
         public static KeyBIN keyBIN = new KeyBIN();
 
-        public static int calTypeA, calTypeB, answer, cntUse, outType = 0;   // 연산기호 종류
+        public static int calTypeA, calTypeB, answer, cntUse, outType, lastOutType = 0;   // 연산기호 종류
         public static double dataDEC = 0;
         public static string data, dataHEX, dataOCT, dataBIN = null;
 

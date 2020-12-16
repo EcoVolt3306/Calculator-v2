@@ -20,8 +20,11 @@ namespace Calculator2
         {
             if (ViewHEX.Checked == true)
             {
-                PGM.keyPgm.ActivePgmKey(1);
                 PGM.outType = 1;
+                if (outResult.Text != "0") PGM.resPgm.PutResText(PGM.resPgm.outResult.Text, PGM.lastOutType);
+                ClearChange(PGM.outType);
+                PGM.keyPgm.ActivePgmKey(1);
+                PGM.lastOutType = 1;
                 PGM.data = null;
             }
             else return;
@@ -31,9 +34,12 @@ namespace Calculator2
         {
             if (ViewDEC.Checked == true)
             {
+                ClearChange(2);
+                if (outResult.Text != "0") PGM.resPgm.PutResText(PGM.resPgm.outResult.Text, PGM.lastOutType);
                 PGM.keyPgm.ActivePgmKey(2);
                 PGM.outType = 2;
                 PGM.data = null;
+                PGM.lastOutType = 2;
             }
             else return;
         }
@@ -42,9 +48,12 @@ namespace Calculator2
         {
             if (ViewOCT.Checked == true)
             {
+                ClearChange(3);
+                if (outResult.Text != "0") PGM.resPgm.PutResText(PGM.resPgm.outResult.Text, PGM.lastOutType);
                 PGM.keyPgm.ActivePgmKey(3);
                 PGM.outType = 3;
                 PGM.data = null;
+                PGM.lastOutType = 3;
             }
             else return;
         }
@@ -53,16 +62,14 @@ namespace Calculator2
         {
             if (ViewBIN.Checked == true)
             {
+                ClearChange(4);
+                if (outResult.Text != "0") PGM.resPgm.PutResText(PGM.resPgm.outResult.Text, PGM.lastOutType);
                 PGM.keyPgm.ActivePgmKey(4);
                 PGM.outType = 4;
                 PGM.data = null;
+                PGM.lastOutType = 4;
             }
             else return;
-
-            if(outResult.Text != null || outResult.Text != "")
-            {
-                outResult.Text = PGM.resPgm.C10to2(outResult.Text);
-            }
         }
 
         public void PressNum(string data)    // 입력 값
@@ -77,7 +84,23 @@ namespace Calculator2
             outResult.Text = PGM.data;
         }
 
-        public void Clear()
+        public void ClearAll()
+        {
+            ClearOut();
+
+            PGM.calTypeA = 0;
+            PGM.calTypeB = 0;
+            PGM.answer = 0;
+            PGM.cntUse = 0;
+            PGM.outType = 0;
+
+            PGM.dataHEX = null;
+            PGM.dataDEC = 0;
+            PGM.dataOCT = null;
+            PGM.dataBIN = null;
+        }
+
+        public void ClearOut()
         {
             outExp.Text = "";
             outResult.Text = "0";
@@ -88,13 +111,36 @@ namespace Calculator2
             PGM.data = null;
             outResult.Text = "0";
         }
-        public void ClearData()
+        public void ClearChange(int outType)
         {
-            PGM.data = null;
             PGM.calTypeA = 0;
             PGM.calTypeB = 0;
-            PGM.dataDEC = 0;
             PGM.answer = 0;
+            PGM.cntUse = 0;
+            PGM.outType = 0;
+
+            PGM.dataHEX = null;
+            //PGM.dataDEC = 0;
+            PGM.dataOCT = null;
+            PGM.dataBIN = null;
+
+            outExp.Text = null;
+
+            switch (outType)
+            {
+                case 1:
+                    outResult.Text = Convert.ToString((int)PGM.dataDEC, 16);
+                    break;
+                case 2:
+                    outResult.Text = PGM.dataDEC.ToString();
+                    break;
+                case 3:
+                    outResult.Text = Convert.ToString((int)PGM.dataDEC, 8);
+                    break;
+                case 4:
+                    outResult.Text = Convert.ToString((int)PGM.dataDEC, 2);
+                    break;
+            }
         }
 
         public void DataDelete()
@@ -134,6 +180,8 @@ namespace Calculator2
 
         public void PressOperatorFirst(string data, int calTypeA, int outType)
         {   // 타입 관계없이 10진수(DEC)로 변환 및 저장
+            
+
             switch (outType)
             {
                 case 1:
@@ -295,18 +343,23 @@ namespace Calculator2
 
         }
 
-
-
-        public string C10to2(string data) // 10진수 -> 2진수
+        public void PutResText(string text, int lastOutType)
         {
-            string result = Convert.ToString(int.Parse(data), 2);
-            return result;
-        }
-
-        public string C2to10(string data) // 2진수 -> 10진수
-        {
-            int result = Convert.ToInt32(data, 2);
-            return result.ToString();
+            switch (lastOutType)    // 기존 데이터를 10진수로 변환
+            {
+                case 1:
+                    PGM.dataDEC = Convert.ToInt32(text, 16);
+                    break;
+                case 2:
+                    PGM.dataDEC = double.Parse(text);
+                    break;
+                case 3:
+                    PGM.dataDEC = Convert.ToInt32(text, 8);
+                    break;
+                case 4:
+                    PGM.dataDEC = Convert.ToInt32(text, 2);
+                    break;
+            }
         }
 
     }

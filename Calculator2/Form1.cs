@@ -103,6 +103,7 @@ namespace Calculator2
                 // Keypad Default : DEC(10)
                 PGM.keyPgm.ActivePgmKey(2);
                 PGM.outType = 2;
+                PGM.lastOutType = 2;
 
             STN.resStn.ClearData();
             STN.resStn.Clear();
