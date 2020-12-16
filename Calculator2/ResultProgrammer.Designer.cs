@@ -44,7 +44,6 @@ namespace Calculator2
             this.outExp.Name = "outExp";
             this.outExp.Size = new System.Drawing.Size(277, 27);
             this.outExp.TabIndex = 21;
-            this.outExp.Text = "(exp)";
             this.outExp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // outResult

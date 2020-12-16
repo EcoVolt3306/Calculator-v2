@@ -425,5 +425,11 @@ namespace Calculator2
             }
         }
 
+        public void ExDataNull()
+        {
+            if (PGM.data == null)
+                PGM.data = outResult.Text;
+        }
+
     }
 }

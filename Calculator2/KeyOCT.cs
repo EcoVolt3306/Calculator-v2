@@ -95,6 +95,7 @@ namespace Calculator2
 
         private void PgmKeyAdd_Click(object sender, EventArgs e)
         {
+            PGM.resPgm.ExDataNull();
             if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 1, PGM.outType);
             else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, 1, PGM.outType);
 
@@ -104,6 +105,7 @@ namespace Calculator2
 
         private void PgmKeySub_Click(object sender, EventArgs e)
         {
+            PGM.resPgm.ExDataNull();
             if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 2, PGM.outType);
             else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, 2, PGM.outType);
 
@@ -113,6 +115,7 @@ namespace Calculator2
 
         private void PgmKeyMul_Click(object sender, EventArgs e)
         {
+            PGM.resPgm.ExDataNull();
             if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 3, PGM.outType);
             else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, 3, PGM.outType);
 
@@ -122,6 +125,7 @@ namespace Calculator2
 
         private void PgmKeyDiv_Click(object sender, EventArgs e)
         {
+            PGM.resPgm.ExDataNull();
             if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 4, PGM.outType);
             else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, 4, PGM.outType);
 
