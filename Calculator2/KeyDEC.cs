@@ -146,7 +146,7 @@ namespace Calculator2
         {
             if (PGM.data == null && PGM.calTypeA != 0) PGM.resPgm.ExceNullOperand();    // 피연산자 오류 방지
             PGM.resPgm.PressResult(PGM.data, PGM.calTypeA, PGM.outType); // 계산
-            PGM.resPgm.ClearRes();
+            //PGM.resPgm.ClearRes();
 
             // History
             if (KeypadStandard.cntUse == 0)

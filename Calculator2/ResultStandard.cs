@@ -93,6 +93,7 @@ namespace Calculator2
                     break;
             }
 
+
             outExp.Text += data + " = ";
             outResult.Text = KeypadStandard.operand.ToString();
             KeypadStandard.data = KeypadStandard.operand.ToString();

@@ -21,6 +21,10 @@ namespace Calculator2
             this.AreaResult.Controls.Add(STN.resStn);
             this.AreaKeypad.Controls.Add(STN.keyStn);
 
+            PGM.keyPgm.ActivePgmKey(2);
+            PGM.outType = 2;
+            PGM.lastOutType = 2;
+
 
             for (int i = 0; i < HIS.loopNow; i++)
             {
@@ -105,9 +109,7 @@ namespace Calculator2
             if (this.AreaKeypad.Controls.Count > 0) this.AreaKeypad.Controls.Clear();   // 패널 초기화
             this.AreaKeypad.Controls.Add(PGM.keyPgm);
                 // Keypad Default : DEC(10)
-                PGM.keyPgm.ActivePgmKey(2);
-                PGM.outType = 2;
-                PGM.lastOutType = 2;
+
 
             STN.resStn.ClearData();
             STN.resStn.Clear();
