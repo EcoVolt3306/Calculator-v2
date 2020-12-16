@@ -96,8 +96,9 @@ namespace Calculator2
             PGM.calTypeA = 0;
             PGM.calTypeB = 0;
             PGM.answer = 0;
-            //PGM.cntUse = 0;
+            PGM.cntUse = 0;
             //PGM.outType = 0;
+            PGM.lastOutType = PGM.outType;
 
             PGM.data = null;
             PGM.dataHEX = null;
@@ -385,7 +386,44 @@ namespace Calculator2
             }
         }
 
+        // Histroy for PGM
 
+        public void SaveHistoryFirst()
+        {
+            HIS.dicExp[0].Text = outExp.Text;
+            HIS.dicRes[0].Text = outResult.Text;
+        }
+        public void SaveMemoryFirst()
+        {
+            HIS.dicMemExp[0].Text = outExp.Text;
+            HIS.dicMemRes[0].Text = outResult.Text;
+        }
+        public void SaveHistoryLoopNow()
+        {
+            for (int i = KeypadStandard.cntUse; i > 0; i--)  // Array 초과 Exception
+            {
+                if (i >= HIS.loopNow)
+                {
+                    i = HIS.loopNow - 1;
+                }
+
+                HIS.dicExp[i].Text = HIS.dicExp[i - 1].Text;
+                HIS.dicRes[i].Text = HIS.dicRes[i - 1].Text;
+            }
+        }
+        public void SaveHistoryLoopMemory()
+        {
+            for (int i = KeypadStandard.cntUse; i > 0; i--)  // Array 초과 Exception
+            {
+                if (i >= HIS.loopMemory)
+                {
+                    i = HIS.loopMemory - 1;
+                }
+
+                HIS.dicMemExp[i].Text = HIS.dicMemExp[i - 1].Text;
+                HIS.dicMemRes[i].Text = HIS.dicMemRes[i - 1].Text;
+            }
+        }
 
     }
 }

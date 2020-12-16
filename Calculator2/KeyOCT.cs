@@ -135,7 +135,22 @@ namespace Calculator2
             PGM.resPgm.PressResult(PGM.data, PGM.calTypeA, PGM.outType); // 계산
             PGM.resPgm.ClearRes();
 
-            PGM.cntUse++;
+            // History
+            if (KeypadStandard.cntUse == 0)
+            {
+                PGM.resPgm.SaveHistoryFirst();
+                PGM.resPgm.SaveMemoryFirst();
+            }
+            else if (KeypadStandard.cntUse > 0)
+            {
+                PGM.resPgm.SaveHistoryLoopNow();
+                PGM.resPgm.SaveHistoryFirst();
+
+                PGM.resPgm.SaveHistoryLoopMemory();
+                PGM.resPgm.SaveMemoryFirst();
+            }
+
+            KeypadStandard.cntUse++;
         }
     }
 }
