@@ -60,7 +60,7 @@ namespace Calculator2
         private void PgmKeyAdd_Click(object sender, EventArgs e)
         {
             if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 1, PGM.outType);
-            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, PGM.dataDEC, 2);
+            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, 1, PGM.outType);
 
             PGM.answer += 1;
             PGM.data = null;
@@ -69,7 +69,7 @@ namespace Calculator2
         private void PgmKeySub_Click(object sender, EventArgs e)
         {
             if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 2, PGM.outType);
-            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, PGM.dataDEC, 2);
+            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, 2, PGM.outType);
 
             PGM.answer += 1;
             PGM.data = null;
@@ -78,7 +78,7 @@ namespace Calculator2
         private void PgmKeyMul_Click(object sender, EventArgs e)
         {
             if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 3, PGM.outType);
-            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, PGM.dataDEC, 3);
+            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, 3, PGM.outType);
 
             PGM.answer += 1;
             PGM.data = null;
@@ -87,7 +87,7 @@ namespace Calculator2
         private void PgmKeyDiv_Click(object sender, EventArgs e)
         {
             if (PGM.answer == 0) PGM.resPgm.PressOperatorFirst(PGM.data, 4, PGM.outType);
-            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, PGM.dataDEC, 4);
+            else if (PGM.answer > 0) PGM.resPgm.PressOperator(PGM.data, 4, PGM.outType);
 
             PGM.answer += 1;
             PGM.data = null;
@@ -96,7 +96,7 @@ namespace Calculator2
         private void PgmKeyResult_Click(object sender, EventArgs e)
         {
             if (PGM.data == null && PGM.calTypeA != 0) PGM.resPgm.ExceNullOperand();    // 피연산자 오류 방지
-            PGM.resPgm.PressResult(PGM.data, PGM.calTypeA); // 계산
+            PGM.resPgm.PressResult(PGM.data, PGM.calTypeA, PGM.outType); // 계산
             STN.resStn.ClearData();
 
             PGM.cntUse++;

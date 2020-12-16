@@ -317,6 +317,7 @@ namespace Calculator2
             this.PgmKeyResult.TabIndex = 48;
             this.PgmKeyResult.Text = "=";
             this.PgmKeyResult.UseVisualStyleBackColor = false;
+            this.PgmKeyResult.Click += new System.EventHandler(this.PgmKeyResult_Click);
             // 
             // PgmKeyDot
             // 
