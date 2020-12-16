@@ -21,12 +21,14 @@ namespace Calculator2
             if (ViewHEX.Checked == true)
             {
                 PGM.outType = 1;
-                if (outResult.Text != "0") PGM.resPgm.PutResText(PGM.resPgm.outResult.Text, PGM.lastOutType);
-                ClearChange(PGM.outType);
+                if (outResult.Text != "0" && PGM.dataDEC == 0) PGM.resPgm.PutResText(PGM.resPgm.outResult.Text, PGM.lastOutType);
+                
+                ClearChange(1);
+
                 PGM.keyPgm.ActivePgmKey(1);
-                PGM.lastOutType = 1;
                 PGM.data = null;
             }
+            else if (ViewHEX.Checked == false) PGM.lastOutType = 1;
             else return;
         }
 
@@ -34,13 +36,14 @@ namespace Calculator2
         {
             if (ViewDEC.Checked == true)
             {
-                ClearChange(2);
-                if (outResult.Text != "0") PGM.resPgm.PutResText(PGM.resPgm.outResult.Text, PGM.lastOutType);
-                PGM.keyPgm.ActivePgmKey(2);
                 PGM.outType = 2;
+                if (outResult.Text != "0" && PGM.dataDEC == 0) PGM.resPgm.PutResText(PGM.resPgm.outResult.Text, PGM.lastOutType);
+                ClearChange(2);
+
+                PGM.keyPgm.ActivePgmKey(2);
                 PGM.data = null;
-                PGM.lastOutType = 2;
             }
+            else if (ViewHEX.Checked == false) PGM.lastOutType = 2;
             else return;
         }
 
@@ -48,13 +51,14 @@ namespace Calculator2
         {
             if (ViewOCT.Checked == true)
             {
-                ClearChange(3);
-                if (outResult.Text != "0") PGM.resPgm.PutResText(PGM.resPgm.outResult.Text, PGM.lastOutType);
-                PGM.keyPgm.ActivePgmKey(3);
                 PGM.outType = 3;
+                if (outResult.Text != "0" && PGM.dataDEC == 0) PGM.resPgm.PutResText(PGM.resPgm.outResult.Text, PGM.lastOutType);
+                ClearChange(3);
+
+                PGM.keyPgm.ActivePgmKey(3);
                 PGM.data = null;
-                PGM.lastOutType = 3;
             }
+            else if (ViewHEX.Checked == false) PGM.lastOutType = 3;
             else return;
         }
 
@@ -62,13 +66,14 @@ namespace Calculator2
         {
             if (ViewBIN.Checked == true)
             {
-                ClearChange(4);
-                if (outResult.Text != "0") PGM.resPgm.PutResText(PGM.resPgm.outResult.Text, PGM.lastOutType);
-                PGM.keyPgm.ActivePgmKey(4);
                 PGM.outType = 4;
+                if (outResult.Text != "0" && PGM.dataDEC == 0) PGM.resPgm.PutResText(PGM.resPgm.outResult.Text, PGM.lastOutType);
+                ClearChange(4);
+
+                PGM.keyPgm.ActivePgmKey(4);
                 PGM.data = null;
-                PGM.lastOutType = 4;
             }
+            else if (ViewHEX.Checked == false) PGM.lastOutType = 4;
             else return;
         }
 
@@ -91,9 +96,10 @@ namespace Calculator2
             PGM.calTypeA = 0;
             PGM.calTypeB = 0;
             PGM.answer = 0;
-            PGM.cntUse = 0;
-            PGM.outType = 0;
+            //PGM.cntUse = 0;
+            //PGM.outType = 0;
 
+            PGM.data = null;
             PGM.dataHEX = null;
             PGM.dataDEC = 0;
             PGM.dataOCT = null;
@@ -111,13 +117,25 @@ namespace Calculator2
             PGM.data = null;
             outResult.Text = "0";
         }
+
+        public void ClearRes()  // 결과 계산 후 데이터 초기화
+        {
+            PGM.calTypeA = 0;
+            PGM.calTypeB = 0;
+            PGM.answer = 0;
+            PGM.data = null;
+            //PGM.cntUse = 0;
+            //PGM.outType = 0;
+
+        }
+
         public void ClearChange(int outType)
         {
             PGM.calTypeA = 0;
             PGM.calTypeB = 0;
             PGM.answer = 0;
-            PGM.cntUse = 0;
-            PGM.outType = 0;
+            //PGM.cntUse = 0;
+            //PGM.outType = 0;
 
             PGM.dataHEX = null;
             //PGM.dataDEC = 0;
@@ -349,18 +367,25 @@ namespace Calculator2
             {
                 case 1:
                     PGM.dataDEC = Convert.ToInt32(text, 16);
+                    PGM.data = text;
+                    Console.WriteLine(PGM.dataDEC);
                     break;
                 case 2:
-                    PGM.dataDEC = double.Parse(text);
+                    PGM.dataDEC = int.Parse(text);
+                    PGM.data = text;
                     break;
                 case 3:
                     PGM.dataDEC = Convert.ToInt32(text, 8);
+                    PGM.data = text;
                     break;
                 case 4:
                     PGM.dataDEC = Convert.ToInt32(text, 2);
+                    PGM.data = text;
                     break;
             }
         }
+
+
 
     }
 }
