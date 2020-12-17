@@ -23,6 +23,8 @@ namespace Calculator2
         }
         public void PressOperatorFirst(string data, int calTypeA)
         {
+            KeypadStandard.operandExt = double.Parse(data);
+
             KeypadStandard.operand = double.Parse(data);
             KeypadStandard.calTypeA = calTypeA;
 
@@ -84,9 +86,11 @@ namespace Calculator2
 
         public void PressResult(string data, int calTypeA) // = 계산
         {
-            if (data == null && KeypadStandard.operandExt != 0)
+            Console.WriteLine("data: " + data + "\tcalTypeA:" + calTypeA + "\tExt:" + KeypadStandard.operandExt);
+            if (data == "0")
             {
-                data = KeypadStandard.operandExt.ToString();
+                KeypadStandard.data = null;
+                return;
             }
 
             switch (KeypadStandard.calTypeA)

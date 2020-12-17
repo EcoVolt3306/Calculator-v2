@@ -142,17 +142,14 @@ namespace Calculator2
 
         private void StnKeyRes_Click(object sender, EventArgs e)
         {
-
             if(data == null)
             {
                 if (calTypeA != 0) STN.resStn.ExceNullOperand();    // 피연산자 오류 방지
                 else return;    // 0 상태로 합산시 예외처리
             }
 
-
             STN.resStn.PressResult(data, calTypeA); // 계산
 
-            //STN.resStn.ClearData();
 
             // History
             if (KeypadStandard.cntUse == 0)
