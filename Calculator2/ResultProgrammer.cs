@@ -23,7 +23,7 @@ namespace Calculator2
                 PGM.outType = 1;
                 if (outResult.Text != "0" && PGM.dataDEC == 0) PGM.resPgm.PutResText(PGM.resPgm.outResult.Text, PGM.lastOutType);
                 
-                ClearChange(1);
+                ClearChange();
 
                 PGM.keyPgm.ActivePgmKey(1);
                 PGM.data = null;
@@ -38,7 +38,7 @@ namespace Calculator2
             {
                 PGM.outType = 2;
                 if (outResult.Text != "0" && PGM.dataDEC == 0) PGM.resPgm.PutResText(PGM.resPgm.outResult.Text, PGM.lastOutType);
-                ClearChange(2);
+                ClearChange();
 
                 PGM.keyPgm.ActivePgmKey(2);
                 PGM.data = null;
@@ -53,7 +53,7 @@ namespace Calculator2
             {
                 PGM.outType = 3;
                 if (outResult.Text != "0" && PGM.dataDEC == 0) PGM.resPgm.PutResText(PGM.resPgm.outResult.Text, PGM.lastOutType);
-                ClearChange(3);
+                ClearChange();
 
                 PGM.keyPgm.ActivePgmKey(3);
                 PGM.data = null;
@@ -68,7 +68,7 @@ namespace Calculator2
             {
                 PGM.outType = 4;
                 if (outResult.Text != "0" && PGM.dataDEC == 0) PGM.resPgm.PutResText(PGM.resPgm.outResult.Text, PGM.lastOutType);
-                ClearChange(4);
+                ClearChange();
 
                 PGM.keyPgm.ActivePgmKey(4);
                 PGM.data = null;
@@ -82,19 +82,20 @@ namespace Calculator2
             outResult.Text = PGM.data;   // 스탠다스 수식 결과에 누른 버튼을 출력
         }
 
-        public void AddSub(string data, int outType)
+        public void AddSub(string data, int lastOutType, int outType)
         {
-            int temp;
+            int neg;
+            string negHEX = null, negOCT = null, negBIN = null;
 
             // 양수, 음수 전환
 
-            switch (outType)
+            switch (lastOutType)
             {
                 case 1:
                     PGM.dataDEC = Convert.ToInt32(data, 16);
                     break;
                 case 2:
-                    PGM.dataDEC = int.Parse(data);
+                    PGM.dataDEC = double.Parse(data);
                     break;
                 case 3:
                     PGM.dataDEC = Convert.ToInt32(data, 8);
@@ -104,31 +105,32 @@ namespace Calculator2
                     break;
             }
 
-            temp = -((int)PGM.dataDEC);
-            Console.WriteLine(temp);
+            neg = -((int)PGM.dataDEC);
+            Console.WriteLine(neg);
+
 
             switch (outType)
             {
                 case 1:
-                    PGM.dataHEX = Convert.ToString((int)temp, 16).ToString();
-                    outResult.Text = PGM.dataHEX;
+                    negHEX = Convert.ToString((int)neg, 16).ToString();
+                    PGM.dataHEX = Convert.ToString((int)PGM.dataDEC, 16).ToString();
+                    outResult.Text = negHEX.ToString();
                     break;
                 case 2:
-                    PGM.dataDEC = temp;
-                    Console.WriteLine("sdas"+PGM.dataDEC);
-                    outResult.Text = PGM.dataDEC.ToString();
+                    outResult.Text = neg.ToString();
                     break;
                 case 3:
-                    PGM.dataOCT = Convert.ToString((int)temp, 10).ToString();
-                    outResult.Text = PGM.dataOCT;
+                    negOCT = Convert.ToString((int)neg, 8).ToString();
+                    PGM.dataOCT = Convert.ToString((int)PGM.dataDEC, 8).ToString();
+                    outResult.Text = negOCT.ToString();
                     break;
                 case 4:
-                    PGM.dataBIN = Convert.ToString((int)temp, 2).ToString();
-                    outResult.Text = PGM.dataBIN;
+                    negBIN = Convert.ToString((int)neg, 2).ToString();
+                    PGM.dataBIN = Convert.ToString((int)PGM.dataDEC, 2).ToString();
+                    outResult.Text = negBIN.ToString();
                     break;
             }
 
-            
         }
 
         public void ClearAll()
@@ -172,7 +174,7 @@ namespace Calculator2
 
         }
 
-        public void ClearChange(int outType)
+        public void ClearChange()
         {
             PGM.calTypeA = 0;
             PGM.calTypeB = 0;
@@ -181,13 +183,16 @@ namespace Calculator2
             //PGM.outType = 0;
 
             PGM.dataHEX = null;
-            //PGM.dataDEC = 0;
+            PGM.dataDEC = 0;
             PGM.dataOCT = null;
             PGM.dataBIN = null;
 
             outExp.Text = null;
+        }
 
-            switch (outType)
+        public void MoveResultData(int lastOutType, int outType)
+        {
+            switch (lastOutType)
             {
                 case 1:
                     outResult.Text = Convert.ToString((int)PGM.dataDEC, 16);
@@ -406,12 +411,12 @@ namespace Calculator2
 
         public void PutResText(string text, int lastOutType)
         {
+            // text = outResult.Text
             switch (lastOutType)    // 기존 데이터를 10진수로 변환
             {
                 case 1:
                     PGM.dataDEC = Convert.ToInt32(text, 16);
                     PGM.data = text;
-                    Console.WriteLine(PGM.dataDEC);
                     break;
                 case 2:
                     PGM.dataDEC = int.Parse(text);
