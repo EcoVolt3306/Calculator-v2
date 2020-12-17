@@ -99,14 +99,14 @@ namespace Calculator2
 
         private void StnKeyCE_Click(object sender, EventArgs e)
         {
-            if (data == null) STN.resStn.Clear();
+            //if (data == null) STN.resStn.ClearOut();
             STN.resStn.ClearCE();
         }
 
         private void StnKeyC_Click(object sender, EventArgs e)
         {
             STN.resStn.ClearData(); // 데이터 초기화
-            STN.resStn.Clear();    // 수식 및 결과 초기화
+            STN.resStn.ClearOut();    // 수식 및 결과 초기화
         }
 
         private void StnKeyDelete_Click(object sender, EventArgs e)
@@ -152,8 +152,11 @@ namespace Calculator2
 
         private void StnKeyRes_Click(object sender, EventArgs e)
         {
+            if (data == null && STN.resStn.OutResult() == "0") return;  // 0 상태로 합산시 예외처리
             if (data == null && calTypeA != 0) STN.resStn.ExceNullOperand();    // 피연산자 오류 방지
+
             STN.resStn.PressResult(data, calTypeA); // 계산
+
             STN.resStn.ClearData();
 
             // History

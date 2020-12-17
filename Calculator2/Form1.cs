@@ -112,7 +112,7 @@ namespace Calculator2
 
 
             STN.resStn.ClearData();
-            STN.resStn.Clear();
+            STN.resStn.ClearOut();
         }
 
     }

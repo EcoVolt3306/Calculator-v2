@@ -117,17 +117,13 @@ namespace Calculator2
             else outResult.Text = KeypadStandard.data;
         }
 
-        public void Clear()
+        public void ClearOut()
         {
             outExp.Text = "";
             outResult.Text = "0";
             Console.WriteLine("Clear : 초기화 되었습니다.");
         }
-        public void ClearCE()
-        {
-            KeypadStandard.data = null;
-            outResult.Text = "0";
-        }
+
         public void ClearData()
         {
             KeypadStandard.data = null;
@@ -135,6 +131,19 @@ namespace Calculator2
             KeypadStandard.calTypeB = 0;
             KeypadStandard.operand = 0;
             KeypadStandard.answer = 0;
+        }
+
+        public void ClearCE()
+        {
+            if (KeypadStandard.data != null)
+            {
+                outResult.Text = "0";
+                KeypadStandard.data = null;
+            } else
+            {
+                ClearOut();
+                ClearData();
+            }
         }
         public void AddSub(string data)
         {   // 양수, 음수 전환
@@ -179,6 +188,12 @@ namespace Calculator2
                 HIS.dicMemExp[i].Text = HIS.dicMemExp[i - 1].Text;
                 HIS.dicMemRes[i].Text = HIS.dicMemRes[i - 1].Text;
             }
+        }
+
+        public string OutResult()
+        {
+            string text = outResult.Text;
+            return text;
         }
     }
 }
