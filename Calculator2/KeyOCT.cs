@@ -133,6 +133,8 @@ namespace Calculator2
 
         private void PgmKeyResult_Click(object sender, EventArgs e)
         {
+            if (PGM.data == null && PGM.resPgm.OutResult() == "0") return;  // 0 상태로 합산시 예외처리
+
             if (PGM.data == null && PGM.calTypeA != 0) PGM.resPgm.ExceNullOperand();    // 피연산자 오류 방지
             PGM.resPgm.PressResult(PGM.data, PGM.calTypeA, PGM.outType); // 계산
             PGM.resPgm.ClearRes();

@@ -258,27 +258,6 @@ namespace Calculator2
             PGM.calTypeA = calTypeB; PGM.calTypeB = 0;  // 연산자 2 초기화
         }
 
-        public void ExceNullOperand() 
-        {
-            // 연산자는 있으나, 피연산자가 없을 경우, 입력 값에 피연산자를 넣어 오류를 방지합니다.
-
-            switch (PGM.outType)
-            {
-                case 1:
-                    PGM.data = Convert.ToString((int)PGM.dataDEC, 16);
-                    break;
-                case 2:
-                    PGM.data = PGM.dataDEC.ToString();
-                    break;
-                case 3:
-                    PGM.data = Convert.ToString((int)PGM.dataDEC, 8);
-                    break;
-                case 4:
-                    PGM.data = Convert.ToString((int)PGM.dataDEC, 2);
-                    break;
-            }
-        }
-
         public void PressResult(string data, int calTypeA, int outType)
         {
 
@@ -468,6 +447,26 @@ namespace Calculator2
                 HIS.dicMemRes[i].Text = HIS.dicMemRes[i - 1].Text;
             }
         }
+        public void ExceNullOperand()
+        {
+            // 연산자는 있으나, 피연산자가 없을 경우, 입력 값에 피연산자를 넣어 오류를 방지합니다.
+
+            switch (PGM.outType)
+            {
+                case 1:
+                    PGM.data = Convert.ToString((int)PGM.dataDEC, 16);
+                    break;
+                case 2:
+                    PGM.data = PGM.dataDEC.ToString();
+                    break;
+                case 3:
+                    PGM.data = Convert.ToString((int)PGM.dataDEC, 8);
+                    break;
+                case 4:
+                    PGM.data = Convert.ToString((int)PGM.dataDEC, 2);
+                    break;
+            }
+        }
 
         public void ExDataNull()
         {
@@ -479,5 +478,7 @@ namespace Calculator2
         {
             return outResult.Text;
         }
+
+
     }
 }
