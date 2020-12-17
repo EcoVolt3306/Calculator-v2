@@ -84,9 +84,7 @@ namespace Calculator2
 
         public void AddSub(string data, int outType)
         {
-            string strData = data;
             int temp;
-            Console.WriteLine(data);
 
             // 양수, 음수 전환
 
@@ -121,11 +119,11 @@ namespace Calculator2
                     outResult.Text = PGM.dataDEC.ToString();
                     break;
                 case 3:
-                    PGM.dataHEX = Convert.ToString((int)temp, 10).ToString();
+                    PGM.dataOCT = Convert.ToString((int)temp, 10).ToString();
                     outResult.Text = PGM.dataOCT;
                     break;
                 case 4:
-                    PGM.dataHEX = Convert.ToString((int)temp, 2).ToString();
+                    PGM.dataBIN = Convert.ToString((int)temp, 2).ToString();
                     outResult.Text = PGM.dataBIN;
                     break;
             }
@@ -475,5 +473,9 @@ namespace Calculator2
                 PGM.data = outResult.Text;
         }
 
+        public string OutResult()
+        {
+            return outResult.Text;
+        }
     }
 }
