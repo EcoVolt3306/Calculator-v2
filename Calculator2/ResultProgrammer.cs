@@ -85,57 +85,6 @@ namespace Calculator2
             outResult.Text = PGM.data;   // 스탠다스 수식 결과에 누른 버튼을 출력
         }
 
-        public void AddSub(string data, int lastOutType, int outType)
-        {
-            int neg;
-            string negHEX = null, negOCT = null, negBIN = null;
-
-            // 양수, 음수 전환
-
-            switch (lastOutType)
-            {
-                case 1:
-                    PGM.dataDEC = Convert.ToInt32(data, 16);
-                    break;
-                case 2:
-                    PGM.dataDEC = double.Parse(data);
-                    break;
-                case 3:
-                    PGM.dataDEC = Convert.ToInt32(data, 8);
-                    break;
-                case 4:
-                    PGM.dataDEC = Convert.ToInt32(data, 2);
-                    break;
-            }
-
-            neg = -((int)PGM.dataDEC);
-            Console.WriteLine(neg);
-
-
-            switch (outType)
-            {
-                case 1:
-                    negHEX = Convert.ToString((int)neg, 16).ToString();
-                    PGM.dataHEX = Convert.ToString((int)PGM.dataDEC, 16).ToString();
-                    outResult.Text = negHEX.ToString();
-                    break;
-                case 2:
-                    outResult.Text = neg.ToString();
-                    break;
-                case 3:
-                    negOCT = Convert.ToString((int)neg, 8).ToString();
-                    PGM.dataOCT = Convert.ToString((int)PGM.dataDEC, 8).ToString();
-                    outResult.Text = negOCT.ToString();
-                    break;
-                case 4:
-                    negBIN = Convert.ToString((int)neg, 2).ToString();
-                    PGM.dataBIN = Convert.ToString((int)PGM.dataDEC, 2).ToString();
-                    outResult.Text = negBIN.ToString();
-                    break;
-            }
-
-        }
-
         public void ClearAll()
         {
             ClearOut();
@@ -433,6 +382,52 @@ namespace Calculator2
             }
 
             return result;
+        }
+
+        public void AddSub(string text, int outType)
+        {
+            int neg = 0;
+            string result = null;
+
+            // 양수, 음수 전환
+
+            // text = outResult.Text
+            switch (outType)    // 기존 데이터를 10진수로 변환
+            {
+                case 1:
+                    neg = Convert.ToInt32(text, 16);
+                    break;
+                case 2:
+                    neg = int.Parse(text);
+                    break;
+                case 3:
+                    neg = Convert.ToInt32(text, 8);
+                    break;
+                case 4:
+                    neg = Convert.ToInt32(text, 2);
+                    break;
+            }
+
+            neg = -(neg);
+            Console.WriteLine("neg : " + neg);
+
+            switch (outType)
+            {
+                case 1:
+                    result = Convert.ToString(neg, 16);
+                    break;
+                case 2:
+                    result = neg.ToString();
+                    break;
+                case 3:
+                    result = Convert.ToString(neg, 8);
+                    break;
+                case 4:
+                    result = Convert.ToString(neg, 2);
+                    break;
+            }
+
+            outResult.Text = result;
         }
 
         // Histroy for PGM
