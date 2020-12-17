@@ -29,9 +29,13 @@ namespace Calculator2
             outExp.Text = data;
             Exp(calTypeA);
 
+            KeypadStandard.answer += 1;
+            KeypadStandard.data = null;
         }
         public void PressOperator(string data, double operand, int calTypeB) // 연산 기호버튼 누를 경우
         {
+            KeypadStandard.operandExt = operand;
+
             switch (KeypadStandard.calTypeA)
             {
                 case 1: // 덧셈
@@ -53,6 +57,9 @@ namespace Calculator2
 
             KeypadStandard.calTypeA = calTypeB;
             KeypadStandard.calTypeB = 0;
+
+            KeypadStandard.answer += 1;
+            KeypadStandard.data = null;
         }
 
         public void Exp(int type)
@@ -77,8 +84,16 @@ namespace Calculator2
 
         public void PressResult(string data, int calTypeA) // = 계산
         {
+            if (data == null && KeypadStandard.operandExt != 0)
+            {
+                data = KeypadStandard.operandExt.ToString();
+            }
+
             switch (KeypadStandard.calTypeA)
             {
+                case 0: // 연산자 비존재 : 예외처리
+                    KeypadStandard.operand += double.Parse(data);
+                    break;
                 case 1: // 덧셈
                     KeypadStandard.operand += double.Parse(data);
                     break;
@@ -93,12 +108,15 @@ namespace Calculator2
                     break;
             }
 
-
             outExp.Text += data + " = ";
             outResult.Text = KeypadStandard.operand.ToString();
             KeypadStandard.data = KeypadStandard.operand.ToString();
 
-
+            KeypadStandard.data = null;
+            //KeypadStandard.calTypeA = 0;
+            KeypadStandard.calTypeB = 0;
+            KeypadStandard.operand = 0;
+            KeypadStandard.answer = 0;
         }
 
         public void ExceNullOperand()
@@ -131,6 +149,7 @@ namespace Calculator2
             KeypadStandard.calTypeB = 0;
             KeypadStandard.operand = 0;
             KeypadStandard.answer = 0;
+            KeypadStandard.operandExt = 0;
         }
 
         public void ClearCE()
@@ -146,7 +165,7 @@ namespace Calculator2
             }
         }
         public void AddSub(string data)
-        {   // 양수, 음수 전환
+        {   // 양수, 음수 전환 
             KeypadStandard.data = (-(double.Parse(data))).ToString();
             outResult.Text = KeypadStandard.data;
         }

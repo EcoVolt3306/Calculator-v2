@@ -13,7 +13,7 @@ namespace Calculator2
     {
         public static string data = null;     // 입력 값
         public static int calTypeA, calTypeB, answer, cntUse = 0;   // 연산기호 종류
-        public static double operand = 0;     // 피연산자
+        public static double operand, operandExt = 0;     // 피연산자
         
 
 
@@ -115,49 +115,44 @@ namespace Calculator2
         }
         private void StnKeyAdd_Click(object sender, EventArgs e)
         {
-            if (answer == 0) STN.resStn.PressOperatorFirst(data, 1);
-            else if (answer > 0) STN.resStn.PressOperator(data, operand, 1);
+            if (answer == 0 && data != null) STN.resStn.PressOperatorFirst(data, 1);
+            else if (answer > 0 && data != null) STN.resStn.PressOperator(data, operand, 1);
 
-            answer += 1;
-            data = null;
         }
 
         private void StnKeySub_Click(object sender, EventArgs e)
         {
-            if (answer == 0) STN.resStn.PressOperatorFirst(data, 2);
-            else if (answer > 0) STN.resStn.PressOperator(data, operand, 2);
-
-            answer += 1;
-            data = null;
+            if (answer == 0 && data != null) STN.resStn.PressOperatorFirst(data, 2);
+            else if (answer > 0 && data != null) STN.resStn.PressOperator(data, operand, 2);
             
         }
 
         private void StnKeyMul_Click(object sender, EventArgs e)
         {
-            if (answer == 0) STN.resStn.PressOperatorFirst(data, 3);
-            else if (answer > 0) STN.resStn.PressOperator(data, operand, 3);
-
-            answer += 1;
-            data = null;
+            if (answer == 0 && data != null) STN.resStn.PressOperatorFirst(data, 3);
+            else if (answer > 0 && data != null) STN.resStn.PressOperator(data, operand, 3);
         }
 
         private void StnKeyDiv_Click(object sender, EventArgs e)
         {
-            if (answer == 0) STN.resStn.PressOperatorFirst(data, 4);
-            else if (answer > 0) STN.resStn.PressOperator(data, operand, 4);
+            if (answer == 0 && data != null) STN.resStn.PressOperatorFirst(data, 4);
+            else if (answer > 0 && data != null) STN.resStn.PressOperator(data, operand, 4);
 
-            answer += 1;
-            data = null;
         }
 
         private void StnKeyRes_Click(object sender, EventArgs e)
         {
-            if (data == null && STN.resStn.OutResult() == "0") return;  // 0 상태로 합산시 예외처리
-            if (data == null && calTypeA != 0) STN.resStn.ExceNullOperand();    // 피연산자 오류 방지
+
+            if(data == null)
+            {
+                if (calTypeA != 0) STN.resStn.ExceNullOperand();    // 피연산자 오류 방지
+                else return;    // 0 상태로 합산시 예외처리
+            }
+
 
             STN.resStn.PressResult(data, calTypeA); // 계산
 
-            STN.resStn.ClearData();
+            //STN.resStn.ClearData();
 
             // History
             if (KeypadStandard.cntUse == 0)
