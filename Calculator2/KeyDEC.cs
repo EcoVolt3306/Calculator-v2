@@ -146,7 +146,6 @@ namespace Calculator2
         {
             if (PGM.data == null)
             {
-               
                 if (PGM.calTypeA != 0) PGM.resPgm.ExceNullOperand();    // 피연산자 오류 방지
                 else if (PGM.resPgm.OutResult() == "0") return;  // 0 상태로 합산시 예외처리
             }

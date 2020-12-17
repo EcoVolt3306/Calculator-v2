@@ -271,6 +271,9 @@ namespace Calculator2
 
             switch (PGM.calTypeA)   // 10진수로 변환된 데이터를 기존 데이터와 연산
             {
+                case 0:
+                    PGM.dataDEC = tmpData;
+                    break;
                 case 1: // 덧셈
                     PGM.dataDEC += tmpData;
                     break;
