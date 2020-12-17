@@ -115,16 +115,6 @@ namespace Calculator2
             outResult.Text = "0";
         }
 
-        public void ClearRes()  // 결과 계산 후 데이터 초기화
-        {
-            PGM.calTypeA = 0;
-            PGM.calTypeB = 0;
-            PGM.answer = 0;
-            PGM.data = null;
-            //PGM.cntUse = 0;
-            //PGM.outType = 0;
-
-        }
 
         public void ClearChange()
         {
@@ -260,6 +250,7 @@ namespace Calculator2
 
         public void PressResult(string data, int calTypeA, int outType)
         {
+            if(data == null || data == "0") { return; }
 
             double tmpData = 0;
             switch (outType)    // 기존 데이터를 10진수로 변환
@@ -319,6 +310,13 @@ namespace Calculator2
                     PGM.data = PGM.dataBIN.ToString();
                     break;
             }
+
+            PGM.calTypeA = 0;
+            PGM.calTypeB = 0;
+            PGM.answer = 0;
+            PGM.data = null;
+            //PGM.cntUse = 0;
+            //PGM.outType = 0;
 
         }
 
