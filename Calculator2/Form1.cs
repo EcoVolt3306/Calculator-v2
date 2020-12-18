@@ -25,6 +25,7 @@ namespace Calculator2
             PGM.outType = 2;
             PGM.lastOutType = 2;
 
+            COM.stn = true; // Standard로 시작하여 true 지정
 
             for (int i = 0; i < HIS.loopNow; i++)
             {
@@ -87,6 +88,7 @@ namespace Calculator2
         private void MenuStn_Click(object sender, EventArgs e)  // 메뉴 : 스탠다드
         {
             PGM.resPgm.ClearAll();
+            COM.stn = true; // 스탠다드 활성화
 
             // 결과 영역
             if (this.AreaResult.Controls.Count > 0) this.AreaResult.Controls.Clear();   // 패널 초기화
@@ -101,6 +103,8 @@ namespace Calculator2
 
         private void MenuPgm_Click(object sender, EventArgs e)   // 메뉴 : 프로그래머
         {
+            COM.stn = false;    // 스탠다드 비활성화
+
             // 결과 영역
             if (this.AreaResult.Controls.Count > 0) this.AreaResult.Controls.Clear();   // 패널 초기화
             this.AreaResult.Controls.Add(PGM.resPgm);

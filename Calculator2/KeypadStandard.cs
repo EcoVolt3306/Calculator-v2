@@ -126,29 +126,35 @@ namespace Calculator2
         }
         private void StnKeyAdd_Click(object sender, EventArgs e)
         {
-            if (answer == 0 && data != null) STN.resStn.PressOperatorFirst(data, 1);
-            else if (answer > 0 && data != null) STN.resStn.PressOperator(data, operand, 1);
+            //if (answer == 0 && data != null) STN.resStn.PressOperatorFirst(data, 1);
+            //else if (answer > 0 && data != null) STN.resStn.PressOperator(data, operand, 1);
 
+            COM.PressOperator(COM.data, 1);
         }
 
         private void StnKeySub_Click(object sender, EventArgs e)
         {
-            if (answer == 0 && data != null) STN.resStn.PressOperatorFirst(data, 2);
-            else if (answer > 0 && data != null) STN.resStn.PressOperator(data, operand, 2);
-            
+            //if (answer == 0 && data != null) STN.resStn.PressOperatorFirst(data, 2);
+            //else if (answer > 0 && data != null) STN.resStn.PressOperator(data, operand, 2);
+
+            COM.PressOperator(COM.data, 2);
+
         }
 
         private void StnKeyMul_Click(object sender, EventArgs e)
         {
-            if (answer == 0 && data != null) STN.resStn.PressOperatorFirst(data, 3);
-            else if (answer > 0 && data != null) STN.resStn.PressOperator(data, operand, 3);
+            //if (answer == 0 && data != null) STN.resStn.PressOperatorFirst(data, 3);
+            //else if (answer > 0 && data != null) STN.resStn.PressOperator(data, operand, 3);
+
+            COM.PressOperator(COM.data, 3);
         }
 
         private void StnKeyDiv_Click(object sender, EventArgs e)
         {
-            if (answer == 0 && data != null) STN.resStn.PressOperatorFirst(data, 4);
-            else if (answer > 0 && data != null) STN.resStn.PressOperator(data, operand, 4);
+            //if (answer == 0 && data != null) STN.resStn.PressOperatorFirst(data, 4);
+            //else if (answer > 0 && data != null) STN.resStn.PressOperator(data, operand, 4);
 
+            COM.PressOperator(COM.data, 4);
         }
 
         private void StnKeyRes_Click(object sender, EventArgs e)
@@ -176,7 +182,6 @@ namespace Calculator2
                 STN.resStn.SaveHistoryLoopMemory();
                 STN.resStn.SaveMemoryFirst();
             } 
-
             cntUse++;
         }
 

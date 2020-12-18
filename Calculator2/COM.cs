@@ -20,21 +20,59 @@ namespace Calculator2
 
         public static double result = 0;
 
+        // Standard 활성화 구분
+        // 초기값 true 선언, STN - PGM 버튼으로 변경 (Form1.cs 참조)
+        public static bool stn = false;
+
         // 연산자를 눌렀을 때
-        public static void PressOperator(string data, int otType)
+        public static void PressOperator(string data, int operatorNum)
         {
+            string exp = null, res = null;
+
             switch (cntOperand)
             {
                 case 0:
+                    if (data == null) return;   // Null 처리
+
                     op1 = double.Parse(data);
+                    ot1 = operatorNum;
+
                     break;
                 case 1:
+                    if (data == null) data = COM.op1.ToString();    // Null 처리
+
                     op2 = double.Parse(data);
+                    ot2 = operatorNum;
                     break;
                 case 2:
+                    if (data == null) data = COM.op2.ToString();    // Null 처리
+
                     op3 = double.Parse(data);
                     break;
             }
+
+            // STN 활성화 여부
+            if(COM.stn == true)
+            {
+                // 처리된 데이터 출력
+                switch (cntOperand)
+                {
+                    case 0:
+                        exp = op1.ToString() + OutOperator(ot1);
+                        break;
+                    case 1:
+                        exp = op1.ToString() + OutOperator(ot1);
+                        exp += op2.ToString() + OutOperator(ot2);
+                        break;
+                    case 2:
+                        return;
+                        break;
+                }
+                STN.resStn.SetOutExp(exp);
+
+            }
+            
+
             COM.cntOperand++;
         }
 
@@ -46,7 +84,7 @@ namespace Calculator2
 
         public static void ConvertTypePGM(string data, int outType)
         {   // PGM의 자료일 경우 Type에 따라 DEC(10) 형태로 변환
-            int dec;
+            int dec;    // 10진수로 받을 변수
 
             switch (outType)
             {
@@ -67,9 +105,10 @@ namespace Calculator2
             }
         }
 
-        public static string outExp()
+        public static string OutResult()
         {   // Exp 출력
-            string exp = null;
+            string exp = null;  // 문자열로 차곡차곡 받을 변수
+
             switch (cntOperand)
             {
                 case 0:
@@ -84,12 +123,18 @@ namespace Calculator2
                     exp += op3.ToString() + " = ";
                     break;
             }
+
+            //if (COM.stn == true)    // 스탠다드 출력
+            //    STN.resStn.SetOutExp(exp);
+
+
             return exp;
         }
 
         public static string OutOperator(int operatorType)
         {   // ot1, ot2를 활용하여 Exp에 출력할 연산자를 반환
-            string text = null;
+            string text = null; // 연산자 기호 담을 변수
+
             switch (operatorType)
             {
                 case 1:
