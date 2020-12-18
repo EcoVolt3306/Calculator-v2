@@ -147,7 +147,7 @@ namespace Calculator2
 
         public void Exp(string data, int type)
         {
-            outExp.Text = data; // 타입 관계없이 Exp 수식에 출력
+            outExp.Text += data; // 타입 관계없이 Exp 수식에 출력
 
             switch (type)
             {
