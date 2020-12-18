@@ -187,7 +187,7 @@ namespace Calculator2
                     PGM.dataDEC = Convert.ToInt32(data, 2);
                     break;
             }
-
+            PGM.hisExp = PGM.dataDEC.ToString();    // 기록용
             PGM.calTypeA = calTypeA;
             Exp(data, calTypeA);
         }
