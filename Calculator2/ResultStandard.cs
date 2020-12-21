@@ -223,7 +223,7 @@ namespace Calculator2
 
         public void SetOutExp(string exp)
         {
-            outExp.Text = exp;   // 매개변수를 수식란에 출력
+            outExp.Text += exp;   // 매개변수를 수식란에 출력
         }
 
         public void SetOutResult(string res)
