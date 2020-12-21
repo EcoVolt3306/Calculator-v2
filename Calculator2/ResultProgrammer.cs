@@ -351,13 +351,7 @@ namespace Calculator2
                     break;
             }
 
-            Console.WriteLine(COM.cntOperand);
-            Console.WriteLine(COM.op1);
-            Console.WriteLine(COM.op2);
-            Console.WriteLine(COM.op3);
-            Console.WriteLine(COM.ot1);
-            Console.WriteLine(COM.ot2);
-
+            COM.PrintCOM();
             COM.ClearCOM();
             // COM End
 

@@ -34,6 +34,14 @@ namespace Calculator2
             op3 = 0;
             ot1 = 0;
             ot2 = 0;
+            Console.WriteLine("COM Data가 초기화 되었습니다.");
+        }
+
+        public static void PrintCOM()
+        {
+            Console.WriteLine("count : "+ COM.cntOperand + "\tPGM? " + COM.pgm);
+            Console.WriteLine("op1 : " + COM.op1 + "\top2 : " + COM.op2 + "\top3 : " + COM.op3);
+            Console.WriteLine("ot1 : " + COM.ot1 + "\tot2 : " + COM.ot2);
         }
         
     }
