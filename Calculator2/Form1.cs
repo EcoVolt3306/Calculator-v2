@@ -42,9 +42,20 @@ namespace Calculator2
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
 
-            cmd.CommandText = "select * from tabs";
-            cmd.ExecuteNonQuery();
+            cmd.CommandText = "SELECT * FROM TB_TEST_SEUNG";
 
+            OracleDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                string s = rdr["OPERAND1"] as string;
+
+                Console.WriteLine(s);
+            }
+
+
+            //cmd.ExecuteNonQuery();
+            rdr.Close();
             conn.Close();
 
 
