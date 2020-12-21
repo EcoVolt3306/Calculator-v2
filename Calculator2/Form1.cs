@@ -25,7 +25,6 @@ namespace Calculator2
             PGM.outType = 2;
             PGM.lastOutType = 2;
 
-            COM.stn = true; // Standard로 시작하여 true 지정
 
             for (int i = 0; i < HIS.loopNow; i++)
             {
@@ -88,7 +87,7 @@ namespace Calculator2
         private void MenuStn_Click(object sender, EventArgs e)  // 메뉴 : 스탠다드
         {
             PGM.resPgm.ClearAll();
-            COM.stn = true; // 스탠다드 활성화
+            COM.pgm = false; // 스탠다드 활성화
 
             // 결과 영역
             if (this.AreaResult.Controls.Count > 0) this.AreaResult.Controls.Clear();   // 패널 초기화
@@ -103,7 +102,10 @@ namespace Calculator2
 
         private void MenuPgm_Click(object sender, EventArgs e)   // 메뉴 : 프로그래머
         {
-            COM.stn = false;    // 스탠다드 비활성화
+            STN.resStn.ClearData();
+            STN.resStn.ClearOut();
+
+            COM.pgm = true;    // 스탠다드 비활성화
 
             // 결과 영역
             if (this.AreaResult.Controls.Count > 0) this.AreaResult.Controls.Clear();   // 패널 초기화
@@ -114,9 +116,6 @@ namespace Calculator2
             this.AreaKeypad.Controls.Add(PGM.keyPgm);
                 // Keypad Default : DEC(10)
 
-
-            STN.resStn.ClearData();
-            STN.resStn.ClearOut();
         }
 
     }

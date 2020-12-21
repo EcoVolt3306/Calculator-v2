@@ -33,9 +33,28 @@ namespace Calculator2
 
             KeypadStandard.answer += 1;
             KeypadStandard.data = null;
+
+
+            // COM
+            COM.op1 = double.Parse(data);
+            COM.ot1 = calTypeA;
+            COM.cntOperand++;
         }
         public void PressOperator(string data, double operand, int calTypeB) // 연산 기호버튼 누를 경우
         {
+            // COM
+            switch (COM.cntOperand)
+            {
+                case 1:
+                    COM.op2 = double.Parse(data);
+                    COM.ot2 = calTypeB;
+                    COM.cntOperand++;
+                    break;
+                case 2:
+                    return;
+                    break;
+            }
+
             KeypadStandard.operandExt = operand;
 
             switch (KeypadStandard.calTypeA)
@@ -62,6 +81,7 @@ namespace Calculator2
 
             KeypadStandard.answer += 1;
             KeypadStandard.data = null;
+            
         }
 
         public void Exp(int type)
@@ -86,7 +106,6 @@ namespace Calculator2
 
         public void PressResult(string data, int calTypeA) // = 계산
         {
-            Console.WriteLine("data: " + data + "\tcalTypeA:" + calTypeA + "\tExt:" + KeypadStandard.operandExt);
             if (data == "0")
             {
                 KeypadStandard.data = null;
@@ -111,6 +130,32 @@ namespace Calculator2
                     KeypadStandard.operand /= double.Parse(data);
                     break;
             }
+
+            // COM
+            switch (COM.cntOperand)
+            {
+                case 0:
+                    return;
+                    break;
+                case 1:
+                    COM.op2 = double.Parse(data);
+                    COM.result = KeypadStandard.operand;
+                    break;
+                case 2:
+                    COM.op3 = double.Parse(data);
+                    COM.result = KeypadStandard.operand;
+                    break;
+            }
+
+            Console.WriteLine(COM.cntOperand);
+            Console.WriteLine(COM.op1);
+            Console.WriteLine(COM.op2);
+            Console.WriteLine(COM.op3);
+            Console.WriteLine(COM.ot1);
+            Console.WriteLine(COM.ot2);
+
+            COM.ClearCOM();
+            // COM End
 
             outExp.Text += data + " = ";
             outResult.Text = KeypadStandard.operand.ToString();
@@ -154,6 +199,9 @@ namespace Calculator2
             KeypadStandard.operand = 0;
             KeypadStandard.answer = 0;
             KeypadStandard.operandExt = 0;
+
+            // COM
+            COM.ClearCOM();
         }
 
         public void ClearCE()

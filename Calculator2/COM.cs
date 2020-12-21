@@ -13,147 +13,28 @@ namespace Calculator2
          해당 값이 3이 되면, Result Key 사용 불가
          ClearAll을 통해 0으로 초기화 가능 */
         public static int cntOperand = 0;
+
         public static string data = null;
+        public static double result = 0;
 
         public static double op1, op2, op3 = 0;
         public static int ot1, ot2 = 0;
 
-        public static double result = 0;
-
         // Standard 활성화 구분
         // 초기값 true 선언, STN - PGM 버튼으로 변경 (Form1.cs 참조)
-        public static bool stn = false;
+        public static bool pgm = false;
 
 
-
-        // Func
-
-        public static void InData(string data)
-        {   // 버튼의 데이터를 문자열 변수에 저장
-            COM.data += data;
-            STN.resStn.SetOutResult(COM.data);
-        }
-
-        // 연산자를 눌렀을 때
-        public static void PressOperator(string data, int operatorNum)
+        public static void ClearCOM()
         {
-            string exp = null, res = null;
-
-            switch (cntOperand)
-            {
-                case 0:
-                    if (data == null) return;   // Null 처리
-
-                    op1 = double.Parse(data);
-                    ot1 = operatorNum;
-                    break;
-                case 1:
-                    if (data == null) data = COM.op1.ToString();    // Null 처리
-
-                    op2 = double.Parse(data);
-                    ot2 = operatorNum;
-                    break;
-                case 2:
-                    if (data == null) data = COM.op2.ToString();    // Null 처리
-
-                    op3 = double.Parse(data);
-                    break;
-            }
-
-            STN.resStn.SetOutExp(OutExp()); // Exp 수식에 넣은 데이터를 출력
-
-            COM.data = null;    // 다음 데이터를 위해 초기화
-            COM.cntOperand++;
+            cntOperand = 0;
+            data = null;
+            op1 = 0;
+            op2 = 0;
+            op3 = 0;
+            ot1 = 0;
+            ot2 = 0;
         }
-
-        public static void ConvertTypePGM(string data, int outType)
-        {   // PGM의 자료일 경우 Type에 따라 DEC(10) 형태로 변환
-            int dec;    // 10진수로 받을 변수
-
-            switch (outType)
-            {
-                case 0:
-                    break;
-                case 1:
-                    dec = Convert.ToInt32(data, 16);
-                    break;
-                case 2:
-                    dec = int.Parse(data);
-                    break;
-                case 3:
-                    dec = Convert.ToInt32(data, 8);
-                    break;
-                case 4:
-                    dec = Convert.ToInt32(data, 2);
-                    break;
-            }
-        }
-
-        public static void CalData(int cntOperand, int operatorNum)
-        {
-
-            switch (operatorNum)
-            {
-                case 1:
-                    
-                    break;
-                case 2:
-
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-
-            }
-        }
-
-        public static string OutExp()
-        {   // Exp 출력
-            string exp = null;  // 문자열로 차곡차곡 받을 변수
-
-            switch (cntOperand)
-            {
-                case 0:
-                    break;
-                case 1:
-                    exp = op1.ToString() + OutOperator(COM.ot1);
-                    exp += op2.ToString() + " = ";
-                    break;
-                case 2:
-                    exp = op1.ToString() + OutOperator(COM.ot1);
-                    exp += op2.ToString() + OutOperator(COM.ot2);
-                    exp += op3.ToString() + " = ";
-                    break;
-            }
-
-            //if (COM.stn == true)    // 스탠다드 출력
-            //    STN.resStn.SetOutExp(exp);
-
-            return exp;
-        }
-
-        public static string OutOperator(int operatorType)
-        {   // ot1, ot2를 활용하여 Exp에 출력할 연산자를 반환
-            string text = null; // 연산자 기호 담을 변수
-
-            switch (operatorType)
-            {
-                case 1:
-                    text = " + ";
-                    break;
-                case 2:
-                    text = " - ";
-                    break;
-                case 3:
-                    text = " × ";
-                    break;
-                case 4:
-                    text = " ÷ ";
-                    break;
-            }
-            return text;
-        }
-
+        
     }
 }
