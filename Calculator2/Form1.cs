@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OracleClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,36 @@ namespace Calculator2
         public Frame()
         {
             InitializeComponent();
+
+            // DB
+            string connStr = "user id=DEV_ORA_TEST;password=DEV_ORA_TEST;" +
+                "data source=(DESCRIPTION=(ADDRESS=" +
+                "(PROTOCOL=tcp)(HOST=192.168.0.110)" +
+                "(PORT=1521))(CONNECT_DATA=" +
+                "(SERVICE_NAME=orcl)))";
+
+            OracleConnection conn = new OracleConnection(connStr);
+
+            try
+            {
+                conn.Open();
+                Console.WriteLine("Connection Successful!");
+            }
+            catch (OracleException ex)
+            {
+                Console.WriteLine("DB ERROR!!!");
+                Console.WriteLine(ex.ToString());
+
+            }
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+
+            cmd.CommandText = "select * from tabs";
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+
 
             // 최초 스탠다드 초기화
             this.AreaResult.Controls.Add(STN.resStn);

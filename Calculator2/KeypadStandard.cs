@@ -27,6 +27,8 @@ namespace Calculator2
             data += "1";
             STN.resStn.PressNum(data);
             //COM.InData("1");
+
+
         }
 
         private void StnKey2_Click(object sender, EventArgs e)
