@@ -169,9 +169,8 @@ namespace Calculator2
         }
 
         public void PressOperatorFirst(string data, int calTypeA, int outType)
-        {   // 타입 관계없이 10진수(DEC)로 변환 및 저장
-            
-
+        {   
+            // 타입 관계없이 10진수(DEC)로 변환 및 저장
             switch (outType)
             {
                 case 1:
@@ -187,6 +186,13 @@ namespace Calculator2
                     PGM.dataDEC = Convert.ToInt32(data, 2);
                     break;
             }
+
+            // COM
+            COM.op1 = PGM.dataDEC;
+            COM.ot1 = calTypeA;
+            COM.cntOperand++;
+            // COM End
+
             PGM.hisExp = PGM.dataDEC.ToString();    // 기록용
             PGM.calTypeA = calTypeA;
             Exp(data, calTypeA);
@@ -194,6 +200,7 @@ namespace Calculator2
 
         public void PressOperator(string data, int calTypeB, int outType)
         {
+
             double tmpData = 0;
             switch (outType)    // 기존 데이터를 10진수로 변환
             {
@@ -210,6 +217,20 @@ namespace Calculator2
                     tmpData = Convert.ToInt32(data, 2);
                     break;
             }
+
+            // COM
+            switch (COM.cntOperand)
+            {
+                case 1:
+                    COM.op2 = tmpData;
+                    COM.ot2 = calTypeB;
+                    COM.cntOperand++;
+                    break;
+                case 2:
+                    return;
+                    break;
+            }
+            // COM End
 
             switch (PGM.calTypeA)   // 10진수로 변환된 데이터를 기존 데이터와 연산
             {
@@ -313,6 +334,32 @@ namespace Calculator2
                     PGM.data = PGM.dataBIN.ToString();
                     break;
             }
+
+            // COM
+            switch (COM.cntOperand)
+            {
+                case 0:
+                    return;
+                    break;
+                case 1:
+                    COM.op2 = tmpData;
+                    COM.result = PGM.dataDEC;
+                    break;
+                case 2:
+                    COM.op3 = tmpData;
+                    COM.result = PGM.dataDEC;
+                    break;
+            }
+
+            Console.WriteLine(COM.cntOperand);
+            Console.WriteLine(COM.op1);
+            Console.WriteLine(COM.op2);
+            Console.WriteLine(COM.op3);
+            Console.WriteLine(COM.ot1);
+            Console.WriteLine(COM.ot2);
+
+            COM.ClearCOM();
+            // COM End
 
             PGM.calTypeA = 0;
             PGM.calTypeB = 0;

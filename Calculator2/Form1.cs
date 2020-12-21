@@ -88,6 +88,7 @@ namespace Calculator2
         {
             PGM.resPgm.ClearAll();
             COM.pgm = false; // 스탠다드 활성화
+            COM.cntOperand = 0;
 
             // 결과 영역
             if (this.AreaResult.Controls.Count > 0) this.AreaResult.Controls.Clear();   // 패널 초기화
@@ -106,6 +107,7 @@ namespace Calculator2
             STN.resStn.ClearOut();
 
             COM.pgm = true;    // 스탠다드 비활성화
+            COM.cntOperand = 0;
 
             // 결과 영역
             if (this.AreaResult.Controls.Count > 0) this.AreaResult.Controls.Clear();   // 패널 초기화
