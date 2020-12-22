@@ -148,7 +148,9 @@ namespace Calculator2
             }
 
             COM.PrintCOM();
+            Frame.DB_InsertData(COM.op1, COM.op2, COM.op3, COM.ot1, COM.ot2, COM.result);
             COM.ClearCOM();
+
             // COM End
 
             outExp.Text += data + " = ";

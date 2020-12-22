@@ -19,47 +19,6 @@ namespace Calculator2
         {
             InitializeComponent();
 
-            // DB
-              string connStr = "user id=DEV_ORA_TEST;password=DEV_ORA_TEST;" +
-                "data source=(DESCRIPTION=(ADDRESS=" +
-                "(PROTOCOL=tcp)(HOST=192.168.0.110)" +
-                "(PORT=1521))(CONNECT_DATA=" +
-                "(SID=orcl)))";
-
-            //DB db = new DB();
-            OracleConnection conn = new OracleConnection(connStr);
-
-            try
-            {
-                conn.Open();
-                Console.WriteLine("DB Connection Successful!");
-            }
-            catch (OracleException ex)
-            {
-                Console.WriteLine("--- DB ERROR!!! ---");
-                Console.WriteLine(ex.ToString());
-            }
-
-            OracleCommand cmd = new OracleCommand();
-            cmd.Connection = conn;
-
-            cmd.CommandText = "insert into TB_TEST_SEUNG values(1,2,3,4,5,66,sysdate)";
-            cmd.ExecuteNonQuery();
-            Console.WriteLine("인서트 햇어용~");
-
-
-
-
-            conn.Close();
-            conn.Dispose();
-
-            
-
-
-
-
-
-
             // 최초 스탠다드 초기화
             this.AreaResult.Controls.Add(STN.resStn);
             this.AreaKeypad.Controls.Add(STN.keyStn);
@@ -67,7 +26,6 @@ namespace Calculator2
             PGM.keyPgm.ActivePgmKey(2);
             PGM.outType = 2;
             PGM.lastOutType = 2;
-
 
             for (int i = 0; i < HIS.loopNow; i++)
             {
@@ -96,7 +54,6 @@ namespace Calculator2
                 HIS.dicExp.Add(i, HisExp);
                 HIS.dicRes.Add(i, HisRes);
             }
-
             for (int i = 0; i < HIS.loopMemory; i++)
             {
                 Label HisMemExp = new Label();
@@ -125,8 +82,47 @@ namespace Calculator2
                 HIS.dicMemRes.Add(i, HisMemRes);
             }
 
+            
         }
-        
+
+        public static void DB_InsertData(double op1, double op2, double op3, int ot1, int ot2, double result)
+        {
+            // 1. DB 연결
+            string connStr = "user id=DEV_ORA_TEST;password=DEV_ORA_TEST;" +
+                "data source=(DESCRIPTION=(ADDRESS=" +
+                "(PROTOCOL=tcp)(HOST=192.168.0.110)" +
+                "(PORT=1521))(CONNECT_DATA=" +
+                "(SID=orcl)))";
+
+            OracleConnection conn = new OracleConnection(connStr);
+
+            try
+            {
+                conn.Open();
+                Console.WriteLine("DB Connection Successful!");
+            }
+            catch (OracleException ex)
+            {
+                Console.WriteLine("--- DB ERROR!!! ---");
+                Console.WriteLine(ex.ToString());
+            }
+
+            // 2. DB 명령어 실행
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+
+            cmd.CommandText = "insert into TB_TEST_SEUNG values(" +
+                op1 + "," + op2 + "," + op3 + "," + ot1 + "," + ot2 + "," + result +
+                ", sysdate)";
+            cmd.ExecuteNonQuery();
+            Console.WriteLine("인서트 햇어용~");
+
+            // 3. DB 종료
+            conn.Close();
+            conn.Dispose();
+        }
+
+
         private void MenuStn_Click(object sender, EventArgs e)  // 메뉴 : 스탠다드
         {
             PGM.resPgm.ClearAll();
@@ -160,6 +156,8 @@ namespace Calculator2
             this.AreaKeypad.Controls.Add(PGM.keyPgm);
                 // Keypad Default : DEC(10)
 
+            
+            
         }
 
     }

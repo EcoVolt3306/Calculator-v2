@@ -28,7 +28,6 @@ namespace Calculator2
             STN.resStn.PressNum(data);
             //COM.InData("1");
 
-            
         }
 
         private void StnKey2_Click(object sender, EventArgs e)
@@ -172,7 +171,7 @@ namespace Calculator2
 
             STN.resStn.PressResult(data, calTypeA); // 계산
 
-
+            
             // History
             if (KeypadStandard.cntUse == 0)
             {

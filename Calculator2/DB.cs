@@ -13,22 +13,12 @@ namespace Calculator2
 
     public class DB
     {
-        //try
-        //{
-        //    conn.Open();
-        //    Console.WriteLine("Connection Successful!");
-        //}
-        //catch (OracleException ex)
-        //{
-        //    Console.WriteLine("DB ERROR!!!");
-        //    Console.WriteLine(ex.ToString());
-
-        //}
 
 
 
 
-        
+
+
     }
 
 }
