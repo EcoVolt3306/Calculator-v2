@@ -163,7 +163,7 @@ namespace Calculator2
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
 
-            cmd.CommandText = "SELECT OPERAND1, OPERAND2, OPERAND3, OPERATOR1, OPERATOR2, RESULT FROM TB_TEST_SEUNG";
+            cmd.CommandText = "SELECT * FROM TB_TEST_SEUNG";
             //cmd.ExecuteReader();
 
 
@@ -177,8 +177,9 @@ namespace Calculator2
                 string operator1 = reader["operator1"].ToString();
                 string operator2 = reader["operator2"].ToString();
                 string result = reader["result"].ToString();
+                string date = reader["save_time"].ToString();
 
-                Console.WriteLine(operand1 +"\t"+ operand2 + "\t" + operand3 + "\t" + operator1 + "\t" + operator2 + "\t" + result);
+                Console.WriteLine(operand1 +"\t"+ operand2 + "\t" + operand3 + "\t" + operator1 + "\t" + operator2 + "\t" + result + "\t" + date);
             }
 
 
