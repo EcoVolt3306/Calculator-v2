@@ -41,6 +41,7 @@ namespace Calculator2
                 HisExp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
                 HisExp.Click += new System.EventHandler(this.HisExp_Click);
                 HistoryNow.Controls.Add(HisExp);
+                Console.WriteLine(HisExp.Name.ToString());
 
 
 
@@ -91,9 +92,8 @@ namespace Calculator2
 
         private void HisExp_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(HIS.dicExp[0].Text);
+            //MessageBox.Show();
 
-            
             //throw new NotImplementedException();
         }
 
@@ -163,7 +163,7 @@ namespace Calculator2
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
 
-            cmd.CommandText = "SELECT * FROM TB_TEST_SEUNG";
+            cmd.CommandText = "SELECT * FROM TB_TEST_SEUNG ORDER BY SAVE_TIME DESC";
             //cmd.ExecuteReader();
 
 
