@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,44 +20,44 @@ namespace Calculator2
             InitializeComponent();
 
             // DB
-            string connStr = "user id=DEV_ORA_TEST;password=DEV_ORA_TEST;" +
+              string connStr = "user id=DEV_ORA_TEST;password=DEV_ORA_TEST;" +
                 "data source=(DESCRIPTION=(ADDRESS=" +
                 "(PROTOCOL=tcp)(HOST=192.168.0.110)" +
                 "(PORT=1521))(CONNECT_DATA=" +
-                "(SERVICE_NAME=orcl)))";
+                "(SID=orcl)))";
 
+            //DB db = new DB();
             OracleConnection conn = new OracleConnection(connStr);
 
             try
             {
                 conn.Open();
-                Console.WriteLine("Connection Successful!");
+                Console.WriteLine("DB Connection Successful!");
             }
             catch (OracleException ex)
             {
-                Console.WriteLine("DB ERROR!!!");
+                Console.WriteLine("--- DB ERROR!!! ---");
                 Console.WriteLine(ex.ToString());
-
             }
 
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
 
-            cmd.CommandText = "SELECT * FROM TB_TEST_SEUNG";
-
-            OracleDataReader rdr = cmd.ExecuteReader();
-
-            while (rdr.Read())
-            {
-                string s = rdr["OPERAND1"] as string;
-
-                Console.WriteLine(s);
-            }
+            cmd.CommandText = "insert into TB_TEST_SEUNG values(1,2,3,4,5,66,sysdate)";
+            cmd.ExecuteNonQuery();
+            Console.WriteLine("인서트 햇어용~");
 
 
-            //cmd.ExecuteNonQuery();
-            rdr.Close();
+
+
             conn.Close();
+            conn.Dispose();
+
+            
+
+
+
+
 
 
             // 최초 스탠다드 초기화
@@ -125,7 +126,7 @@ namespace Calculator2
             }
 
         }
-
+        
         private void MenuStn_Click(object sender, EventArgs e)  // 메뉴 : 스탠다드
         {
             PGM.resPgm.ClearAll();
@@ -139,7 +140,6 @@ namespace Calculator2
             // 키패드 영역
             if (this.AreaKeypad.Controls.Count > 0) this.AreaKeypad.Controls.Clear();   // 패널 초기화
             this.AreaKeypad.Controls.Add(STN.keyStn);
-
 
         }
 

@@ -8,6 +8,9 @@ using Oracle.DataAccess.Client;
 
 namespace Calculator2
 {
+
+
+
     public class DB
     {
         //try
@@ -24,5 +27,8 @@ namespace Calculator2
 
 
 
+
+        
     }
+
 }
