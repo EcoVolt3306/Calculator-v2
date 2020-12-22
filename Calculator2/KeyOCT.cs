@@ -157,6 +157,7 @@ namespace Calculator2
                 PGM.resPgm.SaveMemoryFirst();
             }
 
+            PGM.resPgm.ClearPGMdata();
             KeypadStandard.cntUse++;
         }
     }

@@ -228,7 +228,6 @@ namespace Calculator2
                     break;
                 case 2:
                     return;
-                    break;
             }
             // COM End
 
@@ -340,7 +339,6 @@ namespace Calculator2
             {
                 case 0:
                     return;
-                    break;
                 case 1:
                     COM.op2 = tmpData;
                     COM.result = PGM.dataDEC;
@@ -353,15 +351,7 @@ namespace Calculator2
 
             COM.PrintCOM();
             Frame.DB_InsertData(COM.op1, COM.op2, COM.op3, COM.ot1, COM.ot2, COM.result);
-            COM.ClearCOM();
-            // COM End
-
-            PGM.calTypeA = 0;
-            PGM.calTypeB = 0;
-            PGM.answer = 0;
-            PGM.data = null;
-            //PGM.cntUse = 0;
-            //PGM.outType = 0;
+            
 
         }
 
@@ -456,13 +446,13 @@ namespace Calculator2
 
         public void SaveHistoryFirst()
         {
-            HIS.dicExp[0].Text = outExp.Text;
-            HIS.dicRes[0].Text = outResult.Text;
+            HIS.dicExp[0].Text = DEC_HistoryExp();
+            HIS.dicRes[0].Text = COM.result.ToString();
         }
         public void SaveMemoryFirst()
         {
-            HIS.dicMemExp[0].Text = outExp.Text;
-            HIS.dicMemRes[0].Text = outResult.Text;
+            HIS.dicMemExp[0].Text = DEC_HistoryExp();
+            HIS.dicMemRes[0].Text = COM.result.ToString();
         }
         public void SaveHistoryLoopNow()
         {
@@ -509,6 +499,66 @@ namespace Calculator2
                     PGM.data = Convert.ToString((int)PGM.dataDEC, 2);
                     break;
             }
+        }
+
+        public string DEC_HistoryExp()
+        {
+            if (COM.op1 == 0) return null;
+
+            string strExp = null;
+
+            strExp += COM.op1.ToString();   // a
+            switch (COM.ot1)    // a + 
+            {
+                case 0: return null;
+                case 1:
+                    strExp += " + ";
+                    break;
+                case 2:
+                    strExp += " - ";
+                    break;
+                case 3:
+                    strExp += " × ";
+                    break;
+                case 4:
+                    strExp += " ÷ ";
+                    break;
+            }
+            strExp += COM.op2.ToString();   // a + b
+            switch (COM.ot2)    // a + b x
+            {
+                case 0: break;
+                case 1:
+                    strExp += " + ";
+                    break;
+                case 2:
+                    strExp += " - ";
+                    break;
+                case 3:
+                    strExp += " × ";
+                    break;
+                case 4:
+                    strExp += " ÷ ";
+                    break;
+            }
+            if (COM.op3 != 0) strExp += COM.op3.ToString(); // a + b x c
+
+            strExp += " = ";    // a + b x c = 
+
+            return strExp;
+        }
+
+        public void ClearPGMdata()
+        {
+            COM.ClearCOM();
+            // COM End
+
+            PGM.calTypeA = 0;
+            PGM.calTypeB = 0;
+            PGM.answer = 0;
+            PGM.data = null;
+            //PGM.cntUse = 0;
+            //PGM.outType = 0;
         }
 
         public void ExDataNull()

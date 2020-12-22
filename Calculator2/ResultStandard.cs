@@ -52,7 +52,6 @@ namespace Calculator2
                     break;
                 case 2:
                     return;
-                    break;
             }
 
             KeypadStandard.operandExt = operand;
@@ -136,7 +135,6 @@ namespace Calculator2
             {
                 case 0:
                     return;
-                    break;
                 case 1:
                     COM.op2 = double.Parse(data);
                     COM.result = KeypadStandard.operand;
