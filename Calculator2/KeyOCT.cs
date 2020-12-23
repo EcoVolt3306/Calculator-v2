@@ -141,6 +141,7 @@ namespace Calculator2
 
             PGM.resPgm.PressResult(PGM.data, PGM.calTypeA, PGM.outType); // 계산
 
+            Frame.CntDB();  // DB 데이터 수 새로고침
 
             // History
             if (KeypadStandard.cntUse == 0)

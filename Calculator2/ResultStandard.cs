@@ -286,5 +286,15 @@ namespace Calculator2
         {
             outResult.Text = res;   // 매개변수를 결과식에 출력
         }
+
+        public void SetExpLoad(string exp)
+        {
+            outExp.Text = exp;   // 매개변수를 수식란에 출력
+        }
+
+        public void SetResLoad(string res)
+        {
+            outResult.Text = res;   // 매개변수를 수식란에 출력
+        }
     }
 }

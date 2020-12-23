@@ -162,7 +162,8 @@ namespace Calculator2
 
             STN.resStn.PressResult(data, calTypeA); // 계산
 
-            
+            Frame.CntDB();  // DB 데이터 조회
+
             // History
             if (KeypadStandard.cntUse == 0)
             {

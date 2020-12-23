@@ -21,8 +21,7 @@ namespace Calculator2
         public static string data, dataHEX, dataOCT, dataBIN = null;
 
         public static string hisExp, hisRes = null; // DEC 기록용
-        
-        
+
 
     }
 }

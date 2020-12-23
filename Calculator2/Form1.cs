@@ -37,7 +37,6 @@ namespace Calculator2
                 HisExp.TabIndex = 0;
                 HisExp.Text = "";
                 HisExp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-                HisExp.Click += new System.EventHandler(this.HisExp_Click);
                 HistoryNow.Controls.Add(HisExp);
                 Console.WriteLine(HisExp.Name.ToString());
 
@@ -65,6 +64,7 @@ namespace Calculator2
                 HisMemExp.TabIndex = 0;
                 HisMemExp.Text = "";
                 HisMemExp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+                HisMemExp.Click += new System.EventHandler(Data_Click);
                 HistoryMemory.Controls.Add(HisMemExp);
 
 
@@ -76,25 +76,36 @@ namespace Calculator2
                 HisMemRes.TabIndex = 1;
                 HisMemRes.Text = "";
                 HisMemRes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+                HisMemRes.Click += new System.EventHandler(Data_Click);
                 HistoryMemory.Controls.Add(HisMemRes);
 
                 // Dictionary 인덱스 연결
                 HIS.dicMemExp.Add(i, HisMemExp);
                 HIS.dicMemRes.Add(i, HisMemRes);
+
+                void Data_Click(object sender, EventArgs e)
+                {
+                    //MessageBox.Show(HisMemExp.Text);
+
+                    if (COM.pgm == false)
+                    {
+                        STN.resStn.SetExpLoad(HisMemExp.Text);
+                        STN.resStn.SetResLoad(HIS.dicMemRes[i-1].Text);
+                    }
+                    else
+                    {
+                        PGM.resPgm.SetExpLoad(HisMemExp.Text);
+                        PGM.resPgm.SetResLoad(HIS.dicMemRes[0].Text);
+                    }
+                }
             }
 
             DB_SelectAll();
-
+            CntDB();
             DB.ExpRead();
 
         }
 
-        private void HisExp_Click(object sender, EventArgs e)
-        {
-            //MessageBox.Show();
-
-            //throw new NotImplementedException();
-        }
 
         public static void DB_InsertData(double op1, double op2, double op3, int ot1, int ot2, double result)
         {
@@ -165,10 +176,11 @@ namespace Calculator2
 
             OracleDataReader reader = cmd.ExecuteReader();
 
+
+
             Console.WriteLine("일단 20개만 불러볼게용~");
             for (int i=0; reader.Read(); i++)
             {
-                DB.cntDB++; // DB에는 데이터가 몇개나 있을까?
                 if (i >= HIS.loopMemory) break;
                 DB.op1[i] = reader.GetDouble(0);
                 DB.op2[i] = reader.GetDouble(1);
@@ -183,11 +195,8 @@ namespace Calculator2
                     + "\t" + DB.ot1[i] + "\t" + DB.ot2[i] + "\t" + DB.result[i] + "\t" + DB.date[i]);
             }
 
-            while (reader.Read())
-            {
-                DB.cntDB++; // DB에는 데이터가 몇개나 있을까?
-            }
-            Console.WriteLine("DB Count list : " + DB.cntDB);
+
+
 
 
             Console.WriteLine("셀렉트 햇어용~");
@@ -198,14 +207,46 @@ namespace Calculator2
 
         }
 
-        public static void Pri(IEnumerable myList)
+        public static void CntDB()
         {
-            foreach (Object[] obj in myList)
+            // 1. DB 연결
+            string connStr = "user id=DEV_ORA_TEST;password=DEV_ORA_TEST;" +
+                "data source=(DESCRIPTION=(ADDRESS=" +
+                "(PROTOCOL=tcp)(HOST=192.168.0.110)" +
+                "(PORT=1521))(CONNECT_DATA=" +
+                "(SID=orcl)))";
+
+            OracleConnection conn = new OracleConnection(connStr);
+
+            try
             {
-                foreach (object ob in obj)
-                    Console.WriteLine("{0} ", ob);
-                Console.WriteLine();
+                conn.Open();
+                Console.WriteLine("DB Connection Successful!");
             }
+            catch (OracleException ex)
+            {
+                Console.WriteLine("--- DB ERROR!!! ---");
+                Console.WriteLine(ex.ToString());
+            }
+
+            // 2. DB 명령어 실행
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+
+            cmd.CommandText = "SELECT COUNT(*) FROM TB_TEST_SEUNG ORDER BY SAVE_TIME DESC";
+            //cmd.ExecuteReader();
+
+            OracleDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                DB.cntDB = reader.GetInt32(0);
+            }
+            Console.WriteLine("DB Count list : " + DB.cntDB);
+
+            reader.Close();
+            conn.Close();
+            conn.Dispose();
         }
 
 
