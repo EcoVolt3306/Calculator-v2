@@ -156,6 +156,8 @@ namespace Calculator2
             if (KeypadStandard.cntUse == 0)
             {
                 PGM.resPgm.SaveHistoryFirst();
+
+                if (DB.cntDB != 0) PGM.resPgm.SaveHistoryLoopMemoryDB();
                 PGM.resPgm.SaveMemoryFirst();
             }
             else if (KeypadStandard.cntUse > 0)
@@ -163,7 +165,7 @@ namespace Calculator2
                 PGM.resPgm.SaveHistoryLoopNow();
                 PGM.resPgm.SaveHistoryFirst();
 
-                PGM.resPgm.SaveHistoryLoopMemory();
+                PGM.resPgm.SaveHistoryLoopMemoryDB();
                 PGM.resPgm.SaveMemoryFirst();
             }
 

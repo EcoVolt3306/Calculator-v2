@@ -255,9 +255,18 @@ namespace Calculator2
             }
         }
 
-        public void LoadDB()
+        public void SaveHistoryLoopMemoryDB()
         {
-            //HIS.dicExp[0].Text = "dd";
+            for (int i = DB.cntDB; i > 0; i--)  // Array 초과 Exception
+            {
+                if (i >= HIS.loopMemory)
+                {
+                    i = 19;
+                }
+
+                HIS.dicMemExp[i].Text = HIS.dicMemExp[i - 1].Text;
+                HIS.dicMemRes[i].Text = HIS.dicMemRes[i - 1].Text;
+            }
         }
 
         public string OutResult()

@@ -167,6 +167,8 @@ namespace Calculator2
             if (KeypadStandard.cntUse == 0)
             {
                 STN.resStn.SaveHistoryFirst();
+
+                if (DB.cntDB != 0) STN.resStn.SaveHistoryLoopMemoryDB();
                 STN.resStn.SaveMemoryFirst();
             }
             else if (KeypadStandard.cntUse > 0)
@@ -174,7 +176,7 @@ namespace Calculator2
                 STN.resStn.SaveHistoryLoopNow();
                 STN.resStn.SaveHistoryFirst();
 
-                STN.resStn.SaveHistoryLoopMemory();
+                STN.resStn.SaveHistoryLoopMemoryDB();
                 STN.resStn.SaveMemoryFirst();
             } 
             cntUse++;

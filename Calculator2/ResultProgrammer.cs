@@ -480,6 +480,21 @@ namespace Calculator2
                 HIS.dicMemRes[i].Text = HIS.dicMemRes[i - 1].Text;
             }
         }
+
+        public void SaveHistoryLoopMemoryDB()
+        {
+            for (int i = DB.cntDB; i > 0; i--)  // Array 초과 Exception
+            {
+                if (i >= HIS.loopMemory)
+                {
+                    i = 19;
+                }
+
+                HIS.dicMemExp[i].Text = HIS.dicMemExp[i - 1].Text;
+                HIS.dicMemRes[i].Text = HIS.dicMemRes[i - 1].Text;
+            }
+        }
+
         public void ExceNullOperand()
         {
             // 연산자는 있으나, 피연산자가 없을 경우, 입력 값에 피연산자를 넣어 오류를 방지합니다.
