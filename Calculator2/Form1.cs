@@ -57,6 +57,8 @@ namespace Calculator2
             for (int i = 0; i < HIS.loopMemory; i++)
             {
                 Label HisMemExp = new Label();
+                Label HisMemRes = new Label();
+
                 HisMemExp.Font = new System.Drawing.Font("넥슨Lv2고딕", 9F);
                 HisMemExp.Location = new System.Drawing.Point(0, 11 + (70 * i));
                 HisMemExp.Name = "HisMemExp";
@@ -68,7 +70,7 @@ namespace Calculator2
                 HistoryMemory.Controls.Add(HisMemExp);
 
 
-                Label HisMemRes = new Label();
+                
                 HisMemRes.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
                 HisMemRes.Location = new System.Drawing.Point(0, 30 + (70 * i));
                 HisMemRes.Name = "HisMemRes";
@@ -82,20 +84,42 @@ namespace Calculator2
                 // Dictionary 인덱스 연결
                 HIS.dicMemExp.Add(i, HisMemExp);
                 HIS.dicMemRes.Add(i, HisMemRes);
-
+                Console.WriteLine("i는용" + i);
                 void Data_Click(object sender, EventArgs e)
                 {
                     //MessageBox.Show(HisMemExp.Text);
-
+                    
                     if (COM.pgm == false)
                     {
                         STN.resStn.SetExpLoad(HisMemExp.Text);
-                        STN.resStn.SetResLoad(HIS.dicMemRes[i-1].Text);
+                        STN.resStn.SetResLoad(HisMemRes.Text);
                     }
                     else
                     {
                         PGM.resPgm.SetExpLoad(HisMemExp.Text);
-                        PGM.resPgm.SetResLoad(HIS.dicMemRes[0].Text);
+                        double aa = double.Parse(HisMemRes.Text);
+
+                        string aa = HisMemRes.Text;
+                        int bb = 0;
+
+                        switch (PGM.outType)    // 기존 데이터를 10진수로 변환
+                        {
+                            case 1:
+                                bb = Convert.ToInt32(aa, 16);
+                                break;
+                            case 2:
+                                bb = int.Parse(aa);
+                                break;
+                            case 3:
+                                bb = Convert.ToInt32(aa, 8);
+                                break;
+                            case 4:
+                                bb = Convert.ToInt32(aa, 2);
+                                break;
+                        }
+
+                        PGM.resPgm.SetResLoad(bb.ToString());
+
                     }
                 }
             }
