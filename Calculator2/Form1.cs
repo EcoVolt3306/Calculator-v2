@@ -19,8 +19,6 @@ namespace Calculator2
         {
             InitializeComponent();
 
-            DB_SelectAll();
-
             // 최초 스탠다드 초기화
             this.AreaResult.Controls.Add(STN.resStn);
             this.AreaKeypad.Controls.Add(STN.keyStn);
@@ -85,7 +83,10 @@ namespace Calculator2
                 HIS.dicMemRes.Add(i, HisMemRes);
             }
 
-            
+            DB_SelectAll();
+
+            DB.ExpRead();
+
         }
 
         private void HisExp_Click(object sender, EventArgs e)
@@ -156,8 +157,6 @@ namespace Calculator2
             }
 
             // 2. DB 명령어 실행
-
-
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
 
@@ -166,10 +165,11 @@ namespace Calculator2
 
             OracleDataReader reader = cmd.ExecuteReader();
 
-
-            for(int i=0; reader.Read(); i++)
+            Console.WriteLine("일단 20개만 불러볼게용~");
+            for (int i=0; reader.Read(); i++)
             {
-                if (i >= HIS.loopMemory) return;
+                DB.cntDB++; // DB에는 데이터가 몇개나 있을까?
+                if (i >= HIS.loopMemory) break;
                 DB.op1[i] = reader.GetDouble(0);
                 DB.op2[i] = reader.GetDouble(1);
                 DB.op3[i] = reader.GetDouble(2);
@@ -183,7 +183,11 @@ namespace Calculator2
                     + "\t" + DB.ot1[i] + "\t" + DB.ot2[i] + "\t" + DB.result[i] + "\t" + DB.date[i]);
             }
 
-
+            while (reader.Read())
+            {
+                DB.cntDB++; // DB에는 데이터가 몇개나 있을까?
+            }
+            Console.WriteLine("DB Count list : " + DB.cntDB);
 
 
             Console.WriteLine("셀렉트 햇어용~");
@@ -191,6 +195,7 @@ namespace Calculator2
             reader.Close();
             conn.Close();
             conn.Dispose();
+
         }
 
         public static void Pri(IEnumerable myList)

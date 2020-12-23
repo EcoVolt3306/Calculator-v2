@@ -255,6 +255,11 @@ namespace Calculator2
             }
         }
 
+        public void LoadDB()
+        {
+            //HIS.dicExp[0].Text = "dd";
+        }
+
         public string OutResult()
         {
             string text = outResult.Text;

@@ -22,6 +22,7 @@ namespace Calculator2
         public static int loopMemory = 20;      // 저장된 내역 - 최대값
 
 
+      
 
     }
 }
