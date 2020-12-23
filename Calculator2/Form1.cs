@@ -43,8 +43,6 @@ namespace Calculator2
                 HistoryNow.Controls.Add(HisExp);
                 Console.WriteLine(HisExp.Name.ToString());
 
-
-
                 Label HisRes = new Label();
                 HisRes.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
                 HisRes.Location = new System.Drawing.Point(0, 30 + (70 * i));
@@ -166,21 +164,25 @@ namespace Calculator2
             cmd.CommandText = "SELECT * FROM TB_TEST_SEUNG ORDER BY SAVE_TIME DESC";
             //cmd.ExecuteReader();
 
-
             OracleDataReader reader = cmd.ExecuteReader();
 
-            while (reader.Read())
-            {
-                string operand1 = reader["operand1"].ToString();
-                string operand2 = reader["operand2"].ToString();
-                string operand3 = reader["operand3"].ToString();
-                string operator1 = reader["operator1"].ToString();
-                string operator2 = reader["operator2"].ToString();
-                string result = reader["result"].ToString();
-                string date = reader["save_time"].ToString();
 
-                Console.WriteLine(operand1 +"\t"+ operand2 + "\t" + operand3 + "\t" + operator1 + "\t" + operator2 + "\t" + result + "\t" + date);
+            for(int i=0; reader.Read(); i++)
+            {
+                if (i >= HIS.loopMemory) return;
+                DB.op1[i] = reader.GetDouble(0);
+                DB.op2[i] = reader.GetDouble(1);
+                DB.op3[i] = reader.GetDouble(2);
+                DB.ot1[i] = reader.GetInt32(3);
+                DB.ot2[i] = reader.GetInt32(4);
+                DB.result[i] = reader.GetDouble(5);
+                DB.date[i] = reader.GetDateTime(6).ToString();
+                
+
+                Console.WriteLine(DB.op1[i] + "\t" + DB.op2[i] + "\t" + DB.op3[i]
+                    + "\t" + DB.ot1[i] + "\t" + DB.ot2[i] + "\t" + DB.result[i] + "\t" + DB.date[i]);
             }
+
 
 
 
