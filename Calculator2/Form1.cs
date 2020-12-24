@@ -85,6 +85,7 @@ namespace Calculator2
                 HIS.dicMemExp.Add(i, HisMemExp);
                 HIS.dicMemRes.Add(i, HisMemRes);
                 Console.WriteLine("i는용" + i);
+                
                 void Data_Click(object sender, EventArgs e)
                 {
                     //MessageBox.Show(HisMemExp.Text);
@@ -97,22 +98,22 @@ namespace Calculator2
                     else
                     {
                         PGM.resPgm.SetExpLoad(HisMemExp.Text);
-                        int data = int.Parse(HisMemRes.Text);
+                        double data = double.Parse(HisMemRes.Text);
                         string dataPGM = null;
 
                         switch (PGM.outType)    // 기존 데이터를 10진수로 변환
                         {
                             case 1:
-                                dataPGM = Convert.ToString(data, 16);
+                                dataPGM = Convert.ToString((int)data, 16);
                                 break;
                             case 2:
-                                dataPGM = data.ToString();
+                                dataPGM = ((int)data).ToString();
                                 break;
                             case 3:
-                                dataPGM = Convert.ToString(data, 8);
+                                dataPGM = Convert.ToString((int)data, 8);
                                 break;
                             case 4:
-                                dataPGM = Convert.ToString(data, 2);
+                                dataPGM = Convert.ToString((int)data, 2);
                                 break;
                         }
 
