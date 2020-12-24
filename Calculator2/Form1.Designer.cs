@@ -36,6 +36,7 @@ namespace Calculator2
             this.History = new System.Windows.Forms.TabControl();
             this.HistoryNow = new System.Windows.Forms.TabPage();
             this.HistoryMemory = new System.Windows.Forms.TabPage();
+            this.Button_DB_ClearAll = new System.Windows.Forms.Button();
             this.History.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,12 +109,24 @@ namespace Calculator2
             this.HistoryMemory.Text = "저장된 내역";
             this.HistoryMemory.UseVisualStyleBackColor = true;
             // 
+            // Button_DB_ClearAll
+            // 
+            this.Button_DB_ClearAll.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.Button_DB_ClearAll.Location = new System.Drawing.Point(526, 17);
+            this.Button_DB_ClearAll.Name = "Button_DB_ClearAll";
+            this.Button_DB_ClearAll.Size = new System.Drawing.Size(75, 23);
+            this.Button_DB_ClearAll.TabIndex = 10;
+            this.Button_DB_ClearAll.Text = "Clear All";
+            this.Button_DB_ClearAll.UseVisualStyleBackColor = true;
+            this.Button_DB_ClearAll.Click += new System.EventHandler(this.Button_DB_ClearAll_Click);
+            // 
             // Frame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(617, 425);
+            this.Controls.Add(this.Button_DB_ClearAll);
             this.Controls.Add(this.History);
             this.Controls.Add(this.AreaKeypad);
             this.Controls.Add(this.AreaResult);
@@ -136,6 +149,7 @@ namespace Calculator2
         private System.Windows.Forms.TabControl History;
         private System.Windows.Forms.TabPage HistoryNow;
         private System.Windows.Forms.TabPage HistoryMemory;
+        private System.Windows.Forms.Button Button_DB_ClearAll;
     }
 }
 

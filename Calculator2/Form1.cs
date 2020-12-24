@@ -97,28 +97,26 @@ namespace Calculator2
                     else
                     {
                         PGM.resPgm.SetExpLoad(HisMemExp.Text);
-                        double aa = double.Parse(HisMemRes.Text);
-
-                        string aa = HisMemRes.Text;
-                        int bb = 0;
+                        int data = int.Parse(HisMemRes.Text);
+                        string dataPGM = null;
 
                         switch (PGM.outType)    // 기존 데이터를 10진수로 변환
                         {
                             case 1:
-                                bb = Convert.ToInt32(aa, 16);
+                                dataPGM = Convert.ToString(data, 16);
                                 break;
                             case 2:
-                                bb = int.Parse(aa);
+                                dataPGM = data.ToString();
                                 break;
                             case 3:
-                                bb = Convert.ToInt32(aa, 8);
+                                dataPGM = Convert.ToString(data, 8);
                                 break;
                             case 4:
-                                bb = Convert.ToInt32(aa, 2);
+                                dataPGM = Convert.ToString(data, 2);
                                 break;
                         }
 
-                        PGM.resPgm.SetResLoad(bb.ToString());
+                        PGM.resPgm.SetResLoad(dataPGM);
 
                     }
                 }
@@ -219,10 +217,6 @@ namespace Calculator2
                     + "\t" + DB.ot1[i] + "\t" + DB.ot2[i] + "\t" + DB.result[i] + "\t" + DB.date[i]);
             }
 
-
-
-
-
             Console.WriteLine("셀렉트 햇어용~");
             // 3. DB 종료
             reader.Close();
@@ -230,6 +224,42 @@ namespace Calculator2
             conn.Dispose();
 
         }
+
+        public static void DB_ClearAll()
+        {
+            // 1. DB 연결
+            string connStr = "user id=DEV_ORA_TEST;password=DEV_ORA_TEST;" +
+                "data source=(DESCRIPTION=(ADDRESS=" +
+                "(PROTOCOL=tcp)(HOST=192.168.0.110)" +
+                "(PORT=1521))(CONNECT_DATA=" +
+                "(SID=orcl)))";
+
+            OracleConnection conn = new OracleConnection(connStr);
+
+            try
+            {
+                conn.Open();
+                Console.WriteLine("DB Connection Successful!");
+            }
+            catch (OracleException ex)
+            {
+                Console.WriteLine("--- DB ERROR!!! ---");
+                Console.WriteLine(ex.ToString());
+            }
+
+            // 2. DB 명령어 실행
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+
+            cmd.CommandText = "DELETE FROM TB_TEST_SEUNG";
+            cmd.ExecuteNonQuery();
+            Console.WriteLine("딜리트 햇어용~");
+
+            // 3. DB 종료
+            conn.Close();
+            conn.Dispose();
+        }
+       
 
         public static void CntDB()
         {
@@ -312,5 +342,20 @@ namespace Calculator2
             
         }
 
+        private void Button_DB_ClearAll_Click(object sender, EventArgs e)
+        {
+            DialogResult clearDB = MessageBox.Show("DB 내역들을 초기화 하시겠습니까?", "DB 초기화", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (clearDB == DialogResult.Yes)
+            {
+                DB_ClearAll();
+                DB.cntDB = 0;
+                DB_SelectAll();
+                DB.ExpRead();
+                DB.ClearlistNow();
+                DB.ClearlistMem();
+                MessageBox.Show("초기화 되었습니다.");
+            }
+            
+        }
     }
 }
