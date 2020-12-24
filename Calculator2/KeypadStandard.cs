@@ -26,74 +26,70 @@ namespace Calculator2
         {
             data += "1";
             STN.resStn.PressNum(data);
-            //COM.InData("1");
-
         }
 
         private void StnKey2_Click(object sender, EventArgs e)
         {
             data += "2";
             STN.resStn.PressNum(data);
-            //COM.InData("2");
         }
 
         private void StnKey3_Click(object sender, EventArgs e)
         {
             data += "3";
             STN.resStn.PressNum(data);
-            //COM.InData("3");
         }
 
         private void StnKey4_Click(object sender, EventArgs e)
         {
             data += "4";
             STN.resStn.PressNum(data);
-            //COM.InData("4");
         }
 
         private void StnKey5_Click(object sender, EventArgs e)
         {
             data += "5";
             STN.resStn.PressNum(data);
-            //COM.InData("5");
         }
 
         private void StnKey6_Click(object sender, EventArgs e)
         {
             data += "6";
             STN.resStn.PressNum(data);
-            //COM.InData("6");
         }
 
         private void StnKey7_Click(object sender, EventArgs e)
         {
             data += "7";
             STN.resStn.PressNum(data);
-            //COM.InData("7");
         }
 
         private void StnKey8_Click(object sender, EventArgs e)
         {
             data += "8";
             STN.resStn.PressNum(data);
-            //COM.InData("8");
         }
 
         private void StnKey9_Click(object sender, EventArgs e)
         {
             data += "9";
             STN.resStn.PressNum(data);
-            //COM.InData("9");
         }
 
         private void StnKey0_Click(object sender, EventArgs e)
         {
-            if(data != null)
+            Console.WriteLine("왜?" + data);
+            if(data != null || data != "" || data != "0")
             {
                 data += "0";
                 STN.resStn.PressNum(data);
-                //COM.InData("0");
+
+            } else if (data == null || data == "" || data == "0")
+            {
+                data = "0";
+                STN.resStn.PressNum(data);
             }
+            Console.WriteLine("아니이걸??" + data);
 
         }
 

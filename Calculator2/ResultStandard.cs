@@ -105,11 +105,11 @@ namespace Calculator2
 
         public void PressResult(string data, int calTypeA) // = 계산
         {
-            if (data == "0")
-            {
-                KeypadStandard.data = null;
-                return;
-            }
+            //if (data == "0")
+            //{
+            //    KeypadStandard.data = null;
+            //    return;
+            //}
 
             switch (KeypadStandard.calTypeA)
             {

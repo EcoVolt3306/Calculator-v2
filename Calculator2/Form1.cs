@@ -61,66 +61,30 @@ namespace Calculator2
 
                 HisMemExp.Font = new System.Drawing.Font("넥슨Lv2고딕", 9F);
                 HisMemExp.Location = new System.Drawing.Point(0, 11 + (70 * i));
-                HisMemExp.Name = "HisMemExp";
+                HisMemExp.Name = i.ToString();
                 HisMemExp.Size = new System.Drawing.Size(232, 19);
                 HisMemExp.TabIndex = 0;
                 HisMemExp.Text = "";
+                HisMemExp.Tag = i;
                 HisMemExp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-                HisMemExp.Click += new System.EventHandler(Data_Click);
+                HisMemExp.Click += HisMemRes_Click;
                 HistoryMemory.Controls.Add(HisMemExp);
 
-
-                
                 HisMemRes.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
                 HisMemRes.Location = new System.Drawing.Point(0, 30 + (70 * i));
-                HisMemRes.Name = "HisMemRes";
+                HisMemRes.Name = i.ToString();
                 HisMemRes.Size = new System.Drawing.Size(232, 29);
                 HisMemRes.TabIndex = 1;
                 HisMemRes.Text = "";
+                HisMemExp.Tag = i;
                 HisMemRes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-                HisMemRes.Click += new System.EventHandler(Data_Click);
+                HisMemRes.Click += HisMemRes_Click;
                 HistoryMemory.Controls.Add(HisMemRes);
 
                 // Dictionary 인덱스 연결
                 HIS.dicMemExp.Add(i, HisMemExp);
                 HIS.dicMemRes.Add(i, HisMemRes);
                 Console.WriteLine("i는용" + i);
-                
-                void Data_Click(object sender, EventArgs e)
-                {
-                    //MessageBox.Show(HisMemExp.Text);
-                    
-                    if (COM.pgm == false)
-                    {
-                        STN.resStn.SetExpLoad(HisMemExp.Text);
-                        STN.resStn.SetResLoad(HisMemRes.Text);
-                    }
-                    else
-                    {
-                        PGM.resPgm.SetExpLoad(HisMemExp.Text);
-                        double data = double.Parse(HisMemRes.Text);
-                        string dataPGM = null;
-
-                        switch (PGM.outType)    // 기존 데이터를 10진수로 변환
-                        {
-                            case 1:
-                                dataPGM = Convert.ToString((int)data, 16);
-                                break;
-                            case 2:
-                                dataPGM = ((int)data).ToString();
-                                break;
-                            case 3:
-                                dataPGM = Convert.ToString((int)data, 8);
-                                break;
-                            case 4:
-                                dataPGM = Convert.ToString((int)data, 2);
-                                break;
-                        }
-
-                        PGM.resPgm.SetResLoad(dataPGM);
-
-                    }
-                }
             }
 
             DB_SelectAll();
@@ -128,6 +92,47 @@ namespace Calculator2
             DB.ExpRead();
 
         }
+
+        private void HisMemRes_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine((sender as Label).Text);
+        }
+
+        //void Data_Click(object sender, EventArgs e)
+        //{
+        //    //MessageBox.Show(HisMemExp.Text);
+
+        //    if (COM.pgm == false)
+        //    {
+        //        STN.resStn.SetExpLoad(HisMemExp.Text);
+        //        STN.resStn.SetResLoad(HisMemRes.Text);
+        //    }
+        //    else
+        //    {
+        //        PGM.resPgm.SetExpLoad(HisMemExp.Text);
+        //        double data = double.Parse(HisMemRes.Text);
+        //        string dataPGM = null;
+
+        //        switch (PGM.outType)    // 기존 데이터를 10진수로 변환
+        //        {
+        //            case 1:
+        //                dataPGM = Convert.ToString((int)data, 16);
+        //                break;
+        //            case 2:
+        //                dataPGM = ((int)data).ToString();
+        //                break;
+        //            case 3:
+        //                dataPGM = Convert.ToString((int)data, 8);
+        //                break;
+        //            case 4:
+        //                dataPGM = Convert.ToString((int)data, 2);
+        //                break;
+        //        }
+
+        //        PGM.resPgm.SetResLoad(dataPGM);
+
+        //    }
+        //}
 
 
         public static void DB_InsertData(double op1, double op2, double op3, int ot1, int ot2, double result)

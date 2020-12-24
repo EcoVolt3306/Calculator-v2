@@ -24,7 +24,6 @@ namespace Calculator2
         // 초기값 true 선언, STN - PGM 버튼으로 변경 (Form1.cs 참조)
         public static bool pgm = false;
 
-
         public static void ClearCOM()
         {
             cntOperand = 0;

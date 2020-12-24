@@ -358,7 +358,7 @@ namespace Calculator2
             this.HexA.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.HexA.Font = new System.Drawing.Font("넥슨Lv2고딕", 16F);
             this.HexA.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.HexA.Location = new System.Drawing.Point(4, 1);
+            this.HexA.Location = new System.Drawing.Point(4, 3);
             this.HexA.Name = "HexA";
             this.HexA.Size = new System.Drawing.Size(59, 38);
             this.HexA.TabIndex = 102;
